@@ -45,8 +45,8 @@ export default class LoginForm extends Component {
     return (
       <Container>
         <Row>
-          <Col xs={4} />
-          <Col xs={4}>
+          <Col xs={1} sm={4} />
+          <Col xs={10} sm={4}>
             <form className="login-form" onSubmit={ this.handleFormSubmit }>
               <Row>
                 <TextField 
