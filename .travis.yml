@@ -9,12 +9,14 @@ addons:
     - g++-4.8
 
 env:
-- TRAVIS=travis CXX=g++-4.8
+  global:
+    - GITHUB_REPO: "agco-fuse/sower-ui"
+    - secure: "chxIrSWTvJgOKsLpCCQwaBWd1OyxjDW/l7CqtgBeZ+HTnOitUn73QstRIZUtRysEF3Cml7+ImzdmA86ERNhxtD6ssEcD4sgdhqXnrzjrzIizvfIkzHXwhWX/wqTPyXael7VhueDPh08aQgDO9Dp6PDlb+WyRUDqx2FFA/OEJX7XYzPZ9nOWMgHYAXWVIYfNza/VaOP5abQhRtNmMGWfWK7t33jX7FHO4ZyuOF0VJm5JF34vxlethw9vMcruOXriXelHMzUGGsRcbQBByBcbgdvbIEoVPYx+vm6rp7T9Zwn7SPZ49F1yA1A3pj5Qgl++YGfZhLPofqddA7y1JjbY24hHXxE7E3mv3vCQ77JMcG54oLn3N7g7H+l7eDQLioTS6C0R1i9qkHQ6NQefcqgEsUeu3nqpL5R2mjqEOaa682tG5lcgMH0LebJxyVV+NYBngsUvaIMOsuV3lIwxHAhM0D0k3yW/8H4NaSBhWTxrugyY8G9UDhElHTp0jU/lEuKANy2pENWIIdHD6mpE1xgDnEbzJGX5zAo0INn7TFrXSCWRdk7WYRSDuhNKastQHWEYwpdI7Lx1qg0En6pHuZ6btso6ar4wbcBsfGz96+tSVEDH/o6J0UoazwD7JrGunBufIKyU3bmwBj3lBvbNH79LuJ2H9dFZF0v8E2uhmStLWA+0="
+  - TRAVIS=travis CXX=g++-4.8
 
 install:
   - npm install
 
 script:
   - npm test
-  - npm run deploy
-
+  - bash ./scripts/deploy-to-gh-pages.sh
