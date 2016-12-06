@@ -16,4 +16,4 @@ install:
 - npm install
 script:
 - npm test
-- bash ./scripts/deploy-to-gh-pages.sh
+- bash ./scripts/gh-pages-deploy.sh
