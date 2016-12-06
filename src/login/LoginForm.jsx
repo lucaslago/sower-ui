@@ -1,8 +1,23 @@
 import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import Subheader from 'material-ui/Subheader';
 import {Container, Row, Col} from 'react-grid-system';
-import './login-form.css';
+
+const subHeaderStyle = {
+  fontSize: '20px',
+  textAlign: 'center',
+  paddingLeft: '0px'
+};
+
+const loginFormStyle = {
+  marginTop: '5rem'
+};
+
+const loginButtonStyle = {
+  textAlign: 'center'
+};
+
 
 export default class LoginForm extends Component {
   constructor(props) {
@@ -47,7 +62,10 @@ export default class LoginForm extends Component {
         <Row>
           <Col xs={1} sm={4} />
           <Col xs={10} sm={4}>
-            <form className="login-form" onSubmit={ this.handleFormSubmit }>
+            <form className="login-form" style={ loginFormStyle } onSubmit={ this.handleFormSubmit }>
+              <Row>
+                <Subheader style={ subHeaderStyle } className="form-header">Sign In</Subheader>
+              </Row>
               <Row>
                 <TextField 
                   floatingLabelText="E-mail"
@@ -67,10 +85,8 @@ export default class LoginForm extends Component {
                   onChange={ this.handlePasswordChange }
                 />
               </Row>
-              <Row>
-                <div className="login-button">
-                  <RaisedButton label="login" type="submit" />
-                </div>
+              <Row style={ loginButtonStyle } >
+                <RaisedButton  label="login" type="submit" />
               </Row>
             </form>
           </Col>
@@ -79,3 +95,4 @@ export default class LoginForm extends Component {
     );
   }
 }
+
