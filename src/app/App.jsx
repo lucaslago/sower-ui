@@ -4,22 +4,22 @@ injectTapEventPlugin();
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
-import LoginForm from './login/LoginForm';
+import LoginForm from '../login/LoginForm';
 import { Grid } from 'react-bootstrap';
 
 class App extends Component {
   render() {
     return (
-      <Grid>
-        <MuiThemeProvider>
-          <div>
-            <AppBar title="Sower"
-              iconClassNameRight="muidocs-icon-navigation-expand-more"
-            />
+      <MuiThemeProvider>
+        <div>
+          <AppBar title="Sower"
+            iconClassNameRight="muidocs-icon-navigation-expand-more"
+          />
+          <Grid>
             <LoginForm />
-          </div>
-        </MuiThemeProvider>
-      </Grid>
+          </Grid>
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
