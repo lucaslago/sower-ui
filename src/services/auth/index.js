@@ -1,18 +1,13 @@
 import { WHO_AM_I_URL } from '../config';
+import toBasicAuth from './toBasicAuth';
 
 export default (axios) => {
-
   const login = (email, password) => {
-      const base64 = new Buffer(`${email}:${password}`).toString('base64');
-      const auth = `Basic ${base64}`;
-      console.log(WHO_AM_I_URL)
-      const response = axios.get(WHO_AM_I_URL, {
-        headers: {
-          'Authorization': auth
-        }
-      });
-      return response;
+    return axios.get(WHO_AM_I_URL, {
+      headers: {
+        'Authorization': toBasicAuth(email, password)
+      }
+    });
   };
-
   return { login };
 };

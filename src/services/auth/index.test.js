@@ -1,32 +1,35 @@
-import nock from 'nock';
-import axios from 'axios';
-import { IAM_URL } from '../config';
-import Auth from './index';
+import AuthService from './index';
+import toBasicAuth from './toBasicAuth';
+import { WHO_AM_I_URL } from '../config';
 
 describe('Auth Service', () => {
-  context('login', () => {
-    it('should call IAM service with user e-mail and password', (done) => {
-      const whoAmIResponse = {
-        serviceUsers: [
-        {
-          id: 1,
-          emailAddress: 'mock@mock.com'
-        }
-        ]
-      };
-      const password = '123';
-      const email = 'blabla@blabla.com';
-      const auth = Auth(axios);
-      console.log(IAM_URL)
-      nock(IAM_URL)
-        .get('/whoAmI')
-        .reply(200, whoAmIResponse);
+  const whoAmIResponse = {
+    serviceUsers: [
+      {
+        id: 1,
+        emailAddress: 'mock@mock.com'
+      }
+    ]
+  };
+  const fakeAxios = {
+    get: jest.fn().mockReturnValueOnce(Promise.resolve(whoAmIResponse))
+  };
+  const authService = AuthService(fakeAxios);
 
-        auth.login(email, password)
-          .then((response) => {
-            console.log(response);
-            done();
-          });
-      });
+  context('login', () => {
+    it('should call external IAM Service with correct headers', () => {
+      const email = 'blabla@blabla.com';
+      const password = '123';
+      const expectedHeaders = {
+        headers: {
+          Authorization: toBasicAuth(email, password)
+        }
+      };
+      authService.login(email, password)
+        .then((response) => {
+          expect(fakeAxios.get).toBeCalledWith(WHO_AM_I_URL, expectedHeaders);
+          expect(response).toEqual(whoAmIResponse);
+        })
     });
   });
+});
