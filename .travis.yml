@@ -16,4 +16,4 @@ install:
 - npm install
 script:
 - npm test
-- bash ./scripts/gh-pages-deploy.sh
+- if [ "${TRAVIS_PULL_REQUEST}" == "false" ]; then bash ./scripts/gh-pages-deploy.sh; fi
