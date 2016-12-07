@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
 import Subheader from 'material-ui/Subheader';
 import Paper from 'material-ui/Paper';
 import { Row, Col } from 'react-bootstrap';
+import auth from '../services/auth';
+import AsyncButton from '../components/AsyncButton';
 
 const subHeaderStyle = {
   fontSize: '20px',
@@ -36,7 +37,8 @@ export default class LoginForm extends Component {
       email: '',
       emailError: '',
       password: '',
-      passwordError: ''
+      passwordError: '',
+      spinner: false
     };
   }
 
@@ -58,12 +60,33 @@ export default class LoginForm extends Component {
     if(!this.state.password) {
       this.setState({ passwordError });
     }
+  }
 
+  _isValidForm() {
+    return this.state.email && this.state.password;
   }
 
   handleFormSubmit = (event) => {
     event.preventDefault();
     this.validateForm();
+
+    if (!this._isValidForm()) {
+      console.log(this.state);
+      console.log('>> invalid');
+      return
+    }
+
+    this.setState({ spinner: true });
+
+    auth.login(this.state.email, this.state.password)
+      .then(response => {
+        console.log('>>>', response);
+        this.setState({ spinner: false });
+      })
+      .catch(err => {
+        console.log('error: ',  err);
+        this.setState({ spinner: false });
+      });
   }
 
   render() {
@@ -95,7 +118,7 @@ export default class LoginForm extends Component {
               />
             </Row>
             <Row style={ loginButtonStyle } >
-              <RaisedButton label="login" type="submit" />
+              <AsyncButton makingRequest={ this.state.spinner } label="login" type="submit"/>
             </Row>
           </form>
           </Paper>
