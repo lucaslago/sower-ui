@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory, IndexRedirect } from 'react-router';
-import App from './app';
-import Login from './login';
-import Dashboard from './dashboard';
+import App from './App';
+import Login from './Login';
+import Dashboard from './Dashboard';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
