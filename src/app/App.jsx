@@ -4,7 +4,6 @@ injectTapEventPlugin();
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
-import LoginForm from '../login/LoginForm';
 import { Grid } from 'react-bootstrap';
 
 class App extends Component {

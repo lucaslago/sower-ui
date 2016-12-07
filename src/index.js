@@ -10,7 +10,7 @@ ReactDOM.render(
   <Router history={ hashHistory }>
     <Route path="/" component={ App } >
       <IndexRedirect to="/login" />
-      <Route path="login" component= { LoginForm } />
+      <Route path="login" component={ LoginForm } />
     </Route>
   </Router>
   ,
