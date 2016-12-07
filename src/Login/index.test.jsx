@@ -1,14 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Dashboard from './Dashboard';
+import Login from './index';
 
-describe('<Dashboard />', () => {
-
+describe('<Login />', () => {
   it('renders without crashing', () => {
     const wrapper = shallow(
-        <Dashboard />
+        <Login />
     );
     expect(wrapper.length).toEqual(1);
   });
-
 });
+
