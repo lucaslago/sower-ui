@@ -1,11 +1,4 @@
 language: node_js
-#addons:
-  #apt:
-    #sources:
-    #- ubuntu-toolchain-r-test
-    #packages:
-    #- gcc-4.8
-    #- g++-4.8
 env:
   matrix:
     - TRAVIS=travis CXX=g++-4.8
