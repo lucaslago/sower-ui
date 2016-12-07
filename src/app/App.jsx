@@ -13,10 +13,10 @@ class App extends Component {
       <MuiThemeProvider>
         <div>
           <AppBar title="Sower"
-            iconClassNameRight="muidocs-icon-navigation-expand-more"
+              iconClassNameRight="muidocs-icon-navigation-expand-more"
           />
           <Grid>
-            <LoginForm />
+            { this.props.children }
           </Grid>
         </div>
       </MuiThemeProvider>
