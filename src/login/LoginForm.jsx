@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Subheader from 'material-ui/Subheader';
+import Paper from 'material-ui/Paper';
 import { Row, Col } from 'react-bootstrap';
 
 const subHeaderStyle = {
@@ -15,7 +16,17 @@ const loginFormStyle = {
 };
 
 const loginButtonStyle = {
-  textAlign: 'center'
+  textAlign: 'center',
+  marginTop: '2rem'
+};
+
+const paperStyle = {
+  paddingTop: '0rem',
+  paddingLeft: '3rem',
+  paddingRight: '3rem',
+  paddingBottom: '3rem',
+  textAlign: 'center',
+  marginTop: '2rem'
 };
 
 export default class LoginForm extends Component {
@@ -58,7 +69,8 @@ export default class LoginForm extends Component {
   render() {
     return (
       <Row>
-        <Col xsOffset={3} xs={6} smOffset={4} sm={4}>
+        <Col xs={12} smOffset={3} sm={6} mdOffset={4} md={4}>
+          <Paper style={ paperStyle } zDepth={2}>
           <form style={ loginFormStyle } onSubmit={ this.handleFormSubmit }>
             <Row>
               <Subheader style={ subHeaderStyle }>Sign In</Subheader>
@@ -86,6 +98,7 @@ export default class LoginForm extends Component {
               <RaisedButton label="login" type="submit" />
             </Row>
           </form>
+          </Paper>
         </Col>
       </Row>
     );
