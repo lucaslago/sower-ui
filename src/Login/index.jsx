@@ -5,6 +5,7 @@ import Paper from 'material-ui/Paper';
 import { Row, Col } from 'react-bootstrap';
 import auth from '../services/auth';
 import AsyncButton from '../components/AsyncButton';
+const authService = auth();
 
 const subHeaderStyle = {
   fontSize: '20px',
@@ -78,7 +79,7 @@ export default class Login extends Component {
 
     this.setState({ spinner: true });
 
-    auth.login(this.state.email, this.state.password)
+    authService.login(this.state.email, this.state.password)
       .then(response => {
         console.log('>>>', response);
         this.setState({ spinner: false });
