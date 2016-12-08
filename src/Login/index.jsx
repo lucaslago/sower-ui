@@ -27,7 +27,6 @@ const paperStyle = {
   paddingLeft: '3rem',
   paddingRight: '3rem',
   paddingBottom: '3rem',
-  textAlign: 'center',
   marginTop: '2rem'
 };
 
