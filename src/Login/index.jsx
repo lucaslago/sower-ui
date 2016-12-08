@@ -71,6 +71,10 @@ export class Login extends Component {
     return this.state.email && this.state.password;
   }
 
+  handleLoginErrorClose = () => {
+   this.setState({ loginError: false });
+  }
+
   handleFormSubmit = (event) => {
     event.preventDefault();
     this.validateForm();
@@ -89,7 +93,12 @@ export class Login extends Component {
       })
       .catch(err => {
         console.log('error: ',  err);
-        this.setState({ spinner: false, loginError: true });
+        this.setState({
+          spinner: false,
+          loginError: true,
+          email: '',
+          password: ''
+        });
       });
   }
 
@@ -133,6 +142,7 @@ export class Login extends Component {
           open={ this.state.loginError }
           message="Incorrect email and/or password"
           autoHideDuration={ 4000 }
+          onRequestClose={ this.handleLoginErrorClose }
         />
       </Row>
     );
