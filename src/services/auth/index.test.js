@@ -20,13 +20,15 @@ describe('Auth Service', () => {
     it('should call external IAM Service with correct headers', () => {
       const email = 'blabla@blabla.com';
       const password = '123';
+      const basicAuth = toBasicAuth(email, password);
       const expectedHeaders = {
         headers: {
-          Authorization: toBasicAuth(email, password)
+          Authorization: basicAuth
         }
       };
-      authService.login(email, password)
+      return authService.login(email, password)
         .then((response) => {
+          expect(localStorage.token).toEqual(basicAuth);
           expect(fakeAxios.get).toBeCalledWith(WHO_AM_I_URL, expectedHeaders);
           expect(response).toEqual(whoAmIResponse);
         });
