@@ -16,6 +16,10 @@ describe('Auth Service', () => {
   };
   const authService = AuthService(fakeAxios);
 
+  beforeEach(() => {
+    delete localStorage.token;
+  });
+
   context('login', () => {
     it('should call external IAM Service with correct headers', () => {
       const email = 'blabla@blabla.com';
@@ -34,4 +38,14 @@ describe('Auth Service', () => {
         });
     });
   });
+
+  context('loggedIn', () => {
+    it('should return true if token is stored in localStorage', () => {
+      const token = '123';
+      expect(authService.loggedIn()).toEqual(false);
+      localStorage.token = token;
+      expect(authService.loggedIn()).toEqual(true);
+    });
+  });
+
 });
