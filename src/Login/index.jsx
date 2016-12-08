@@ -32,7 +32,7 @@ const paperStyle = {
   marginTop: '2rem'
 };
 
-class Login extends Component {
+export class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
