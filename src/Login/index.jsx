@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import Subheader from 'material-ui/Subheader';
 import Paper from 'material-ui/Paper';
+import Snackbar from 'material-ui/Snackbar';
 import { Row, Col } from 'react-bootstrap';
 import AsyncButton from '../components/AsyncButton';
 import { withRouter } from 'react-router';
@@ -29,6 +30,10 @@ const paperStyle = {
   marginTop: '2rem'
 };
 
+const notificationStyle = {
+  textAlign: 'center'
+};
+
 export class Login extends Component {
   constructor(props) {
     super(props);
@@ -37,7 +42,8 @@ export class Login extends Component {
       emailError: '',
       password: '',
       passwordError: '',
-      spinner: false
+      spinner: false,
+      loginError: false
     };
   }
 
@@ -83,11 +89,12 @@ export class Login extends Component {
       })
       .catch(err => {
         console.log('error: ',  err);
-        this.setState({ spinner: false });
+        this.setState({ spinner: false, loginError: true });
       });
   }
 
   render() {
+
     return (
       <Row>
         <Col xs={12} smOffset={3} sm={6} mdOffset={4} md={4}>
@@ -121,6 +128,12 @@ export class Login extends Component {
             </form>
           </Paper>
         </Col>
+        <Snackbar
+          style={ notificationStyle }
+          open={ this.state.loginError }
+          message="Incorrect email and/or password"
+          autoHideDuration={ 4000 }
+        />
       </Row>
     );
   }
