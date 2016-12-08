@@ -3,11 +3,8 @@ import TextField from 'material-ui/TextField';
 import Subheader from 'material-ui/Subheader';
 import Paper from 'material-ui/Paper';
 import { Row, Col } from 'react-bootstrap';
-import auth from '../services/auth';
 import AsyncButton from '../components/AsyncButton';
 import { withRouter } from 'react-router';
-
-const authService = auth();
 
 const subHeaderStyle = {
   fontSize: '20px',
@@ -78,11 +75,11 @@ export class Login extends Component {
 
     this.setState({ spinner: true });
 
-    authService.login(this.state.email, this.state.password)
+    this.props.route.authService.login(this.state.email, this.state.password)
       .then(response => {
         console.log('>>>', response);
-        this.props.router.push('/dashboard');
         this.setState({ spinner: false });
+        this.props.router.push('/dashboard');
       })
       .catch(err => {
         console.log('error: ',  err);
@@ -95,33 +92,33 @@ export class Login extends Component {
       <Row>
         <Col xs={12} smOffset={3} sm={6} mdOffset={4} md={4}>
           <Paper style={ paperStyle } zDepth={2}>
-          <form style={ loginFormStyle } onSubmit={ this.handleFormSubmit }>
-            <Row>
-              <Subheader style={ subHeaderStyle }>Sign In</Subheader>
-            </Row>
-            <Row>
-              <TextField
-                floatingLabelText="E-mail"
-                fullWidth={true}
-                errorText={ this.state.emailError }
-                value={ this.state.email }
-                onChange={ this.handleEmailChange }
-              />
-            </Row>
-            <Row>
-              <TextField
-                floatingLabelText="Password"
-                type="password"
-                fullWidth={true}
-                errorText={ this.state.passwordError }
-                value={ this.state.password }
-                onChange={ this.handlePasswordChange }
-              />
-            </Row>
-            <Row style={ loginButtonStyle } >
-              <AsyncButton makingRequest={ this.state.spinner } label="login" type="submit"/>
-            </Row>
-          </form>
+            <form style={ loginFormStyle } onSubmit={ this.handleFormSubmit }>
+              <Row>
+                <Subheader style={ subHeaderStyle }>Sign In</Subheader>
+              </Row>
+              <Row>
+                <TextField
+                  floatingLabelText="E-mail"
+                  fullWidth={true}
+                  errorText={ this.state.emailError }
+                  value={ this.state.email }
+                  onChange={ this.handleEmailChange }
+                />
+              </Row>
+              <Row>
+                <TextField
+                  floatingLabelText="Password"
+                  type="password"
+                  fullWidth={true}
+                  errorText={ this.state.passwordError }
+                  value={ this.state.password }
+                  onChange={ this.handlePasswordChange }
+                />
+              </Row>
+              <Row style={ loginButtonStyle } >
+                <AsyncButton makingRequest={ this.state.spinner } label="login" type="submit"/>
+              </Row>
+            </form>
           </Paper>
         </Col>
       </Row>

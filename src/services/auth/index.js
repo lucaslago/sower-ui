@@ -10,5 +10,6 @@ export default (requestLib = axios) => {
       }
     });
   };
+
   return { login };
 };
