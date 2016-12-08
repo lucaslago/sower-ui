@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import Subheader from 'material-ui/Subheader';
 import Paper from 'material-ui/Paper';
+import Snackbar from 'material-ui/Snackbar';
 import { Row, Col } from 'react-bootstrap';
-import auth from '../services/auth';
 import AsyncButton from '../components/AsyncButton';
+import { withRouter } from 'react-router';
 
 const subHeaderStyle = {
   fontSize: '20px',
@@ -26,11 +27,14 @@ const paperStyle = {
   paddingLeft: '3rem',
   paddingRight: '3rem',
   paddingBottom: '3rem',
-  textAlign: 'center',
   marginTop: '2rem'
 };
 
-export default class Login extends Component {
+const notificationStyle = {
+  textAlign: 'center'
+};
+
+export class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,7 +42,8 @@ export default class Login extends Component {
       emailError: '',
       password: '',
       passwordError: '',
-      spinner: false
+      spinner: false,
+      loginError: false
     };
   }
 
@@ -66,65 +71,82 @@ export default class Login extends Component {
     return this.state.email && this.state.password;
   }
 
+  handleLoginErrorClose = () => {
+   this.setState({ loginError: false });
+  }
+
   handleFormSubmit = (event) => {
     event.preventDefault();
     this.validateForm();
 
     if (!this._isValidForm()) {
-      console.log(this.state);
-      console.log('>> invalid');
-      return
+      return;
     }
 
     this.setState({ spinner: true });
 
-    auth.login(this.state.email, this.state.password)
+    this.props.route.authService.login(this.state.email, this.state.password)
       .then(response => {
         console.log('>>>', response);
         this.setState({ spinner: false });
+        this.props.router.push('/dashboard');
       })
       .catch(err => {
         console.log('error: ',  err);
-        this.setState({ spinner: false });
+        this.setState({
+          spinner: false,
+          loginError: true,
+          email: '',
+          password: ''
+        });
       });
   }
 
   render() {
+
     return (
       <Row>
         <Col xs={12} smOffset={3} sm={6} mdOffset={4} md={4}>
           <Paper style={ paperStyle } zDepth={2}>
-          <form style={ loginFormStyle } onSubmit={ this.handleFormSubmit }>
-            <Row>
-              <Subheader style={ subHeaderStyle }>Sign In</Subheader>
-            </Row>
-            <Row>
-              <TextField
-                floatingLabelText="E-mail"
-                fullWidth={true}
-                errorText={ this.state.emailError }
-                value={ this.state.email }
-                onChange={ this.handleEmailChange }
-              />
-            </Row>
-            <Row>
-              <TextField
-                floatingLabelText="Password"
-                type="password"
-                fullWidth={true}
-                errorText={ this.state.passwordError }
-                value={ this.state.password }
-                onChange={ this.handlePasswordChange }
-              />
-            </Row>
-            <Row style={ loginButtonStyle } >
-              <AsyncButton makingRequest={ this.state.spinner } label="login" type="submit"/>
-            </Row>
-          </form>
+            <form style={ loginFormStyle } onSubmit={ this.handleFormSubmit }>
+              <Row>
+                <Subheader style={ subHeaderStyle }>Sign In</Subheader>
+              </Row>
+              <Row>
+                <TextField
+                  floatingLabelText="E-mail"
+                  fullWidth={true}
+                  errorText={ this.state.emailError }
+                  value={ this.state.email }
+                  onChange={ this.handleEmailChange }
+                />
+              </Row>
+              <Row>
+                <TextField
+                  floatingLabelText="Password"
+                  type="password"
+                  fullWidth={true}
+                  errorText={ this.state.passwordError }
+                  value={ this.state.password }
+                  onChange={ this.handlePasswordChange }
+                />
+              </Row>
+              <Row style={ loginButtonStyle } >
+                <AsyncButton makingRequest={ this.state.spinner } label="login" type="submit"/>
+              </Row>
+            </form>
           </Paper>
         </Col>
+        <Snackbar
+          style={ notificationStyle }
+          open={ this.state.loginError }
+          message="Incorrect email and/or password"
+          autoHideDuration={ 4000 }
+          onRequestClose={ this.handleLoginErrorClose }
+        />
       </Row>
     );
   }
 }
 
+export default withRouter(Login);
