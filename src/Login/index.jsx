@@ -5,6 +5,8 @@ import Paper from 'material-ui/Paper';
 import { Row, Col } from 'react-bootstrap';
 import auth from '../services/auth';
 import AsyncButton from '../components/AsyncButton';
+import { withRouter } from 'react-router';
+
 const authService = auth();
 
 const subHeaderStyle = {
@@ -30,7 +32,7 @@ const paperStyle = {
   marginTop: '2rem'
 };
 
-export default class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -79,6 +81,7 @@ export default class Login extends Component {
     authService.login(this.state.email, this.state.password)
       .then(response => {
         console.log('>>>', response);
+        this.props.router.push('/dashboard');
         this.setState({ spinner: false });
       })
       .catch(err => {
@@ -126,3 +129,4 @@ export default class Login extends Component {
   }
 }
 
+export default withRouter(Login);
