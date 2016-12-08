@@ -71,9 +71,7 @@ export default class Login extends Component {
     this.validateForm();
 
     if (!this._isValidForm()) {
-      console.log(this.state);
-      console.log('>> invalid');
-      return
+      return;
     }
 
     this.setState({ spinner: true });

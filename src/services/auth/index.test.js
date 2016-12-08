@@ -29,7 +29,7 @@ describe('Auth Service', () => {
         .then((response) => {
           expect(fakeAxios.get).toBeCalledWith(WHO_AM_I_URL, expectedHeaders);
           expect(response).toEqual(whoAmIResponse);
-        })
+        });
     });
   });
 });
