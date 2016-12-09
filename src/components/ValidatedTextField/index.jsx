@@ -5,31 +5,24 @@ export default class ValidatedTextField extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: undefined,
       fieldValue: ''
     };
   }
 
   handleChange = (event) => {
-    this.props.setValue(event.target.value);
-    this.setState({ error: '', fieldValue: event.target.value });
-  }
-
-  validateField = (event) => {
-    if(!event.target.value) {
-      this.setState({ error :this.props.errorText });
-    }
+    this.props.handleChange(event.target.value);
+    this.setState({ fieldValue: event.target.value });
   }
 
   render() {
     return (
         <TextField
           floatingLabelText={ this.props.label }
+          type={ this.props.type }
           fullWidth={ true }
-          errorText={ this.state.error }
+          errorText={ this.props.showValidationError ? this.props.errorText : '' }
           value={ this.state.fieldValue }
           onChange={ this.handleChange }
-          onBlur={ this.validateField }
           className="validated-text-field"
         />
         );

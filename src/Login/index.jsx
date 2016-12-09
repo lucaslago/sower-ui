@@ -39,20 +39,20 @@ export class Login extends Component {
     super(props);
     this.state = {
       email: '',
-      emailError: '',
+      emailError: false,
       password: '',
-      passwordError: '',
+      passwordError: false,
       spinner: false,
       loginError: false
     };
   }
 
   setEmail = (email) => {
-    this.setState({ email });
+    this.setState({ email, emailError: false });
   }
 
   setPassword = (password) => {
-    this.setState({ password });
+    this.setState({ password, passwordError: false });
   }
 
   handlePasswordChange = (event) => {
@@ -60,14 +60,11 @@ export class Login extends Component {
   }
 
   validateForm = () => {
-    const emailError = 'E-mail field is required.';
-    const passwordError = 'Password is required.';
-
     if(!this.state.email) {
-      this.setState({ emailError });
+      this.setState({ emailError: true });
     }
     if(!this.state.password) {
-      this.setState({ passwordError });
+      this.setState({ passwordError: true });
     }
   }
 
@@ -91,7 +88,6 @@ export class Login extends Component {
 
     this.props.route.authService.login(this.state.email, this.state.password)
       .then(response => {
-        console.log('>>>', response);
         this.setState({ spinner: false });
         this.props.router.push('/dashboard');
       })
@@ -118,15 +114,19 @@ export class Login extends Component {
                 <Row>
                   <ValidatedTextField
                     label="E-mail"
+                    type="email"
                     errorText={ "E-mail is required" }
-                    setValue={ this.setEmail }
+                    handleChange={ this.setEmail }
+                    showValidationError={ this.state.emailError }
                   />
                 </Row>
                 <Row>
                   <ValidatedTextField
                     label="Password"
+                    type="password"
                     errorText={ "Password is required" }
-                    setValue={ this.setPassword }
+                    handleChange={ this.setPassword }
+                    showValidationError={ this.state.passwordError }
                   />
                 </Row>
                 <Row style={ loginButtonStyle } >
