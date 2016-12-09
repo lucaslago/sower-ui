@@ -1,7 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+![](https://travis-ci.org/agco-fuse/sower-ui.svg?branch=master)
 
-Below you will find some information on how to perform common tasks.<br>
-You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+This project's objective is to provide a seamless experience to AGCO Sandbox users who want to start a Machine simulation without having to send requests manually to Sandbox's  [Sower API](https://agco-fuse.github.io/documentation/#machine-simulator-sower), this project consumes [Sower API](https://agco-fuse.github.io/documentation/#machine-simulator-sower) internally and can also be used as an example of how to interact with Sower.
 
 ## Table of Contents
 
