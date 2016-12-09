@@ -22,15 +22,13 @@ describe('<Dashboard />', () => {
   };
 
   it('renders without crashing', () => {
-    const authServiceFake = { getToken: () =>{} };
+    const authServiceFake = { getToken: () => {} };
     const devicesServiceFake = { fetch: jest.fn().mockReturnValueOnce(Promise.resolve(devices))};
     const route = {
       authService: authServiceFake,
       devicesService: devicesServiceFake
     };
-    const wrapper = shallow(
-        <Dashboard route={route} />
-        );
+    const wrapper = shallow(<Dashboard route={route} />);
     expect(wrapper.length).toEqual(1);
   });
 

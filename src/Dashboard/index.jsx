@@ -13,7 +13,6 @@ export default class Dashboard extends Component {
     return this.props.route.devicesService.fetch(authToken)
       .then(response => {
         this.setState({ devices: response.data })
-        console.log('>>> devices fetched');
       })
       .catch(err => console.log(err));
   }
