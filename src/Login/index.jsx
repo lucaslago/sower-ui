@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import TextField from 'material-ui/TextField';
+import { withRouter } from 'react-router';
 import Subheader from 'material-ui/Subheader';
 import Paper from 'material-ui/Paper';
 import Snackbar from 'material-ui/Snackbar';
 import { Row, Col } from 'react-bootstrap';
 import AsyncButton from '../components/AsyncButton';
-import { withRouter } from 'react-router';
+import ValidatedTextField from '../components/ValidatedTextField';
 
 const subHeaderStyle = {
   fontSize: '20px',
@@ -47,8 +47,12 @@ export class Login extends Component {
     };
   }
 
-  handleEmailChange = (event) => {
-    this.setState({ email: event.target.value, emailError: '' });
+  setEmail = (email) => {
+    this.setState({ email });
+  }
+
+  setPassword = (password) => {
+    this.setState({ password });
   }
 
   handlePasswordChange = (event) => {
@@ -72,7 +76,7 @@ export class Login extends Component {
   }
 
   handleLoginErrorClose = () => {
-   this.setState({ loginError: false });
+    this.setState({ loginError: false });
   }
 
   handleFormSubmit = (event) => {
@@ -91,61 +95,55 @@ export class Login extends Component {
         this.setState({ spinner: false });
         this.props.router.push('/dashboard');
       })
-      .catch(err => {
-        console.log('error: ',  err);
-        this.setState({
-          spinner: false,
-          loginError: true,
-          email: '',
-          password: ''
-        });
+    .catch(err => {
+      console.log('error: ',  err);
+      this.setState({
+        spinner: false,
+        loginError: true,
+        email: '',
+        password: ''
       });
+    });
   }
 
   render() {
-
     return (
-      <Row>
-        <Col xs={12} smOffset={3} sm={6} mdOffset={4} md={4}>
-          <Paper style={ paperStyle } zDepth={2}>
-            <form style={ loginFormStyle } onSubmit={ this.handleFormSubmit }>
-              <Row>
-                <Subheader style={ subHeaderStyle }>Sign In</Subheader>
-              </Row>
-              <Row>
-                <TextField
-                  floatingLabelText="E-mail"
-                  fullWidth={true}
-                  errorText={ this.state.emailError }
-                  value={ this.state.email }
-                  onChange={ this.handleEmailChange }
-                />
-              </Row>
-              <Row>
-                <TextField
-                  floatingLabelText="Password"
-                  type="password"
-                  fullWidth={true}
-                  errorText={ this.state.passwordError }
-                  value={ this.state.password }
-                  onChange={ this.handlePasswordChange }
-                />
-              </Row>
-              <Row style={ loginButtonStyle } >
-                <AsyncButton makingRequest={ this.state.spinner } label="login" type="submit"/>
-              </Row>
-            </form>
-          </Paper>
-        </Col>
-        <Snackbar
-          style={ notificationStyle }
-          open={ this.state.loginError }
-          message="Incorrect email and/or password"
-          autoHideDuration={ 4000 }
-          onRequestClose={ this.handleLoginErrorClose }
-        />
-      </Row>
-    );
+        <Row>
+          <Col xs={12} smOffset={3} sm={6} mdOffset={4} md={4}>
+            <Paper style={ paperStyle } zDepth={2}>
+              <form style={ loginFormStyle } onSubmit={ this.handleFormSubmit }>
+                <Row>
+                  <Subheader style={ subHeaderStyle }>Sign In</Subheader>
+                </Row>
+                <Row>
+                  <ValidatedTextField
+                    label="E-mail"
+                    errorText={ "E-mail is required" }
+                    setValue={ this.setEmail }
+                  />
+                </Row>
+                <Row>
+                  <ValidatedTextField
+                    label="Password"
+                    errorText={ "Password is required" }
+                    setValue={ this.setPassword }
+                  />
+                </Row>
+                <Row style={ loginButtonStyle } >
+                  <AsyncButton makingRequest={ this.state.spinner } label="login" type="submit"/>
+                </Row>
+              </form>
+            </Paper>
+          </Col>
+          <Snackbar
+            style={ notificationStyle }
+            open={ this.state.loginError }
+            message="Incorrect email and/or password"
+            autoHideDuration={ 4000 }
+            onRequestClose={ this.handleLoginErrorClose }
+          />
+        </Row>
+        );
   }
 }
 
