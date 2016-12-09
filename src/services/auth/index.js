@@ -18,5 +18,10 @@ export default (requestLib = axios) => {
   };
 
   const loggedIn = () => !!localStorage.token;
-  return { login, loggedIn };
+  const getToken = () => localStorage.token;
+  return {
+    login,
+    loggedIn,
+    getToken
+  };
 };

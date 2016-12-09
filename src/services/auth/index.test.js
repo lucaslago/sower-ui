@@ -48,4 +48,12 @@ describe('Auth Service', () => {
     });
   });
 
+  context('getToken', () => {
+    it('should return localStorage token value', () => {
+      const expectedToken = '123';
+      localStorage.token = expectedToken;
+      expect(authService.getToken()).toEqual(expectedToken);
+    });
+  });
+
 });
