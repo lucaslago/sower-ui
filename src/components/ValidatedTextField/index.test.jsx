@@ -3,20 +3,19 @@ import { shallow, render } from 'enzyme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ValidatedTextField from './index';
 import TextField from 'material-ui/TextField';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
 
 describe('<ValidatedTextField />', () => {
+  const fieldSelector = '.validated-text-field';
+  const handleChangeFake = () => {};
 
   it('renders without crashing', () => {
     const wrapper = shallow(
         <ValidatedTextField label="login" />
         );
-    expect(wrapper.find('.validated-text-field').length).toEqual(1);
+    expect(wrapper.find(fieldSelector).length).toEqual(1);
   });
 
   it('should not display error when showValidationError is false', () => {
-    const handleChangeFake = () => {};
     const wrapper = shallow(
         <ValidatedTextField
           label="login"
@@ -26,11 +25,10 @@ describe('<ValidatedTextField />', () => {
           handleChange = { handleChangeFake }
         />
         );
-    expect(wrapper.find('.validated-text-field').text()).not.toContain('Field required');
+    expect(wrapper.find(fieldSelector).text()).not.toContain('Field required');
   });
 
   it('should display error when showValidationError is true', () => {
-    const handleChangeFake = () => {};
     const wrapper = render(
       <MuiThemeProvider>
         <ValidatedTextField
@@ -42,6 +40,6 @@ describe('<ValidatedTextField />', () => {
         />
       </MuiThemeProvider>
         );
-    expect(wrapper.find('.validated-text-field').text()).toContain('Field required');
+    expect(wrapper.find(fieldSelector).text()).toContain('Field required');
   });
 });
