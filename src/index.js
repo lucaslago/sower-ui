@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory, IndexRedirect } from 'react-router';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import App from './App';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import AuthService from './services/auth';
-import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import './index.css';
+injectTapEventPlugin();
 
 const authService = AuthService();
 
