@@ -35,10 +35,10 @@ describe('Devices Service', () => {
         }
       };
 
-      return devicesService.fetchDevices(authToken)
+      return devicesService.fetch(authToken)
         .then(response => {
           expect(fakeAxios.get).toBeCalledWith(`${SOWER_URL}/devices`, expectedHeaders);
-          expect(response).toEqual(devicesResponse);
+          expect(response).toEqual(devicesResponse.data);
         });
     });
   });

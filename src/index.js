@@ -6,11 +6,13 @@ import App from './App';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import AuthService from './services/auth';
+import DevicesService from './services/devices';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 injectTapEventPlugin();
 
 const authService = AuthService();
+const devicesService = DevicesService();
 
 const requireAuth = (nextState, replace) => {
   if(!authService.loggedIn()) {
@@ -25,7 +27,13 @@ ReactDOM.render(
     <Route path="/" component={ App } >
       <IndexRedirect to="dashboard" />
       <Route path="login" component={ Login } authService={ authService }/>
-      <Route path="dashboard" component={ Dashboard } onEnter={ requireAuth }/>
+      <Route
+        path="dashboard"
+        component={ Dashboard }
+        onEnter={ requireAuth }
+        authService={ authService }
+        devicesService={ devicesService }
+      />
     </Route>
   </Router>
   ,
