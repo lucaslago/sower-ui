@@ -1,12 +1,8 @@
 language: node_js
 env:
-  matrix:
-    - TRAVIS=travis CXX=g++-4.8
   global:
     - GITHUB_REPO: agco-fuse/sower-ui
     - secure: Om2gSijYMtV05dGkjCktUJwJDXAQTYFTRTfJuF/YknVM1+x5yXKHx2eHOGGmM7zTgv3WDBMX2aVR+V3Q1C7aqL5+h8d9tOi6QwKYrL1KO02R2ysTKlXOTj6gFQp1PC5U+QdRwyB/ETn8+vkCyRddeoGVLNgo2S/k+M7ZF2TuPEojZRihcN7OEaBC1t2LGFfzqCbzpkvuesFM4VeJaRnkd737u2faj8n7dCFndnFmeOGvsxFhY9B5YsZcc0DG8oBpkHJxhbFF7C8J+wrYh23urVgH1n/5SMQMGSEBn75JaneZ44K0kntmgzK96qOTSas1h/fvDk3IsEzOjqX8Ow4WSSo7hrpSyfQfHc7q4zDrajUS3WlqOzTQGgV3TLMNgegF+MSUQcifz02XaM1JEsOUQY7fjuJRj3DqSS8qr4gVQr8ZZsXfwSAZsMUg8l8/JXpDSuzwijbJoD1bFdOOqqFYzBXsKgrunUwEvbLB3M1D46wzJNbmEXxRrQkIRPSP0FM+UlctPrjgA2hxdQu9VbOYj+Sn7G+LNkiyIOKfrzAP3jvO2ztIu6do5nqvz7rn53km3LTM3fr9cE4WMjID7yqOPMVBfJqx9r5HmWKu2lVgsxGmAuS1jagaJllQqgQmAAN5I6CxDViLmNqjX2EcZ2ZRlS6/8jFvU5PsHv5FyFI6JII=
-install:
-- npm install
 script:
 - npm run ci
 - if [ "${TRAVIS_PULL_REQUEST}" == "false" ]; then bash ./scripts/gh-pages-deploy.sh; fi
