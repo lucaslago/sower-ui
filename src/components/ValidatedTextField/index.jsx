@@ -7,9 +7,10 @@ export default class ValidatedTextField extends Component {
     this.state = {
       fieldValue: ''
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange = (event) => {
+  handleChange(event) {
     this.props.handleChange(event.target.value);
     this.setState({ fieldValue: event.target.value });
   }

@@ -10,16 +10,16 @@ import ValidatedTextField from '../components/ValidatedTextField';
 const subHeaderStyle = {
   fontSize: '20px',
   textAlign: 'center',
-  paddingLeft: '0px'
+  paddingLeft: '0px',
 };
 
 const loginFormStyle = {
-  marginTop: '5rem'
+  marginTop: '5rem',
 };
 
 const loginButtonStyle = {
   textAlign: 'center',
-  marginTop: '2rem'
+  marginTop: '2rem',
 };
 
 const paperStyle = {
@@ -27,11 +27,11 @@ const paperStyle = {
   paddingLeft: '3rem',
   paddingRight: '3rem',
   paddingBottom: '3rem',
-  marginTop: '2rem'
+  marginTop: '2rem',
 };
 
 const notificationStyle = {
-  textAlign: 'center'
+  textAlign: 'center',
 };
 
 export class Login extends Component {
@@ -43,108 +43,122 @@ export class Login extends Component {
       password: '',
       passwordError: false,
       spinner: false,
-      loginError: false
+      loginError: false,
     };
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.setEmail = this.setEmail.bind(this);
+    this.setPassword = this.setPassword.bind(this);
   }
 
-  setEmail = (email) => {
+  setEmail(email) {
     this.setState({ email, emailError: false });
   }
 
-  setPassword = (password) => {
+  setPassword(password) {
     this.setState({ password, passwordError: false });
   }
 
-  handlePasswordChange = (event) => {
+  handlePasswordChange(event) {
     this.setState({ password: event.target.value, passwordError: '' });
   }
 
-  validateForm = () => {
-    if(!this.state.email) {
+  validateForm() {
+    if (!this.state.email) {
       this.setState({ emailError: true });
     }
-    if(!this.state.password) {
+    if (!this.state.password) {
       this.setState({ passwordError: true });
     }
   }
 
-  _isValidForm() {
+  isValidForm() {
     return this.state.email && this.state.password;
   }
 
-  handleLoginErrorClose = () => {
+  handleLoginErrorClose() {
     this.setState({ loginError: false });
   }
 
-  handleFormSubmit = (event) => {
+  handleFormSubmit(event) {
     event.preventDefault();
     this.validateForm();
 
-    if (!this._isValidForm()) {
+    if (!this.isValidForm()) {
       return;
     }
 
     this.setState({ spinner: true });
 
     this.props.route.authService.login(this.state.email, this.state.password)
-      .then(response => {
+      .then(() => {
         this.setState({ spinner: false });
         this.props.router.push('/dashboard');
       })
-    .catch(err => {
-      console.log('error: ',  err);
+    .catch((err) => {
+      console.log('error: ', err); //eslint-disable-line
       this.setState({
         spinner: false,
         loginError: true,
         email: '',
-        password: ''
+        password: '',
       });
     });
   }
 
   render() {
     return (
-        <Row>
-          <Col xs={12} smOffset={3} sm={6} mdOffset={4} md={4}>
-            <Paper style={ paperStyle } zDepth={2}>
-              <form style={ loginFormStyle } onSubmit={ this.handleFormSubmit }>
-                <Row>
-                  <Subheader style={ subHeaderStyle }>Sign In</Subheader>
-                </Row>
-                <Row>
-                  <ValidatedTextField
-                    label="E-mail"
-                    type="email"
-                    errorText={ "E-mail is required" }
-                    handleChange={ this.setEmail }
-                    showValidationError={ this.state.emailError }
-                  />
-                </Row>
-                <Row>
-                  <ValidatedTextField
-                    label="Password"
-                    type="password"
-                    errorText={ "Password is required" }
-                    handleChange={ this.setPassword }
-                    showValidationError={ this.state.passwordError }
-                  />
-                </Row>
-                <Row style={ loginButtonStyle } >
-                  <AsyncButton makingRequest={ this.state.spinner } label="login" type="submit"/>
-                </Row>
-              </form>
-            </Paper>
-          </Col>
-          <Snackbar
-            style={ notificationStyle }
-            open={ this.state.loginError }
-            message="Incorrect email and/or password"
-            autoHideDuration={ 4000 }
-            onRequestClose={ this.handleLoginErrorClose }
-          />
-        </Row>
-        );
+      <Row>
+        <Col xs={12} smOffset={3} sm={6} mdOffset={4} md={4}>
+          <Paper style={paperStyle} zDepth={2}>
+            <form style={loginFormStyle} onSubmit={this.handleFormSubmit}>
+              <Row>
+                <Subheader style={subHeaderStyle}>Sign In</Subheader>
+              </Row>
+              <Row>
+                <ValidatedTextField
+                  label="E-mail"
+                  type="email"
+                  errorText={'E-mail is required'}
+                  handleChange={this.setEmail}
+                  showValidationError={this.state.emailError}
+                />
+              </Row>
+              <Row>
+                <ValidatedTextField
+                  label="Password"
+                  type="password"
+                  errorText={'Password is required'}
+                  handleChange={this.setPassword}
+                  showValidationError={this.state.passwordError}
+                />
+              </Row>
+              <Row style={loginButtonStyle} >
+                <AsyncButton makingRequest={this.state.spinner} label="login" type="submit" />
+              </Row>
+            </form>
+          </Paper>
+        </Col>
+        <Snackbar
+          style={notificationStyle}
+          open={this.state.loginError}
+          message="Incorrect email and/or password"
+          autoHideDuration={4000}
+          onRequestClose={this.handleLoginErrorClose}
+        />
+      </Row>
+    );
   }
 }
+
+Login.propTypes = {
+  router: React.PropTypes.shape({
+    push: React.PropTypes.func.isRequired,
+  }),
+  route: React.PropTypes.shape({
+    authService: React.PropTypes.shape({
+      login: React.PropTypes.func.isRequired,
+    }),
+  }),
+};
 
 export default withRouter(Login);

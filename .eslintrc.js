@@ -11,6 +11,10 @@ module.exports = {
     "browser": true
   },
   "globals": {
-    "context": true
+    "context": true,
+    "shallow": true,
+    "mount": true,
+    "toJson": true,
+    "React": true
   }
 };
