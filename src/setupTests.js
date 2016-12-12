@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { shallow, render, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
@@ -6,7 +7,7 @@ import React from 'react';
 const localStorageMock = {
   getItem: jest.fn(),
   setItem: jest.fn(),
-  clear: jest.fn()
+  clear: jest.fn(),
 };
 
 global.localStorage = localStorageMock;

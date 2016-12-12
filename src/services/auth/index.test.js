@@ -7,12 +7,12 @@ describe('Auth Service', () => {
     serviceUsers: [
       {
         id: 1,
-        emailAddress: 'mock@mock.com'
-      }
-    ]
+        emailAddress: 'mock@mock.com',
+      },
+    ],
   };
   const fakeAxios = {
-    get: jest.fn().mockReturnValueOnce(Promise.resolve(whoAmIResponse))
+    get: jest.fn().mockReturnValueOnce(Promise.resolve(whoAmIResponse)),
   };
   const authService = AuthService(fakeAxios);
 
@@ -27,8 +27,8 @@ describe('Auth Service', () => {
       const basicAuth = toBasicAuth(email, password);
       const expectedHeaders = {
         headers: {
-          Authorization: basicAuth
-        }
+          Authorization: basicAuth,
+        },
       };
       return authService.login(email, password)
         .then((response) => {
@@ -55,5 +55,4 @@ describe('Auth Service', () => {
       expect(authService.getToken()).toEqual(expectedToken);
     });
   });
-
 });

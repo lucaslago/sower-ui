@@ -9,9 +9,9 @@ export default (requestLib = axios) => {
     basicAuth = toBasicAuth(email, password);
     return requestLib.get(WHO_AM_I_URL, {
       headers: {
-        'Authorization': basicAuth
-      }
-    }).then(response => {
+        Authorization: basicAuth,
+      },
+    }).then((response) => {
       localStorage.token = basicAuth;
       return response;
     });
@@ -22,6 +22,6 @@ export default (requestLib = axios) => {
   return {
     login,
     loggedIn,
-    getToken
+    getToken,
   };
 };
