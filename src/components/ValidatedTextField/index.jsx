@@ -16,15 +16,15 @@ export default class ValidatedTextField extends Component {
 
   render() {
     return (
-        <TextField
-          floatingLabelText={ this.props.label }
-          type={ this.props.type }
-          fullWidth={ true }
-          errorText={ this.props.showValidationError ? this.props.errorText : '' }
-          value={ this.state.fieldValue }
-          onChange={ this.handleChange }
-          className="validated-text-field"
-        />
-        );
+      <TextField
+        floatingLabelText={ this.props.label }
+        type={ this.props.type }
+        fullWidth={ true }
+        errorText={ this.props.showValidationError ? this.props.errorText : '' }
+        value={ this.state.fieldValue }
+        onChange={ this.handleChange }
+        className="validated-text-field"
+      />
+    );
   }
 }

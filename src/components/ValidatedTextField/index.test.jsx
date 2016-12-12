@@ -7,23 +7,23 @@ describe('<ValidatedTextField />', () => {
   const handleChangeFake = () => {};
 
   it('renders without crashing', () => {
-    const wrapper = shallow(
-        <ValidatedTextField label="login" />
-        );
+    const wrapper = shallow(<ValidatedTextField label="login" />);
     expect(wrapper.find(fieldSelector).length).toEqual(1);
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should not display error when showValidationError is false', () => {
     const wrapper = shallow(
-        <ValidatedTextField
-          label="login"
-          type="text"
-          errorText="Field required"
-          showValidationError={ false }
-          handleChange = { handleChangeFake }
-        />
-        );
+      <ValidatedTextField
+        label="login"
+        type="text"
+        errorText="Field required"
+        showValidationError={ false }
+        handleChange = { handleChangeFake }
+      />
+    );
     expect(wrapper.find(fieldSelector).text()).not.toContain('Field required');
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should display error when showValidationError is true', () => {
@@ -37,7 +37,7 @@ describe('<ValidatedTextField />', () => {
           handleChange = { handleChangeFake }
         />
       </MuiThemeProvider>
-        );
+    );
     expect(wrapper.find(fieldSelector).text()).toContain('Field required');
   });
 });
