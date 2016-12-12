@@ -1,5 +1,3 @@
-import React from 'react';
-import { shallow, render } from 'enzyme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ValidatedTextField from './index';
 import TextField from 'material-ui/TextField';
