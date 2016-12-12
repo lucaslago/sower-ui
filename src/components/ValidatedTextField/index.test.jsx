@@ -9,7 +9,7 @@ describe('<ValidatedTextField />', () => {
   it('renders without crashing', () => {
     const wrapper = shallow(<ValidatedTextField label="login" />);
     expect(wrapper.find(fieldSelector).length).toEqual(1);
-    expect(wrapper).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should not display error when showValidationError is false', () => {
@@ -23,7 +23,7 @@ describe('<ValidatedTextField />', () => {
       />
     );
     expect(wrapper.find(fieldSelector).text()).not.toContain('Field required');
-    expect(wrapper).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should display error when showValidationError is true', () => {

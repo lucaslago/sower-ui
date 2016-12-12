@@ -7,7 +7,10 @@ const AsyncButton = props => {
     return (<CircularProgress />);
   }
   return (
-    <RaisedButton label={ props.label } type={ props.type }/>
+    <div>
+      <label> arroz</label>
+      <RaisedButton label={ props.label } type={ props.type }/>
+    </div>
   );
 };
 

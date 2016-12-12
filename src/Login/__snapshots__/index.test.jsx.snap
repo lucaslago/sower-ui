@@ -1,452 +1,97 @@
 exports[`<Login /> renders without crashing 1`] = `
-ShallowWrapper {
-  "complexSelector": ComplexSelector {
-    "buildPredicate": [Function],
-    "childrenOfNode": [Function],
-    "findWhereUnwrapped": [Function],
-  },
-  "length": 1,
-  "node": <Row
-    bsClass="row"
-    componentClass="div">
-    <Col
-        bsClass="col"
-        componentClass="div"
-        md={4}
-        mdOffset={4}
-        sm={6}
-        smOffset={3}
-        xs={12}>
-        <Paper
-            circle={false}
-            rounded={true}
-            style={
-                Object {
-                    "marginTop": "2rem",
-                    "paddingBottom": "3rem",
-                    "paddingLeft": "3rem",
-                    "paddingRight": "3rem",
-                    "paddingTop": "0rem",
-                  }
-            }
-            transitionEnabled={true}
-            zDepth={2}>
-            <form
-                onSubmit={[Function]}
-                style={
-                    Object {
-                        "marginTop": "5rem",
-                      }
-                }>
-                <Row
-                    bsClass="row"
-                    componentClass="div">
-                    <Subheader
-                        inset={false}
-                        style={
-                            Object {
-                                "fontSize": "20px",
-                                "paddingLeft": "0px",
-                                "textAlign": "center",
-                              }
-                        }>
-                        Sign In
-                    </Subheader>
-                </Row>
-                <Row
-                    bsClass="row"
-                    componentClass="div">
-                    <ValidatedTextField
-                        errorText="E-mail is required"
-                        handleChange={[Function]}
-                        label="E-mail"
-                        showValidationError={false}
-                        type="email" />
-                </Row>
-                <Row
-                    bsClass="row"
-                    componentClass="div">
-                    <ValidatedTextField
-                        errorText="Password is required"
-                        handleChange={[Function]}
-                        label="Password"
-                        showValidationError={false}
-                        type="password" />
-                </Row>
-                <Row
-                    bsClass="row"
-                    componentClass="div"
-                    style={
-                        Object {
-                            "marginTop": "2rem",
-                            "textAlign": "center",
-                          }
-                    }>
-                    <AsyncButton
-                        label="login"
-                        makingRequest={false}
-                        type="submit" />
-                </Row>
-            </form>
-        </Paper>
-    </Col>
-    <Snackbar
-        autoHideDuration={4000}
-        message="Incorrect email and/or password"
-        onRequestClose={[Function]}
-        open={false}
+<Row
+  bsClass="row"
+  componentClass="div">
+  <Col
+    bsClass="col"
+    componentClass="div"
+    md={4}
+    mdOffset={4}
+    sm={6}
+    smOffset={3}
+    xs={12}>
+    <Paper
+      circle={false}
+      rounded={true}
+      style={
+        Object {
+          "marginTop": "2rem",
+          "paddingBottom": "3rem",
+          "paddingLeft": "3rem",
+          "paddingRight": "3rem",
+          "paddingTop": "0rem",
+        }
+      }
+      transitionEnabled={true}
+      zDepth={2}>
+      <form
+        onSubmit={[Function]}
         style={
-            Object {
+          Object {
+            "marginTop": "5rem",
+          }
+        }>
+        <Row
+          bsClass="row"
+          componentClass="div">
+          <Subheader
+            inset={false}
+            style={
+              Object {
+                "fontSize": "20px",
+                "paddingLeft": "0px",
                 "textAlign": "center",
               }
-        } />
-</Row>,
-  "nodes": Array [
-    <Row
-      bsClass="row"
-      componentClass="div">
-      <Col
-            bsClass="col"
-            componentClass="div"
-            md={4}
-            mdOffset={4}
-            sm={6}
-            smOffset={3}
-            xs={12}>
-            <Paper
-                  circle={false}
-                  rounded={true}
-                  style={
-                        Object {
-                              "marginTop": "2rem",
-                              "paddingBottom": "3rem",
-                              "paddingLeft": "3rem",
-                              "paddingRight": "3rem",
-                              "paddingTop": "0rem",
-                            }
-                  }
-                  transitionEnabled={true}
-                  zDepth={2}>
-                  <form
-                        onSubmit={[Function]}
-                        style={
-                              Object {
-                                    "marginTop": "5rem",
-                                  }
-                        }>
-                        <Row
-                              bsClass="row"
-                              componentClass="div">
-                              <Subheader
-                                    inset={false}
-                                    style={
-                                          Object {
-                                                "fontSize": "20px",
-                                                "paddingLeft": "0px",
-                                                "textAlign": "center",
-                                              }
-                                    }>
-                                    Sign In
-                              </Subheader>
-                        </Row>
-                        <Row
-                              bsClass="row"
-                              componentClass="div">
-                              <ValidatedTextField
-                                    errorText="E-mail is required"
-                                    handleChange={[Function]}
-                                    label="E-mail"
-                                    showValidationError={false}
-                                    type="email" />
-                        </Row>
-                        <Row
-                              bsClass="row"
-                              componentClass="div">
-                              <ValidatedTextField
-                                    errorText="Password is required"
-                                    handleChange={[Function]}
-                                    label="Password"
-                                    showValidationError={false}
-                                    type="password" />
-                        </Row>
-                        <Row
-                              bsClass="row"
-                              componentClass="div"
-                              style={
-                                    Object {
-                                          "marginTop": "2rem",
-                                          "textAlign": "center",
-                                        }
-                              }>
-                              <AsyncButton
-                                    label="login"
-                                    makingRequest={false}
-                                    type="submit" />
-                        </Row>
-                  </form>
-            </Paper>
-      </Col>
-      <Snackbar
-            autoHideDuration={4000}
-            message="Incorrect email and/or password"
-            onRequestClose={[Function]}
-            open={false}
-            style={
-                  Object {
-                        "textAlign": "center",
-                      }
-            } />
-</Row>,
-  ],
-  "options": Object {},
-  "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
-      "_calledComponentWillUnmount": false,
-      "_compositeType": 0,
-      "_context": Object {},
-      "_currentElement": <Login />,
-      "_debugID": 1,
-      "_hostContainerInfo": null,
-      "_hostParent": null,
-      "_instance": Login {
-        "_reactInternalInstance": [Circular],
-        "context": Object {},
-        "handleFormSubmit": [Function],
-        "handleLoginErrorClose": [Function],
-        "handlePasswordChange": [Function],
-        "props": Object {},
-        "refs": Object {},
-        "setEmail": [Function],
-        "setPassword": [Function],
-        "state": Object {
-          "email": "",
-          "emailError": false,
-          "loginError": false,
-          "password": "",
-          "passwordError": false,
-          "spinner": false,
-        },
-        "updater": Object {
-          "enqueueCallback": [Function],
-          "enqueueCallbackInternal": [Function],
-          "enqueueElementInternal": [Function],
-          "enqueueForceUpdate": [Function],
-          "enqueueReplaceState": [Function],
-          "enqueueSetState": [Function],
-          "isMounted": [Function],
-          "validateCallback": [Function],
-        },
-        "validateForm": [Function],
-      },
-      "_mountOrder": 1,
-      "_pendingCallbacks": null,
-      "_pendingElement": null,
-      "_pendingForceUpdate": false,
-      "_pendingReplaceState": false,
-      "_pendingStateQueue": null,
-      "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Row
+            }>
+            Sign In
+          </Subheader>
+        </Row>
+        <Row
           bsClass="row"
           componentClass="div">
-          <Col
-                    bsClass="col"
-                    componentClass="div"
-                    md={4}
-                    mdOffset={4}
-                    sm={6}
-                    smOffset={3}
-                    xs={12}>
-                    <Paper
-                              circle={false}
-                              rounded={true}
-                              style={
-                                        Object {
-                                                  "marginTop": "2rem",
-                                                  "paddingBottom": "3rem",
-                                                  "paddingLeft": "3rem",
-                                                  "paddingRight": "3rem",
-                                                  "paddingTop": "0rem",
-                                                }
-                              }
-                              transitionEnabled={true}
-                              zDepth={2}>
-                              <form
-                                        onSubmit={[Function]}
-                                        style={
-                                                  Object {
-                                                            "marginTop": "5rem",
-                                                          }
-                                        }>
-                                        <Row
-                                                  bsClass="row"
-                                                  componentClass="div">
-                                                  <Subheader
-                                                            inset={false}
-                                                            style={
-                                                                      Object {
-                                                                                "fontSize": "20px",
-                                                                                "paddingLeft": "0px",
-                                                                                "textAlign": "center",
-                                                                              }
-                                                            }>
-                                                            Sign In
-                                                  </Subheader>
-                                        </Row>
-                                        <Row
-                                                  bsClass="row"
-                                                  componentClass="div">
-                                                  <ValidatedTextField
-                                                            errorText="E-mail is required"
-                                                            handleChange={[Function]}
-                                                            label="E-mail"
-                                                            showValidationError={false}
-                                                            type="email" />
-                                        </Row>
-                                        <Row
-                                                  bsClass="row"
-                                                  componentClass="div">
-                                                  <ValidatedTextField
-                                                            errorText="Password is required"
-                                                            handleChange={[Function]}
-                                                            label="Password"
-                                                            showValidationError={false}
-                                                            type="password" />
-                                        </Row>
-                                        <Row
-                                                  bsClass="row"
-                                                  componentClass="div"
-                                                  style={
-                                                            Object {
-                                                                      "marginTop": "2rem",
-                                                                      "textAlign": "center",
-                                                                    }
-                                                  }>
-                                                  <AsyncButton
-                                                            label="login"
-                                                            makingRequest={false}
-                                                            type="submit" />
-                                        </Row>
-                              </form>
-                    </Paper>
-          </Col>
-          <Snackbar
-                    autoHideDuration={4000}
-                    message="Incorrect email and/or password"
-                    onRequestClose={[Function]}
-                    open={false}
-                    style={
-                              Object {
-                                        "textAlign": "center",
-                                      }
-                    } />
-</Row>,
-        "_debugID": 2,
-        "_renderedOutput": <Row
+          <ValidatedTextField
+            errorText="E-mail is required"
+            handleChange={[Function]}
+            label="E-mail"
+            showValidationError={false}
+            type="email" />
+        </Row>
+        <Row
           bsClass="row"
           componentClass="div">
-          <Col
-                    bsClass="col"
-                    componentClass="div"
-                    md={4}
-                    mdOffset={4}
-                    sm={6}
-                    smOffset={3}
-                    xs={12}>
-                    <Paper
-                              circle={false}
-                              rounded={true}
-                              style={
-                                        Object {
-                                                  "marginTop": "2rem",
-                                                  "paddingBottom": "3rem",
-                                                  "paddingLeft": "3rem",
-                                                  "paddingRight": "3rem",
-                                                  "paddingTop": "0rem",
-                                                }
-                              }
-                              transitionEnabled={true}
-                              zDepth={2}>
-                              <form
-                                        onSubmit={[Function]}
-                                        style={
-                                                  Object {
-                                                            "marginTop": "5rem",
-                                                          }
-                                        }>
-                                        <Row
-                                                  bsClass="row"
-                                                  componentClass="div">
-                                                  <Subheader
-                                                            inset={false}
-                                                            style={
-                                                                      Object {
-                                                                                "fontSize": "20px",
-                                                                                "paddingLeft": "0px",
-                                                                                "textAlign": "center",
-                                                                              }
-                                                            }>
-                                                            Sign In
-                                                  </Subheader>
-                                        </Row>
-                                        <Row
-                                                  bsClass="row"
-                                                  componentClass="div">
-                                                  <ValidatedTextField
-                                                            errorText="E-mail is required"
-                                                            handleChange={[Function]}
-                                                            label="E-mail"
-                                                            showValidationError={false}
-                                                            type="email" />
-                                        </Row>
-                                        <Row
-                                                  bsClass="row"
-                                                  componentClass="div">
-                                                  <ValidatedTextField
-                                                            errorText="Password is required"
-                                                            handleChange={[Function]}
-                                                            label="Password"
-                                                            showValidationError={false}
-                                                            type="password" />
-                                        </Row>
-                                        <Row
-                                                  bsClass="row"
-                                                  componentClass="div"
-                                                  style={
-                                                            Object {
-                                                                      "marginTop": "2rem",
-                                                                      "textAlign": "center",
-                                                                    }
-                                                  }>
-                                                  <AsyncButton
-                                                            label="login"
-                                                            makingRequest={false}
-                                                            type="submit" />
-                                        </Row>
-                              </form>
-                    </Paper>
-          </Col>
-          <Snackbar
-                    autoHideDuration={4000}
-                    message="Incorrect email and/or password"
-                    onRequestClose={[Function]}
-                    open={false}
-                    style={
-                              Object {
-                                        "textAlign": "center",
-                                      }
-                    } />
-</Row>,
-      },
-      "_renderedNodeType": 1,
-      "_rootNodeID": 0,
-      "_topLevelWrapper": null,
-      "_updateBatchNumber": null,
-      "_warnedAboutRefsInRender": false,
-    },
-    "getRenderOutput": [Function],
-    "render": [Function],
-  },
-  "root": [Circular],
-  "unrendered": <Login />,
-}
+          <ValidatedTextField
+            errorText="Password is required"
+            handleChange={[Function]}
+            label="Password"
+            showValidationError={false}
+            type="password" />
+        </Row>
+        <Row
+          bsClass="row"
+          componentClass="div"
+          style={
+            Object {
+              "marginTop": "2rem",
+              "textAlign": "center",
+            }
+          }>
+          <AsyncButton
+            label="login"
+            makingRequest={false}
+            type="submit" />
+        </Row>
+      </form>
+    </Paper>
+  </Col>
+  <Snackbar
+    autoHideDuration={4000}
+    message="Incorrect email and/or password"
+    onRequestClose={[Function]}
+    open={false}
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    } />
+</Row>
 `;

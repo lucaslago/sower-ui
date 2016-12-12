@@ -1,292 +1,40 @@
 exports[`<AsyncButton /> renders <CircularProgress /> when makingRequest is true 1`] = `
-ShallowWrapper {
-  "complexSelector": ComplexSelector {
-    "buildPredicate": [Function],
-    "childrenOfNode": [Function],
-    "findWhereUnwrapped": [Function],
-  },
-  "length": 1,
-  "node": <CircularProgress
-    max={100}
-    min={0}
-    mode="indeterminate"
-    size={40}
-    thickness={3.5}
-    value={0} />,
-  "nodes": Array [
-    <CircularProgress
-      max={100}
-      min={0}
-      mode="indeterminate"
-      size={40}
-      thickness={3.5}
-      value={0} />,
-  ],
-  "options": Object {},
-  "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
-      "_calledComponentWillUnmount": false,
-      "_compositeType": 2,
-      "_context": Object {},
-      "_currentElement": <AsyncButton
-        label="login"
-        makingRequest={true} />,
-      "_debugID": 5,
-      "_hostContainerInfo": null,
-      "_hostParent": null,
-      "_instance": StatelessComponent {
-        "_reactInternalInstance": [Circular],
-        "context": Object {},
-        "props": Object {
-          "label": "login",
-          "makingRequest": true,
-        },
-        "refs": Object {},
-        "state": null,
-        "updater": Object {
-          "enqueueCallback": [Function],
-          "enqueueCallbackInternal": [Function],
-          "enqueueElementInternal": [Function],
-          "enqueueForceUpdate": [Function],
-          "enqueueReplaceState": [Function],
-          "enqueueSetState": [Function],
-          "isMounted": [Function],
-          "validateCallback": [Function],
-        },
-      },
-      "_mountOrder": 3,
-      "_pendingCallbacks": null,
-      "_pendingElement": null,
-      "_pendingForceUpdate": false,
-      "_pendingReplaceState": false,
-      "_pendingStateQueue": null,
-      "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <CircularProgress
-          max={100}
-          min={0}
-          mode="indeterminate"
-          size={40}
-          thickness={3.5}
-          value={0} />,
-        "_debugID": 6,
-        "_renderedOutput": <CircularProgress
-          max={100}
-          min={0}
-          mode="indeterminate"
-          size={40}
-          thickness={3.5}
-          value={0} />,
-      },
-      "_renderedNodeType": 1,
-      "_rootNodeID": 0,
-      "_topLevelWrapper": null,
-      "_updateBatchNumber": null,
-      "_warnedAboutRefsInRender": false,
-    },
-    "getRenderOutput": [Function],
-    "render": [Function],
-  },
-  "root": [Circular],
-  "unrendered": <AsyncButton
-    label="login"
-    makingRequest={true} />,
-}
+<CircularProgress
+  max={100}
+  min={0}
+  mode="indeterminate"
+  size={40}
+  thickness={3.5}
+  value={0} />
 `;
 
 exports[`<AsyncButton /> renders <RaisedButton /> when makingRequest is false 1`] = `
-ShallowWrapper {
-  "complexSelector": ComplexSelector {
-    "buildPredicate": [Function],
-    "childrenOfNode": [Function],
-    "findWhereUnwrapped": [Function],
-  },
-  "length": 1,
-  "node": <RaisedButton
+<div>
+  <label>
+     arroz
+  </label>
+  <RaisedButton
     disabled={false}
     fullWidth={false}
     label="login"
     labelPosition="after"
     primary={false}
-    secondary={false}
-    type={undefined} />,
-  "nodes": Array [
-    <RaisedButton
-      disabled={false}
-      fullWidth={false}
-      label="login"
-      labelPosition="after"
-      primary={false}
-      secondary={false}
-      type={undefined} />,
-  ],
-  "options": Object {},
-  "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
-      "_calledComponentWillUnmount": false,
-      "_compositeType": 2,
-      "_context": Object {},
-      "_currentElement": <AsyncButton
-        label="login"
-        makingRequest={false} />,
-      "_debugID": 3,
-      "_hostContainerInfo": null,
-      "_hostParent": null,
-      "_instance": StatelessComponent {
-        "_reactInternalInstance": [Circular],
-        "context": Object {},
-        "props": Object {
-          "label": "login",
-          "makingRequest": false,
-        },
-        "refs": Object {},
-        "state": null,
-        "updater": Object {
-          "enqueueCallback": [Function],
-          "enqueueCallbackInternal": [Function],
-          "enqueueElementInternal": [Function],
-          "enqueueForceUpdate": [Function],
-          "enqueueReplaceState": [Function],
-          "enqueueSetState": [Function],
-          "isMounted": [Function],
-          "validateCallback": [Function],
-        },
-      },
-      "_mountOrder": 2,
-      "_pendingCallbacks": null,
-      "_pendingElement": null,
-      "_pendingForceUpdate": false,
-      "_pendingReplaceState": false,
-      "_pendingStateQueue": null,
-      "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <RaisedButton
-          disabled={false}
-          fullWidth={false}
-          label="login"
-          labelPosition="after"
-          primary={false}
-          secondary={false}
-          type={undefined} />,
-        "_debugID": 4,
-        "_renderedOutput": <RaisedButton
-          disabled={false}
-          fullWidth={false}
-          label="login"
-          labelPosition="after"
-          primary={false}
-          secondary={false}
-          type={undefined} />,
-      },
-      "_renderedNodeType": 1,
-      "_rootNodeID": 0,
-      "_topLevelWrapper": null,
-      "_updateBatchNumber": null,
-      "_warnedAboutRefsInRender": false,
-    },
-    "getRenderOutput": [Function],
-    "render": [Function],
-  },
-  "root": [Circular],
-  "unrendered": <AsyncButton
-    label="login"
-    makingRequest={false} />,
-}
+    secondary={false} />
+</div>
 `;
 
 exports[`<AsyncButton /> renders correctly 1`] = `
-ShallowWrapper {
-  "complexSelector": ComplexSelector {
-    "buildPredicate": [Function],
-    "childrenOfNode": [Function],
-    "findWhereUnwrapped": [Function],
-  },
-  "length": 1,
-  "node": <RaisedButton
+<div>
+  <label>
+     arroz
+  </label>
+  <RaisedButton
     disabled={false}
     fullWidth={false}
     label="login"
     labelPosition="after"
     primary={false}
     secondary={false}
-    type="text" />,
-  "nodes": Array [
-    <RaisedButton
-      disabled={false}
-      fullWidth={false}
-      label="login"
-      labelPosition="after"
-      primary={false}
-      secondary={false}
-      type="text" />,
-  ],
-  "options": Object {},
-  "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
-      "_calledComponentWillUnmount": false,
-      "_compositeType": 2,
-      "_context": Object {},
-      "_currentElement": <AsyncButton
-        label="login"
-        type="text" />,
-      "_debugID": 1,
-      "_hostContainerInfo": null,
-      "_hostParent": null,
-      "_instance": StatelessComponent {
-        "_reactInternalInstance": [Circular],
-        "context": Object {},
-        "props": Object {
-          "label": "login",
-          "type": "text",
-        },
-        "refs": Object {},
-        "state": null,
-        "updater": Object {
-          "enqueueCallback": [Function],
-          "enqueueCallbackInternal": [Function],
-          "enqueueElementInternal": [Function],
-          "enqueueForceUpdate": [Function],
-          "enqueueReplaceState": [Function],
-          "enqueueSetState": [Function],
-          "isMounted": [Function],
-          "validateCallback": [Function],
-        },
-      },
-      "_mountOrder": 1,
-      "_pendingCallbacks": null,
-      "_pendingElement": null,
-      "_pendingForceUpdate": false,
-      "_pendingReplaceState": false,
-      "_pendingStateQueue": null,
-      "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <RaisedButton
-          disabled={false}
-          fullWidth={false}
-          label="login"
-          labelPosition="after"
-          primary={false}
-          secondary={false}
-          type="text" />,
-        "_debugID": 2,
-        "_renderedOutput": <RaisedButton
-          disabled={false}
-          fullWidth={false}
-          label="login"
-          labelPosition="after"
-          primary={false}
-          secondary={false}
-          type="text" />,
-      },
-      "_renderedNodeType": 1,
-      "_rootNodeID": 0,
-      "_topLevelWrapper": null,
-      "_updateBatchNumber": null,
-      "_warnedAboutRefsInRender": false,
-    },
-    "getRenderOutput": [Function],
-    "render": [Function],
-  },
-  "root": [Circular],
-  "unrendered": <AsyncButton
-    label="login"
-    type="text" />,
-}
+    type="text" />
+</div>
 `;

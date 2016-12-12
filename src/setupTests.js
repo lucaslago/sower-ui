@@ -1,5 +1,6 @@
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { shallow, render, mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import React from 'react';
 
 const localStorageMock = {
@@ -13,5 +14,6 @@ global.React = React;
 global.shallow = shallow;
 global.render = render;
 global.mount = mount;
+global.toJson = toJson;
 
 injectTapEventPlugin();

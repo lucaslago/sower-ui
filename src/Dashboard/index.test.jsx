@@ -28,7 +28,7 @@ describe('<Dashboard />', () => {
   it('renders without crashing', () => {
     const wrapper = shallow(<Dashboard route={route} />);
     expect(wrapper.length).toEqual(1);
-    expect(wrapper).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
 });
