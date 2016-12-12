@@ -9,26 +9,22 @@ exports[`<AsyncButton /> renders <CircularProgress /> when makingRequest is true
 `;
 
 exports[`<AsyncButton /> renders <RaisedButton /> when makingRequest is false 1`] = `
-<div>
-  <RaisedButton
-    disabled={false}
-    fullWidth={false}
-    label="login"
-    labelPosition="after"
-    primary={false}
-    secondary={false} />
-</div>
+<RaisedButton
+  disabled={false}
+  fullWidth={false}
+  label="login"
+  labelPosition="after"
+  primary={false}
+  secondary={false} />
 `;
 
 exports[`<AsyncButton /> renders correctly 1`] = `
-<div>
-  <RaisedButton
-    disabled={false}
-    fullWidth={false}
-    label="login"
-    labelPosition="after"
-    primary={false}
-    secondary={false}
-    type="text" />
-</div>
+<RaisedButton
+  disabled={false}
+  fullWidth={false}
+  label="login"
+  labelPosition="after"
+  primary={false}
+  secondary={false}
+  type="text" />
 `;

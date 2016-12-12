@@ -6,11 +6,7 @@ const AsyncButton = props => {
   if(props.makingRequest) {
     return (<CircularProgress />);
   }
-  return (
-    <div>
-      <RaisedButton label={ props.label } type={ props.type }/>
-    </div>
-  );
+  return (<RaisedButton label={ props.label } type={ props.type }/>);
 };
 
 export default AsyncButton;
