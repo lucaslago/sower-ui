@@ -8,7 +8,6 @@ const AsyncButton = props => {
   }
   return (
     <div>
-      <label> arroz</label>
       <RaisedButton label={ props.label } type={ props.type }/>
     </div>
   );

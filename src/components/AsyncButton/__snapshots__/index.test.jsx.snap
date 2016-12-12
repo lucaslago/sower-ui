@@ -10,9 +10,6 @@ exports[`<AsyncButton /> renders <CircularProgress /> when makingRequest is true
 
 exports[`<AsyncButton /> renders <RaisedButton /> when makingRequest is false 1`] = `
 <div>
-  <label>
-     arroz
-  </label>
   <RaisedButton
     disabled={false}
     fullWidth={false}
@@ -25,9 +22,6 @@ exports[`<AsyncButton /> renders <RaisedButton /> when makingRequest is false 1`
 
 exports[`<AsyncButton /> renders correctly 1`] = `
 <div>
-  <label>
-     arroz
-  </label>
   <RaisedButton
     disabled={false}
     fullWidth={false}
