@@ -12,6 +12,9 @@ describe('Devices Service', () => {
             data: {
               type: 'equipment',
               id: 'b5a48553-0d98-4cbd-b362-cc86e52f1b3e',
+              description: "Challenger LB AB-7430 - Tractor",
+              default_simulation: true,
+              simulation_type: "tractor"
             },
           },
         },
