@@ -1,0 +1,51 @@
+exports[`<DashBoardItem /> renders correctly 1`] = `
+<Card
+  className="DashboardItem"
+  expandable={false}
+  expanded={false}
+  initiallyExpanded={false}
+  style={
+    Object {
+      "marginTop": "1rem",
+    }
+  }>
+  <CardHeader
+    actAsExpander={false}
+    avatar="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+    showExpandableButton={false}
+    subtitle="123"
+    title="Tractor" />
+  <CardText
+    expandable={true}>
+    <Subheader
+      inset={false}>
+      7050 / 8552
+    </Subheader>
+    <LinearProgress
+      max={100}
+      min={0}
+      mode="determinate"
+      value={70} />
+  </CardText>
+  <CardActions>
+    <RaisedButton
+      className="start"
+      disabled={false}
+      fullWidth={false}
+      label="Start"
+      labelPosition="after"
+      onClick={[Function]}
+      primary={true}
+      secondary={false} />
+    <RaisedButton
+      className="stop"
+      disabled={true}
+      fullWidth={false}
+      label="Stop"
+      labelPosition="after"
+      onClick={[Function]}
+      primary={false}
+      secondary={false} />
+  </CardActions>
+</Card>
+`;

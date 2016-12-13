@@ -39,7 +39,7 @@ export default class DashboardItem extends Component {
 
   render() {
     return (
-      <Card expanded={this.state.expanded} style={itemStyle}>
+      <Card className="DashboardItem" expanded={this.state.expanded} style={itemStyle}>
         <CardHeader
           title={this.props.title}
           subtitle={this.props.trackerId}
@@ -53,12 +53,14 @@ export default class DashboardItem extends Component {
         </CardText>
         <CardActions>
           <RaisedButton
+            className="start"
             label="Start"
             primary
             onClick={this.start}
             disabled={this.state.startDisabled}
           />
           <RaisedButton
+            className="stop"
             label="Stop"
             primary={false}
             onClick={this.stop}
