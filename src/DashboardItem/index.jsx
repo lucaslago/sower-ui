@@ -17,15 +17,20 @@ export default class DashboardItem extends Component {
     super(props);
     this.state = {
       expanded: false,
+      startDisabled: !this.props.hasDefaultSimulation,
+      stopDisabled: true,
     };
+
+    this.start = this.start.bind(this);
+    this.stop = this.stop.bind(this);
   }
 
   start() {
-    this.setState({ expanded: true });
+    this.setState({ expanded: true, stopDisabled: false });
   }
 
   stop() {
-    this.setState({ expanded: false });
+    this.setState({ expanded: false, startDisabled: false });
   }
 
   render() {
@@ -33,7 +38,7 @@ export default class DashboardItem extends Component {
       <Card expanded={this.state.expanded} style={itemStyle}>
         <CardHeader
           title={this.props.title}
-          subtitle={this.props.subtitle}
+          subtitle={this.props.trackerId}
           actAsExpander={false}
           showExpandableButton={false}
           avatar="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
@@ -43,8 +48,18 @@ export default class DashboardItem extends Component {
           <LinearProgress mode="determinate" value={70} />
         </CardText>
         <CardActions style={actionsStyle}>
-          <RaisedButton label="Start" primary onClick={this.start} />
-          <RaisedButton label="Stop" primary={false} onClick={this.stop} />
+          <RaisedButton
+            label="Start"
+            primary
+            onClick={this.start}
+            disabled={this.state.startDisabled}
+          />
+          <RaisedButton
+            label="Stop"
+            primary={false}
+            onClick={this.stop}
+            disabled={this.state.stopDisabled}
+          />
         </CardActions>
       </Card>
     );
@@ -53,5 +68,6 @@ export default class DashboardItem extends Component {
 
 DashboardItem.propTypes = {
   title: React.PropTypes.string.isRequired,
-  subtitle: React.PropTypes.string.isRequired,
+  trackerId: React.PropTypes.string.isRequired,
+  hasDefaultSimulation: React.PropTypes.bool.isRequired,
 };

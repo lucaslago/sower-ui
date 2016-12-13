@@ -25,7 +25,7 @@ export default class Dashboard extends Component {
   render() {
     const renderDashboardItem = device => (
       <Row key={device.id}>
-        <DashboardItem title="Tractor" subtitle={device.id} />
+        <DashboardItem title="Tractor" trackerId={device.id} hasDefaultSimulation />
       </Row>
       );
 
