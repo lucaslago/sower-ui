@@ -8,10 +8,6 @@ const itemStyle = {
   marginTop: '1rem',
 };
 
-const actionsStyle = {
-  //  textAlign: 'right'
-};
-
 export default class DashboardItem extends Component {
   constructor(props) {
     super(props);
