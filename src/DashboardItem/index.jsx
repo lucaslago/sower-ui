@@ -12,9 +12,9 @@ export default class DashboardItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      expanded: false,
-      startDisabled: !this.props.hasDefaultSimulation,
-      stopDisabled: true,
+      expanded: this.props.expanded,
+      startDisabled: this.props.startDisabled,
+      stopDisabled: this.props.stopDisabled,
     };
 
     this.start = this.start.bind(this);
@@ -22,11 +22,19 @@ export default class DashboardItem extends Component {
   }
 
   start() {
-    this.setState({ expanded: true, stopDisabled: false });
+    this.setState({
+      expanded: true,
+      stopDisabled: false,
+      startDisabled: true,
+    });
   }
 
   stop() {
-    this.setState({ expanded: false, startDisabled: false });
+    this.setState({
+      expanded: false,
+      startDisabled: false,
+      stopDisabled: true,
+    });
   }
 
   render() {
@@ -43,7 +51,7 @@ export default class DashboardItem extends Component {
           <Subheader>7050 / 8552</Subheader>
           <LinearProgress mode="determinate" value={70} />
         </CardText>
-        <CardActions style={actionsStyle}>
+        <CardActions>
           <RaisedButton
             label="Start"
             primary
@@ -65,5 +73,7 @@ export default class DashboardItem extends Component {
 DashboardItem.propTypes = {
   title: React.PropTypes.string.isRequired,
   trackerId: React.PropTypes.string.isRequired,
-  hasDefaultSimulation: React.PropTypes.bool.isRequired,
+  expanded: React.PropTypes.bool.isRequired,
+  startDisabled: React.PropTypes.bool.isRequired,
+  stopDisabled: React.PropTypes.bool.isRequired,
 };
