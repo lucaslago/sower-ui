@@ -19,7 +19,7 @@ export default (requestLib = axios) => {
 
   const loggedIn = () => !!localStorage.token;
   const getToken = () => localStorage.token;
-  const logout = () => localStorage.clear();
+  const logout = () => localStorage.removeItem('token');
   return {
     login,
     loggedIn,

@@ -21,8 +21,6 @@ export class App extends Component {
     let icon;
     if (this.props.route.authService.loggedIn()) {
       icon = <FlatButton label="sign out" onClick={this.signOut} />;
-    } else {
-      icon = <div />;
     }
 
     return (

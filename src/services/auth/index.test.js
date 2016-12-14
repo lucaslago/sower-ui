@@ -57,9 +57,9 @@ describe('Auth Service', () => {
   });
 
   context('logout', () => {
-    it('send clear message to localStorage', () => {
+    it('send removeItem message to localStorage', () => {
       authService.logout();
-      expect(localStorage.clear).toHaveBeenCalled();
+      expect(localStorage.removeItem).toHaveBeenCalledWith('token');
     });
   });
 });

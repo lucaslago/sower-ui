@@ -417,7 +417,6 @@ exports[`<App/> renders without crashing 1`] = `
   }>
   <div>
     <AppBar
-      iconElementRight={<div />}
       showMenuIconButton={true}
       title="Sower"
       zDepth={1} />
