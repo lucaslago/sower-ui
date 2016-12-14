@@ -55,4 +55,11 @@ describe('Auth Service', () => {
       expect(authService.getToken()).toEqual(expectedToken);
     });
   });
+
+  context('logout', () => {
+    it('should return send clear message to localStorage', () => {
+      authService.logout();
+      expect(localStorage.clear).toHaveBeenCalled();
+    });
+  });
 });
