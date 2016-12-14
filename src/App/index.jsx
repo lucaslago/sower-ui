@@ -7,7 +7,7 @@ import { Grid } from 'react-bootstrap';
 import baseTheme from '../styles/themes/baseTheme';
 
 const barStyle = {
-  position: 'fixed'
+  position: 'fixed',
 };
 
 export class App extends Component {

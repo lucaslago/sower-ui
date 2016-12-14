@@ -28,7 +28,7 @@ exports[`<Login /> renders without crashing 1`] = `
         onSubmit={[Function]}
         style={
           Object {
-            "marginTop": "5rem",
+            "marginTop": "10rem",
           }
         }>
         <Row
