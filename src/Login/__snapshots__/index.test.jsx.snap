@@ -50,6 +50,7 @@ exports[`<Login /> renders without crashing 1`] = `
           bsClass="row"
           componentClass="div">
           <ValidatedTextField
+            disabled={false}
             errorText="E-mail is required"
             handleChange={[Function]}
             label="E-mail"
@@ -60,6 +61,7 @@ exports[`<Login /> renders without crashing 1`] = `
           bsClass="row"
           componentClass="div">
           <ValidatedTextField
+            disabled={false}
             errorText="Password is required"
             handleChange={[Function]}
             label="Password"

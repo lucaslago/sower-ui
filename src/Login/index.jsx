@@ -44,6 +44,8 @@ export class Login extends Component {
       passwordError: false,
       spinner: false,
       loginError: false,
+      emailDisabled: false,
+      passwordDisabled: false
     };
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.setEmail = this.setEmail.bind(this);
@@ -87,7 +89,11 @@ export class Login extends Component {
       return;
     }
 
-    this.setState({ spinner: true });
+    this.setState({
+      spinner: true,
+      emailDisabled: true,
+      passwordDisabled: true
+    });
 
     this.props.route.authService.login(this.state.email, this.state.password)
       .then(() => {
@@ -101,6 +107,8 @@ export class Login extends Component {
         loginError: true,
         email: '',
         password: '',
+        emailDisabled: false,
+        passwordDisabled: false
       });
     });
   }
@@ -118,6 +126,7 @@ export class Login extends Component {
                 <ValidatedTextField
                   label="E-mail"
                   type="email"
+                  disabled={ this.state.emailDisabled }
                   errorText={'E-mail is required'}
                   handleChange={this.setEmail}
                   showValidationError={this.state.emailError}
@@ -127,6 +136,7 @@ export class Login extends Component {
                 <ValidatedTextField
                   label="Password"
                   type="password"
+                  disabled={ this.state.passwordDisabled }
                   errorText={'Password is required'}
                   handleChange={this.setPassword}
                   showValidationError={this.state.passwordError}

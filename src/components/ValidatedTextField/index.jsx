@@ -21,6 +21,7 @@ export default class ValidatedTextField extends Component {
         floatingLabelText={ this.props.label }
         type={ this.props.type }
         fullWidth={ true }
+        disabled={ this.props.disabled }
         errorText={ this.props.showValidationError ? this.props.errorText : '' }
         value={ this.state.fieldValue }
         onChange={ this.handleChange }
