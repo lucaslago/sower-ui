@@ -57,7 +57,7 @@ describe('Auth Service', () => {
   });
 
   context('logout', () => {
-    it('should return send clear message to localStorage', () => {
+    it('send clear message to localStorage', () => {
       authService.logout();
       expect(localStorage.clear).toHaveBeenCalled();
     });
