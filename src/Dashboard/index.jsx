@@ -26,10 +26,10 @@ export default class Dashboard extends Component {
     const renderDashboardItem = device => (
       <Row key={device.id}>
         <DashboardItem
-          title="Tractor"
+          title={device.relationships.equipment.data.description}
           trackerId={device.id}
           expanded={false}
-          startDisabled={false}
+          startDisabled={!device.relationships.equipment.data.default_simulation}
           stopDisabled
         />
       </Row>
