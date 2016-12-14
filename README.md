@@ -4,7 +4,7 @@ This project's objective is to provide a seamless experience to AGCO Sandbox use
 
 # Installation
 
-Sower is javascript based which used node package manager (npm) as dependency manager.
+Sower is javascript based which uses node package manager (npm) as dependency manager.
 
 ## Installing modules
 
