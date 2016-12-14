@@ -11,11 +11,11 @@ export default (requestLib = axios) => {
       headers: {
         Authorization: basicAuth,
       },
-    }).then((r) => {
-      const response = Object.assign({}, r.data);
-      const sortedDevices = sortDevices(response.data);
-      response.data = sortedDevices;
-      return response;
+    }).then((response) => {
+      const newResponse = Object.assign({}, response.data);
+      const sortedDevices = sortDevices(newResponse.data);
+      newResponse.data = sortedDevices;
+      return newResponse;
     });
   };
 
