@@ -6,6 +6,10 @@ import FlatButton from 'material-ui/FlatButton';
 import { Grid } from 'react-bootstrap';
 import baseTheme from '../styles/themes/baseTheme';
 
+const barStyle = {
+  position: 'fixed'
+};
+
 export class App extends Component {
   constructor(props) {
     super(props);
@@ -29,6 +33,7 @@ export class App extends Component {
           <AppBar
             title="Sower"
             iconElementRight={icon}
+            style={barStyle}
           />
           <Grid>
             { this.props.children }

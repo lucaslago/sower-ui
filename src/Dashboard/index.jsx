@@ -3,7 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import DashboardItem from '../DashboardItem';
 
 const dashboardStyle = {
-  marginTop: '5rem',
+  marginTop: '10rem',
 };
 
 export default class Dashboard extends Component {

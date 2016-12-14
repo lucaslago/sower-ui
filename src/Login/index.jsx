@@ -14,7 +14,7 @@ const subHeaderStyle = {
 };
 
 const loginFormStyle = {
-  marginTop: '5rem',
+  marginTop: '10rem',
 };
 
 const loginButtonStyle = {
