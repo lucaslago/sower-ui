@@ -6,10 +6,6 @@ import FlatButton from 'material-ui/FlatButton';
 import { Grid } from 'react-bootstrap';
 import baseTheme from '../styles/themes/baseTheme';
 
-const barStyle = {
-  position: 'fixed',
-};
-
 export class App extends Component {
   constructor(props) {
     super(props);
@@ -23,8 +19,10 @@ export class App extends Component {
 
   render() {
     let icon;
+    let barStyle;
     if (this.props.route.authService.loggedIn()) {
       icon = <FlatButton label="sign out" onClick={this.signOut} />;
+      barStyle = { position: 'fixed' };
     }
 
     return (
