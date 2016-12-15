@@ -28,6 +28,8 @@ export default class Dashboard extends Component {
         <DashboardItem
           title={device.relationships.equipment.data.description}
           trackerId={device.id}
+          authService={this.props.route.authService}
+          simulationService={this.props.route.simulationService}
           expanded={false}
           startDisabled={!device.relationships.equipment.data.default_simulation}
           stopDisabled
