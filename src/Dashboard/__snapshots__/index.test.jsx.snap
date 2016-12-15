@@ -3,7 +3,7 @@ exports[`<Dashboard /> renders without crashing 1`] = `
   className="Dashboard"
   style={
     Object {
-      "marginTop": "5rem",
+      "marginTop": "10rem",
     }
   }>
   <Row

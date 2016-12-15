@@ -19,8 +19,10 @@ export class App extends Component {
 
   render() {
     let icon;
+    let barStyle;
     if (this.props.route.authService.loggedIn()) {
       icon = <FlatButton label="sign out" onClick={this.signOut} />;
+      barStyle = { position: 'fixed' };
     }
 
     return (
@@ -29,6 +31,7 @@ export class App extends Component {
           <AppBar
             title="Sower"
             iconElementRight={icon}
+            style={barStyle}
           />
           <Grid>
             { this.props.children }
