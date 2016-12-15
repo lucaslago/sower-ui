@@ -10,14 +10,16 @@ describe('Simulation Service', () => {
   const simulationService = SimulationService(fakeAxios);
   const authToken = 'Basic ABCD123e';
   const expectedHeaders = {
-    Authorization: authToken,
+    headers: {
+      Authorization: authToken,
+    }
   };
 
   context('start', () => {
     it('should successfully post to sower start simulation endpoint', () => {
       const trackerId = '123';
       return simulationService.start({ trackerId, authToken }).then((response) => {
-        expect(fakeAxios.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_start`, expectedHeaders);
+        expect(fakeAxios.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_start`, {}, expectedHeaders);
         expect(response).toBe(successResponse);
       });
     });

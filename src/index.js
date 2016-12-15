@@ -10,12 +10,14 @@ import App from './App';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import AuthService from './services/auth';
+import SimulationService from './services/simulation';
 import DevicesService from './services/devices';
 import './index.css';
 
 injectTapEventPlugin();
 
 const authService = AuthService();
+const simulationService = SimulationService();
 const devicesService = DevicesService();
 const requireAuth = (nextState, replace) => {
   if (!authService.loggedIn()) {
@@ -25,7 +27,6 @@ const requireAuth = (nextState, replace) => {
     });
   }
 };
-
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={App} authService={authService}>
@@ -36,6 +37,7 @@ ReactDOM.render(
         component={Dashboard}
         onEnter={requireAuth}
         authService={authService}
+        simulationService={simulationService}
         devicesService={devicesService}
       />
     </Route>

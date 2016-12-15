@@ -22,6 +22,17 @@ export default class DashboardItem extends Component {
   }
 
   start() {
+    this.props.simulationService.start({
+      trackerId: this.props.trackerId,
+      authToken: this.props.authService.getToken()
+    })
+    .then(response => {
+      console.log(response);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+
     this.setState({
       expanded: true,
       stopDisabled: false,

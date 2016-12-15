@@ -7,6 +7,14 @@ describe('<DashBoardItem />', () => {
     startDisabled: false,
     stopDisabled: true,
     trackerId: '123',
+    simulationService: {
+      start: jest.fn().mockReturnValueOnce(Promise.resolve({}))
+    },
+    authService: {
+      getToken() {
+        return 'a-fake-token';
+      }
+    }
   };
 
   const wrapper = shallow(<DashBoardItem {...props} />);
