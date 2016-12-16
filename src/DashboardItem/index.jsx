@@ -103,7 +103,7 @@ export default class DashboardItem extends Component {
         />
         <CardText expandable>
           <Subheader>7050 / 8552</Subheader>
-          <LinearProgress mode="determinate" value={70} />
+          <LinearProgress className="LinearProgress" mode="determinate" value={70} />
         </CardText>
         <CardActions>
           <RaisedButton
