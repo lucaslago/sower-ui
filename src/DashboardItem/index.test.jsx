@@ -37,10 +37,6 @@ describe('<DashBoardItem />', () => {
     );
   });
 
-  afterEach(() => {
-    wrapper.unmount();
-  });
-
   it('renders correctly', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
