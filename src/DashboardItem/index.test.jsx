@@ -1,5 +1,4 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import DashboardItemProgressBar from '../DashBoardItemProgressBar';
 import DashBoardItem from './index';
 
 describe('<DashBoardItem />', () => {
@@ -43,9 +42,9 @@ describe('<DashBoardItem />', () => {
   });
 
   it('should expand <Card /> when start button is clicked', () => {
-    expect(wrapper.find(DashboardItemProgressBar).length).toEqual(0);
+    expect(wrapper.find('.dashboard-item-progress-bar').length).toEqual(0);
     wrapper.find('.start button').simulate('click');
-    expect(wrapper.find(DashboardItemProgressBar).length).toEqual(1);
+    expect(wrapper.find('.dashboard-item-progress-bar').length).toEqual(1);
   });
 
   it('should disable the start button after it is clicked', () => {
