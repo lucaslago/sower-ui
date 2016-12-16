@@ -447,7 +447,7 @@ exports[`<DashBoardItem /> renders correctly 1`] = `
                               "width": "100%",
                             }
                           }
-                          tabIndex={0}
+                          tabIndex={-1}
                           type="button">
                           <div
                             style={

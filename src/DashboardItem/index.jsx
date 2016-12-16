@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
-import LinearProgress from 'material-ui/LinearProgress';
-import Subheader from 'material-ui/Subheader';
 import Snackbar from 'material-ui/Snackbar';
+import DashboardItemProgressBar from '../DashBoardItemProgressBar';
 
 const itemStyle = {
   marginTop: '1rem',
@@ -102,8 +101,7 @@ export default class DashboardItem extends Component {
           avatar="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
         />
         <CardText expandable>
-          <Subheader>7050 / 8552</Subheader>
-          <LinearProgress className="LinearProgress" mode="determinate" value={70} />
+          <DashboardItemProgressBar />
         </CardText>
         <CardActions>
           <RaisedButton
