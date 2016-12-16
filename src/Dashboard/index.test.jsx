@@ -9,6 +9,7 @@ describe('<Dashboard />', () => {
         relationships: {
           equipment: {
             data: {
+              description: 'A beautiful machine',
               type: 'equipment',
               id: 'b5a48553-0d98-4cbd-b362-cc86e52f1b3e',
             },
