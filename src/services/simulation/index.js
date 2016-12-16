@@ -5,8 +5,14 @@ export default (requestLib = axios) => {
   const start = ({ trackerId, authToken }) => requestLib.post(`${SOWER_URL}/simulation/${trackerId}/_start`, {}, {
     headers: {
       Authorization: authToken,
-    }
+    },
   });
 
-  return { start };
+  const stop = ({ trackerId, authToken }) => requestLib.post(`${SOWER_URL}/simulation/${trackerId}/_stop`, {}, {
+    headers: {
+      Authorization: authToken,
+    },
+  });
+
+  return { start, stop };
 };

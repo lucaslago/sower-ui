@@ -8,16 +8,25 @@ describe('<DashBoardItem />', () => {
     stopDisabled: true,
     trackerId: '123',
     simulationService: {
-      start: jest.fn().mockReturnValueOnce(Promise.resolve({}))
+      start: jest.fn().mockReturnValueOnce(Promise.resolve({})),
+      stop: jest.fn().mockReturnValueOnce(Promise.resolve({})),
     },
     authService: {
       getToken() {
         return 'a-fake-token';
-      }
-    }
+      },
+    },
   };
 
-  const wrapper = shallow(<DashBoardItem {...props} />);
+  const wrapper = shallow(<DashBoardItem
+    title={props.title}
+    expanded={props.expanded}
+    startDisabled={props.startDisabled}
+    stopDisabled={props.stopDisabled}
+    trackerId={props.trackerId}
+    simulationService={props.simulationService}
+    authService={props.authService}
+  />);
 
   it('renders correctly', () => {
     expect(toJson(wrapper)).toMatchSnapshot();

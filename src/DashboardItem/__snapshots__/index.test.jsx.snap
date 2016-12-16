@@ -47,5 +47,15 @@ exports[`<DashBoardItem /> renders correctly 1`] = `
       primary={false}
       secondary={false} />
   </CardActions>
+  <Snackbar
+    autoHideDuration={4000}
+    message=""
+    onRequestClose={[Function]}
+    open={false}
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    } />
 </Card>
 `;

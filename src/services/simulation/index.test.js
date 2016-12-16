@@ -4,7 +4,7 @@ import { SOWER_URL } from '../config';
 describe('Simulation Service', () => {
   const successResponse = { status: 204 };
   const fakeAxios = {
-    post: jest.fn().mockReturnValueOnce(Promise.resolve(successResponse)),
+    post: jest.fn().mockReturnValue(Promise.resolve(successResponse)),
   };
 
   const simulationService = SimulationService(fakeAxios);
@@ -12,7 +12,7 @@ describe('Simulation Service', () => {
   const expectedHeaders = {
     headers: {
       Authorization: authToken,
-    }
+    },
   };
 
   context('start', () => {
@@ -20,6 +20,16 @@ describe('Simulation Service', () => {
       const trackerId = '123';
       return simulationService.start({ trackerId, authToken }).then((response) => {
         expect(fakeAxios.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_start`, {}, expectedHeaders);
+        expect(response).toBe(successResponse);
+      });
+    });
+  });
+
+  context('stop', () => {
+    it('should post to sower stop simulation endpoint', () => {
+      const trackerId = '123';
+      return simulationService.stop({ trackerId, authToken }).then((response) => {
+        expect(fakeAxios.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_stop`, {}, expectedHeaders);
         expect(response).toBe(successResponse);
       });
     });
