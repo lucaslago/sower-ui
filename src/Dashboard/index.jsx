@@ -18,7 +18,8 @@ export default class Dashboard extends Component {
     const authToken = this.props.route.authService.getToken();
     return this.props.route.devicesService.fetch(authToken)
       .then((response) => {
-        this.setState({ devices: response.data });
+        const devices = response.data;
+        this.setState({ devices });
       }).catch(err => console.error(err)); //eslint-disable-line
   }
 
@@ -53,6 +54,10 @@ Dashboard.propTypes = {
   route: React.PropTypes.shape({
     authService: React.PropTypes.shape({
       getToken: React.PropTypes.func.isRequired,
+    }),
+    simulationService: React.PropTypes.shape({
+      start: React.PropTypes.func.isRequired,
+      stop: React.PropTypes.func.isRequired,
     }),
     devicesService: React.PropTypes.shape({
       fetch: React.PropTypes.func.isRequired,
