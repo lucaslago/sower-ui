@@ -1,3 +1,4 @@
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DashBoardItem from './index';
 
 describe('<DashBoardItem />', () => {
@@ -8,8 +9,8 @@ describe('<DashBoardItem />', () => {
     stopDisabled: true,
     trackerId: '123',
     simulationService: {
-      start: jest.fn().mockReturnValueOnce(Promise.resolve({})),
-      stop: jest.fn().mockReturnValueOnce(Promise.resolve({})),
+      start: jest.fn().mockReturnValue(Promise.resolve({ message: 'ok' })),
+      stop: jest.fn().mockReturnValue(Promise.resolve({ message: 'ok' })),
     },
     authService: {
       getToken() {
@@ -18,24 +19,50 @@ describe('<DashBoardItem />', () => {
     },
   };
 
-  const wrapper = shallow(<DashBoardItem
-    title={props.title}
-    expanded={props.expanded}
-    startDisabled={props.startDisabled}
-    stopDisabled={props.stopDisabled}
-    trackerId={props.trackerId}
-    simulationService={props.simulationService}
-    authService={props.authService}
-  />);
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = mount(
+      <MuiThemeProvider>
+        <DashBoardItem
+          title={props.title}
+          expanded={props.expanded}
+          startDisabled={props.startDisabled}
+          stopDisabled={props.stopDisabled}
+          trackerId={props.trackerId}
+          simulationService={props.simulationService}
+          authService={props.authService}
+        />
+      </MuiThemeProvider>,
+    );
+  });
+
+  afterEach(() => {
+    wrapper.unmount();
+  });
 
   it('renders correctly', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should expand <Card /> when start button is clicked', () => {
-    const startButton = wrapper.find('.DashboardItem .start');
-    expect(wrapper.prop('expanded')).toEqual(false);
+    expect(wrapper.find('.LinearProgress').length).toEqual(0);
+    wrapper.find('.start button').simulate('click');
+    expect(wrapper.find('.LinearProgress').length).toEqual(1);
+  });
+
+  it('should disable the start button after it is clicked', () => {
+    const startButton = wrapper.find('.start button');
+    expect(startButton.prop('disabled')).toEqual(false);
     startButton.simulate('click');
-    expect(wrapper.prop('expanded')).toEqual(true);
+    expect(startButton.prop('disabled')).toEqual(true);
+  });
+
+  it('should enable the stop button after clicking the start button', () => {
+    const startButton = wrapper.find('.start button');
+    const stopButton = wrapper.find('.stop button');
+    expect(stopButton.prop('disabled')).toEqual(true);
+    startButton.simulate('click');
+    expect(stopButton.prop('disabled')).toEqual(false);
   });
 });
