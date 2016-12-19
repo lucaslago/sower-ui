@@ -13,12 +13,33 @@ class DashboardItemProgressBar extends Component {
   }
 
   componentDidMount() {
-    this.props.simulationService.status();
-    this.timer = setTimeout(() => this.progress(5), 1000);
+    this.timer = setTimeout(this.updateProgressBar.bind(this), 5000);
   }
 
   componentWillUnmount() {
     clearTimeout(this.timer);
+  }
+
+  fetchSimulationStatus() {
+    const { trackerId, authToken } = this.props;
+    return this.props.simulationService.status({ trackerId, authToken });
+  }
+
+  async updateProgressBar() {
+    const response = await this.fetchSimulationStatus();
+    if(response.data.data.status === 'active') {
+      const { totalPositions, remainingPositions } = response.data.data;
+      const completedPositions = totalPositions - remainingPositions;
+      const completedPercentage = ( completedPositions * 100 ) / totalPositions;
+      this.setState({
+        completed: completedPercentage,
+        totalPositions: response.data.data.totalPositions,
+        remainingPositions: response.data.data.remainingPositions
+      });
+      this.timer = setTimeout(this.updateProgressBar.bind(this), 1000);
+    }
+    console.log(response);
+
   }
 
   progress(completed) {
@@ -47,7 +68,7 @@ DashboardItemProgressBar.propTypes = {
     status: React.PropTypes.func.isRequired,
   }),
   trackerId: React.PropTypes.string.isRequired,
-  authorization: React.PropTypes.string.isRequired
+  authToken: React.PropTypes.string.isRequired
 };
 
 export default DashboardItemProgressBar;

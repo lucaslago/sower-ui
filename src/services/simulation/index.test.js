@@ -51,7 +51,7 @@ describe('Simulation Service', () => {
       const simulationService = SimulationService(axiosStub);
 
       return simulationService.status({ trackerId, authToken }).then((response) => {
-        expect(axiosStub.get).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_status`, {}, expectedHeaders);
+        expect(axiosStub.get).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_status`, expectedHeaders);
         expect(response).toBe(runningResponse);
       });
     });
@@ -66,7 +66,7 @@ describe('Simulation Service', () => {
       const simulationService = SimulationService(axiosStub);
 
       return simulationService.status({ trackerId, authToken }).then((response) => {
-        expect(axiosStub.get).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_status`, {}, expectedHeaders);
+        expect(axiosStub.get).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_status`, expectedHeaders);
         expect(response).toBe(notRunningResponse);
       });
     });
