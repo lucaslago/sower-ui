@@ -7,11 +7,9 @@ exports[`<ValidatedTextField /> renders without crashing 1`] = `
   floatingLabelText="login"
   fullWidth={true}
   multiLine={false}
-  onChange={[Function]}
   rows={1}
   type="text"
-  underlineShow={true}
-  value="" />
+  underlineShow={true} />
 `;
 
 exports[`<ValidatedTextField /> should not display error when showValidationError is false 1`] = `
@@ -26,6 +24,5 @@ exports[`<ValidatedTextField /> should not display error when showValidationErro
   onChange={[Function]}
   rows={1}
   type="text"
-  underlineShow={true}
-  value="" />
+  underlineShow={true} />
 `;
