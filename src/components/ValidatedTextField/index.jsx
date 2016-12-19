@@ -1,7 +1,7 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 
-export default (props) => {
+const ValidatedTextField = (props) => {
     return (
       <TextField
         floatingLabelText={ props.label }
@@ -14,4 +14,6 @@ export default (props) => {
         className="validated-text-field"
       />
     );
-}
+};
+
+export default ValidatedTextField;
