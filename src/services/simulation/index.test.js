@@ -15,6 +15,7 @@ describe('Simulation Service', () => {
     },
   };
   const trackerId = '123';
+
   context('start', () => {
     it('should successfully post to sower start simulation endpoint', () => {
       return simulationService.start({ trackerId, authToken }).then((response) => {
@@ -35,13 +36,20 @@ describe('Simulation Service', () => {
 
   context('status', () => {
     it('should return a running simulation status', () => {
-      return simulationService.stop({ trackerId, authToken }).then((response) => {
-        expect(fakeAxios.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_stop`, {}, expectedHeaders);
-        expect(response).toBe(successResponse);
+      const runningResponse = {
+        data: {
+          status: 'active',
+          totalPositions: 100,
+          remainingPositions: 20
+        }
+      };
+      return simulationService.status({ trackerId, authToken }).then((response) => {
+        expect(fakeAxios.get).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_status`, {}, expectedHeaders);
+        expect(response).toBe(runningResponse);
       });
     });
 
-    it('should return a not running simulation status', () => {
+    xit('should return a not running simulation status', () => {
       return simulationService.stop({ trackerId, authToken }).then((response) => {
         expect(fakeAxios.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_stop`, {}, expectedHeaders);
         expect(response).toBe(successResponse);
