@@ -54,7 +54,7 @@ export class Login extends Component {
   }
 
   setEmail(event) {
-    if(event.target.value === "") {
+    if (event.target.value === '') {
       this.setState({ email: event.target.value, emailError: true });
     } else {
       this.setState({ email: event.target.value, emailError: false });
@@ -62,7 +62,7 @@ export class Login extends Component {
   }
 
   setPassword(event) {
-    if(event.target.value === "") {
+    if (event.target.value === '') {
       this.setState({ password: event.target.value, passwordError: true });
     } else {
       this.setState({ password: event.target.value, passwordError: false });
