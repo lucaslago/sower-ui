@@ -14,10 +14,9 @@ describe('Simulation Service', () => {
       Authorization: authToken,
     },
   };
-
+  const trackerId = '123';
   context('start', () => {
     it('should successfully post to sower start simulation endpoint', () => {
-      const trackerId = '123';
       return simulationService.start({ trackerId, authToken }).then((response) => {
         expect(fakeAxios.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_start`, {}, expectedHeaders);
         expect(response).toBe(successResponse);
@@ -27,7 +26,22 @@ describe('Simulation Service', () => {
 
   context('stop', () => {
     it('should post to sower stop simulation endpoint', () => {
-      const trackerId = '123';
+      return simulationService.stop({ trackerId, authToken }).then((response) => {
+        expect(fakeAxios.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_stop`, {}, expectedHeaders);
+        expect(response).toBe(successResponse);
+      });
+    });
+  });
+
+  context('status', () => {
+    it('should return a running simulation status', () => {
+      return simulationService.stop({ trackerId, authToken }).then((response) => {
+        expect(fakeAxios.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_stop`, {}, expectedHeaders);
+        expect(response).toBe(successResponse);
+      });
+    });
+
+    it('should return a not running simulation status', () => {
       return simulationService.stop({ trackerId, authToken }).then((response) => {
         expect(fakeAxios.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_stop`, {}, expectedHeaders);
         expect(response).toBe(successResponse);
