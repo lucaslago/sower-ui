@@ -113,7 +113,7 @@ export default class DashboardItem extends Component {
         />
         <CardText expandable>
           <DashboardItemProgressBar trackerId={this.props.trackerId}
-                                    authorization={this.props.authService.getToken()}
+                                    authToken={this.props.authService.getToken()}
                                     simulationService={this.props.simulationService}/>
         </CardText>
         <CardActions style={actionsStyle}>

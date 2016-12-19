@@ -13,8 +13,8 @@ export default (requestLib = axios) => {
       Authorization: authToken,
     }
   });
-  
-  const status = ({ trackerId, authToken }) => requestLib.get(`${SOWER_URL}/simulation/${trackerId}/_status`, {}, {
+
+  const status = ({ trackerId, authToken }) => requestLib.get(`${SOWER_URL}/simulation/${trackerId}/_status`, {
     headers: {
       Authorization: authToken,
     }
