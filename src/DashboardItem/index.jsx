@@ -14,7 +14,7 @@ const notificationStyle = {
 };
 
 const actionsStyle = {
-  paddingRight: '0px'
+  paddingRight: '0px',
 };
 
 export default class DashboardItem extends Component {
