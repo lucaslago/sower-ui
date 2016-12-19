@@ -4,6 +4,9 @@ exports[`<DashBoardItem /> renders correctly 1`] = `
     authService={
       Object {
         "getToken": [Function],
+        "loggedIn": [Function],
+        "login": [Function],
+        "logout": [Function],
       }
     }
     expanded={false}
