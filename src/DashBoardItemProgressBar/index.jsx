@@ -1,12 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Subheader from 'material-ui/Subheader';
 import LinearProgress from 'material-ui/LinearProgress';
 
-const DashboardItemProgressBar = () => (
-  <div className="dashboard-item-progress-bar">
-    <Subheader>7050 / 8552</Subheader>
-    <LinearProgress mode="determinate" value={70} />
-  </div>
-  );
+export default class DashboardItemProgressBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      completed: 0
+    };
+  }
 
-export default DashboardItemProgressBar;
+  componentDidMount() {
+    this.timer = setTimeout(() => this.progress(5), 1000);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timer);
+  }
+
+  progress(completed) {
+    if(completed > 100) {
+      this.setState({ completed: 100 });
+    } else {
+      this.setState({ completed });
+      const diff = Math.random() * 10;
+      this.timer = setTimeout(() => this.progress(completed + diff), 1000);
+    }
+  }
+
+  render() {
+    return (
+      <div className="dashboard-item-progress-bar">
+        <Subheader>7050 / 8552</Subheader>
+        <LinearProgress mode="determinate" value={this.state.completed} />
+      </div>
+    );
+  }
+
+}
+
