@@ -15,10 +15,11 @@ describe('<DashBoardItem />', () => {
       status: jest.fn().mockReturnValue(Promise.resolve('fake status response')),
     },
     authService: {
-      getToken() {
-        return 'a-fake-token';
-      },
-    },
+      login: jest.fn(),
+      loggedIn: jest.fn(),
+      getToken: jest.fn().mockReturnValue('basic 123123'),
+      logout: jest.fn()
+    }
   };
 
   let wrapper;

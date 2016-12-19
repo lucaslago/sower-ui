@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import DashboardItem from '../DashboardItem';
+import DashboardItemContainer from '../DashboardItemContainer';
 
 const dashboardStyle = {
   marginTop: '10rem',
@@ -24,25 +24,17 @@ export default class Dashboard extends Component {
   }
 
   render() {
-    const renderDashboardItem = device => (
-      <Row key={device.id}>
-        <DashboardItem
-          title={device.relationships.equipment.data.description}
-          trackerId={device.id}
-          authService={this.props.route.authService}
-          simulationService={this.props.route.simulationService}
-          expanded={false}
-          startDisabled={!device.relationships.equipment.data.default_simulation}
-          stopDisabled
-        />
-      </Row>
-      );
-
     return (
       <div style={dashboardStyle} className="Dashboard">
         <Row>
           <Col xs={12} smOffset={1} sm={10}>
-            { this.state.devices.map(d => renderDashboardItem(d)) }
+            { this.state.devices.map(d => (
+                <DashboardItemContainer key={d.id}
+                                        device={d}
+                                        authService={this.props.route.authService}
+                                        simulationService={this.props.route.simulationService}/>)
+              )
+            }
           </Col>
         </Row>
       </div>

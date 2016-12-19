@@ -18,7 +18,12 @@ describe('<Dashboard />', () => {
       },
     ],
   };
-  const authServiceFake = { getToken: () => {} };
+  const authServiceFake = {
+    login: jest.fn(),
+    loggedIn: jest.fn(),
+    getToken: jest.fn(),
+    logout: jest.fn()
+  }
   const devicesServiceFake = { fetch: jest.fn().mockReturnValueOnce(Promise.resolve(devices)) };
   const route = {
     authService: authServiceFake,

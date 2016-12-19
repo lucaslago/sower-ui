@@ -25,6 +25,7 @@ export default class DashboardItem extends Component {
       expanded: this.props.expanded,
       startDisabled: this.props.startDisabled,
       stopDisabled: this.props.stopDisabled,
+      simulationStatus: {},
       notification: false,
       notificationMessage: '',
       dialogOpen: false,
