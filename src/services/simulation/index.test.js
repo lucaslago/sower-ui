@@ -3,8 +3,16 @@ import { SOWER_URL } from '../config';
 
 describe('Simulation Service', () => {
   const successResponse = { status: 204 };
+  const runningResponse = {
+    data: {
+      status: 'active',
+      totalPositions: 100,
+      remainingPositions: 20
+    }
+  };
   const fakeAxios = {
     post: jest.fn().mockReturnValue(Promise.resolve(successResponse)),
+    get: jest.fn().mockReturnValue(Promise.resolve(runningResponse))
   };
 
   const simulationService = SimulationService(fakeAxios);
@@ -36,13 +44,7 @@ describe('Simulation Service', () => {
 
   context('status', () => {
     it('should return a running simulation status', () => {
-      const runningResponse = {
-        data: {
-          status: 'active',
-          totalPositions: 100,
-          remainingPositions: 20
-        }
-      };
+
       return simulationService.status({ trackerId, authToken }).then((response) => {
         expect(fakeAxios.get).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_status`, {}, expectedHeaders);
         expect(response).toBe(runningResponse);
