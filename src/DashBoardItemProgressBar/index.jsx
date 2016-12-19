@@ -6,11 +6,14 @@ class DashboardItemProgressBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      completed: 0
+      completed: 0,
+      totalPositions: 0,
+      remainingPositions: 0
     };
   }
 
   componentDidMount() {
+    this.props.simulationService.status();
     this.timer = setTimeout(() => this.progress(5), 1000);
   }
 
@@ -31,7 +34,7 @@ class DashboardItemProgressBar extends Component {
   render() {
     return (
       <div className="dashboard-item-progress-bar">
-        <Subheader>7050 / 8552</Subheader>
+        <Subheader> { this.state.totalPositions - this.state.remainingPositions } / { this.state.totalPositions } </Subheader>
         <LinearProgress mode="determinate" value={this.state.completed} />
       </div>
     );
@@ -42,6 +45,9 @@ class DashboardItemProgressBar extends Component {
 DashboardItemProgressBar.propTypes = {
   simulationService: React.PropTypes.shape({
     status: React.PropTypes.func.isRequired,
-  })
+  }),
+  trackerId: React.PropTypes.string.isRequired,
+  authorization: React.PropTypes.string.isRequired
 };
+
 export default DashboardItemProgressBar;
