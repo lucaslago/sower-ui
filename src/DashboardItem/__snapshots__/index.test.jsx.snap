@@ -11,6 +11,7 @@ exports[`<DashBoardItem /> renders correctly 1`] = `
       Object {
         "create": [Function],
         "start": [Function],
+        "status": [Function],
         "stop": [Function],
       }
     }

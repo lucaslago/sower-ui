@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Subheader from 'material-ui/Subheader';
 import LinearProgress from 'material-ui/LinearProgress';
 
-export default class DashboardItemProgressBar extends Component {
+class DashboardItemProgressBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,3 +39,9 @@ export default class DashboardItemProgressBar extends Component {
 
 }
 
+DashboardItemProgressBar.propTypes = {
+  simulationService: React.PropTypes.shape({
+    status: React.PropTypes.func.isRequired,
+  })
+};
+export default DashboardItemProgressBar;

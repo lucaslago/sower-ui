@@ -12,6 +12,7 @@ describe('<DashBoardItem />', () => {
       start: jest.fn().mockReturnValue(Promise.resolve({ message: 'ok' })),
       stop: jest.fn().mockReturnValue(Promise.resolve({ message: 'ok' })),
       create: jest.fn().mockReturnValue(Promise.resolve({ message: 'ok' })),
+      status: jest.fn().mockReturnValue(Promise.resolve('fake status response')),
     },
     authService: {
       getToken() {
