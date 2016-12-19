@@ -2,20 +2,8 @@ import SimulationService from './index';
 import { SOWER_URL } from '../config';
 
 describe('Simulation Service', () => {
-  const successResponse = { status: 204 };
-  const runningResponse = {
-    data: {
-      status: 'active',
-      totalPositions: 100,
-      remainingPositions: 20
-    }
-  };
-  const fakeAxios = {
-    post: jest.fn().mockReturnValue(Promise.resolve(successResponse)),
-    get: jest.fn().mockReturnValue(Promise.resolve(runningResponse))
-  };
+  const successGenericResponse = { status: 204 };
 
-  const simulationService = SimulationService(fakeAxios);
   const authToken = 'Basic ABCD123e';
   const expectedHeaders = {
     headers: {
@@ -25,36 +13,54 @@ describe('Simulation Service', () => {
   const trackerId = '123';
 
   context('start', () => {
+    const axiosStub = { post: jest.fn().mockReturnValue(Promise.resolve(successGenericResponse)) };
+    const simulationService = SimulationService(axiosStub);
+
     it('should successfully post to sower start simulation endpoint', () => {
       return simulationService.start({ trackerId, authToken }).then((response) => {
-        expect(fakeAxios.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_start`, {}, expectedHeaders);
-        expect(response).toBe(successResponse);
+        expect(axiosStub.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_start`, {}, expectedHeaders);
+        expect(response).toBe(successGenericResponse);
       });
     });
+  
   });
 
   context('stop', () => {
+    const axiosStub = { post: jest.fn().mockReturnValue(Promise.resolve(successGenericResponse)) };
+    const simulationService = SimulationService(axiosStub);
+
     it('should post to sower stop simulation endpoint', () => {
       return simulationService.stop({ trackerId, authToken }).then((response) => {
-        expect(fakeAxios.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_stop`, {}, expectedHeaders);
-        expect(response).toBe(successResponse);
+        expect(axiosStub.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_stop`, {}, expectedHeaders);
+        expect(response).toBe(successGenericResponse);
       });
     });
+
   });
 
   context('status', () => {
+    const runningSimulationResponse = {
+      data: {
+        status: 'active',
+        totalPositions: 100,
+        remainingPositions: 20
+      }
+    };
+    const axiosStub = { get: jest.fn().mockReturnValue(Promise.resolve(runningSimulationResponse)) };
+    const simulationService = SimulationService(axiosStub);
+
     it('should return a running simulation status', () => {
 
       return simulationService.status({ trackerId, authToken }).then((response) => {
-        expect(fakeAxios.get).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_status`, {}, expectedHeaders);
-        expect(response).toBe(runningResponse);
+        expect(axiosStub.get).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_status`, {}, expectedHeaders);
+        expect(response).toBe(runningSimulationResponse);
       });
     });
 
     xit('should return a not running simulation status', () => {
       return simulationService.stop({ trackerId, authToken }).then((response) => {
-        expect(fakeAxios.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_stop`, {}, expectedHeaders);
-        expect(response).toBe(successResponse);
+        expect(axiosStub.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_stop`, {}, expectedHeaders);
+        expect(response).toBe(successGenericResponse);
       });
     });
   });
