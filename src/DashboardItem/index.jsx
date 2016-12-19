@@ -118,7 +118,9 @@ export default class DashboardItem extends Component {
           avatar="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
         />
         <CardText expandable>
-          <DashboardItemProgressBar simulationService={this.props.simulationService}/>
+          <DashboardItemProgressBar trackerId={this.props.trackerId}
+                                    authorization={this.props.authService.getToken()}
+                                    simulationService={this.props.simulationService}/>
         </CardText>
         <CardActions style={actionsStyle}>
           <RaisedButton
