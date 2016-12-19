@@ -3,6 +3,7 @@ import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import Snackbar from 'material-ui/Snackbar';
 import DashboardItemProgressBar from '../DashBoardItemProgressBar';
+import Menu from '../components/Menu';
 
 const itemStyle = {
   marginTop: '1rem',
@@ -10,6 +11,10 @@ const itemStyle = {
 
 const notificationStyle = {
   textAlign: 'center',
+};
+
+const actionsStyle = {
+  paddingRight: '0px'
 };
 
 export default class DashboardItem extends Component {
@@ -21,11 +26,13 @@ export default class DashboardItem extends Component {
       stopDisabled: this.props.stopDisabled,
       notification: false,
       notificationMessage: '',
+      dialogOpen: false,
     };
 
     this.start = this.start.bind(this);
     this.stop = this.stop.bind(this);
     this.handleNotification = this.handleNotification.bind(this);
+    this.openDialog = this.openDialog.bind(this);
   }
 
   start() {
@@ -90,6 +97,10 @@ export default class DashboardItem extends Component {
     });
   }
 
+  openDialog() {
+    this.setState({ dialogOpen: true });
+  }
+
   render() {
     return (
       <Card className="DashboardItem" expanded={this.state.expanded} style={itemStyle}>
@@ -103,7 +114,7 @@ export default class DashboardItem extends Component {
         <CardText expandable>
           <DashboardItemProgressBar />
         </CardText>
-        <CardActions>
+        <CardActions style={actionsStyle}>
           <RaisedButton
             className="start"
             label="Start"
@@ -117,6 +128,10 @@ export default class DashboardItem extends Component {
             primary={false}
             onClick={this.stop}
             disabled={this.state.stopDisabled}
+          />
+          <Menu
+            handleClick={this.openDialog}
+            primaryText="Add Custom Simulation"
           />
         </CardActions>
         <Snackbar
