@@ -1,32 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import TextField from 'material-ui/TextField';
 
-export default class ValidatedTextField extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      fieldValue: ''
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
-    this.props.handleChange(event.target.value);
-    this.setState({ fieldValue: event.target.value });
-  }
-
-  render() {
+export default (props) => {
     return (
       <TextField
-        floatingLabelText={ this.props.label }
-        type={ this.props.type }
+        floatingLabelText={ props.label }
+        type={ props.type }
         fullWidth={ true }
-        disabled={ this.props.disabled }
-        errorText={ this.props.showValidationError ? this.props.errorText : '' }
-        value={ this.state.fieldValue }
-        onChange={ this.handleChange }
+        disabled={ props.disabled }
+        errorText={ props.showValidationError ? props.errorText : '' }
+        value={ props.fieldValue }
+        onChange={ props.handleChange }
         className="validated-text-field"
       />
     );
-  }
 }

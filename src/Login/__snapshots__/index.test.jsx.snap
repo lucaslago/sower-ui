@@ -49,9 +49,10 @@ exports[`<Login /> renders without crashing 1`] = `
         <Row
           bsClass="row"
           componentClass="div">
-          <ValidatedTextField
+          <Component
             disabled={false}
             errorText="E-mail is required"
+            fieldValue=""
             handleChange={[Function]}
             label="E-mail"
             showValidationError={false}
@@ -60,9 +61,10 @@ exports[`<Login /> renders without crashing 1`] = `
         <Row
           bsClass="row"
           componentClass="div">
-          <ValidatedTextField
+          <Component
             disabled={false}
             errorText="Password is required"
+            fieldValue=""
             handleChange={[Function]}
             label="Password"
             showValidationError={false}

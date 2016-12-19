@@ -50,18 +50,23 @@ export class Login extends Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.setEmail = this.setEmail.bind(this);
     this.setPassword = this.setPassword.bind(this);
+    this.handleLoginErrorClose = this.handleLoginErrorClose.bind(this);
   }
 
-  setEmail(email) {
-    this.setState({ email, emailError: false });
+  setEmail(event) {
+    if(event.target.value === "") {
+      this.setState({ email: event.target.value, emailError: true });
+    } else {
+      this.setState({ email: event.target.value, emailError: false });
+    }
   }
 
-  setPassword(password) {
-    this.setState({ password, passwordError: false });
-  }
-
-  handlePasswordChange(event) {
-    this.setState({ password: event.target.value, passwordError: '' });
+  setPassword(event) {
+    if(event.target.value === "") {
+      this.setState({ password: event.target.value, passwordError: true });
+    } else {
+      this.setState({ password: event.target.value, passwordError: false });
+    }
   }
 
   validateForm() {
@@ -128,6 +133,7 @@ export class Login extends Component {
                   type="email"
                   disabled={this.state.emailDisabled}
                   errorText={'E-mail is required'}
+                  fieldValue={this.state.email}
                   handleChange={this.setEmail}
                   showValidationError={this.state.emailError}
                 />
@@ -138,6 +144,7 @@ export class Login extends Component {
                   type="password"
                   disabled={this.state.passwordDisabled}
                   errorText={'Password is required'}
+                  fieldValue={this.state.password}
                   handleChange={this.setPassword}
                   showValidationError={this.state.passwordError}
                 />
