@@ -39,28 +39,35 @@ describe('Simulation Service', () => {
   });
 
   context('status', () => {
-    const runningSimulationResponse = {
-      data: {
-        status: 'active',
-        totalPositions: 100,
-        remainingPositions: 20
-      }
-    };
-    const axiosStub = { get: jest.fn().mockReturnValue(Promise.resolve(runningSimulationResponse)) };
-    const simulationService = SimulationService(axiosStub);
-
     it('should return a running simulation status', () => {
+      const runningResponse = {
+        data: {
+          status: 'active',
+          totalPositions: 100,
+          remainingPositions: 20
+        }
+      };
+      const axiosStub = { get: jest.fn().mockReturnValue(Promise.resolve(runningResponse)) };
+      const simulationService = SimulationService(axiosStub);
 
       return simulationService.status({ trackerId, authToken }).then((response) => {
         expect(axiosStub.get).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_status`, {}, expectedHeaders);
-        expect(response).toBe(runningSimulationResponse);
+        expect(response).toBe(runningResponse);
       });
     });
 
-    xit('should return a not running simulation status', () => {
-      return simulationService.stop({ trackerId, authToken }).then((response) => {
-        expect(axiosStub.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_stop`, {}, expectedHeaders);
-        expect(response).toBe(successGenericResponse);
+    it('should return a not running simulation status', () => {
+      const notRunningResponse = {
+        data: {
+          status: 'inactive'
+        }
+      };
+      const axiosStub = { get: jest.fn().mockReturnValue(Promise.resolve(notRunningResponse)) };
+      const simulationService = SimulationService(axiosStub);
+
+      return simulationService.status({ trackerId, authToken }).then((response) => {
+        expect(axiosStub.get).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_status`, {}, expectedHeaders);
+        expect(response).toBe(notRunningResponse);
       });
     });
   });
