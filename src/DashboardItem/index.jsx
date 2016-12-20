@@ -26,8 +26,9 @@ const shouldExpand = simulationStatus => {
     default:
       return false;
   }
+}
 
-export default class DashboardItem extends Component {
+class DashboardItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -48,7 +49,7 @@ export default class DashboardItem extends Component {
   start() {
     this.props.simulationService.start({
       trackerId: this.props.trackerId,
-      authToken: this.props.authService.getToken(),
+      authToken: this.props.authToken,
     })
     .then(() => {
       this.setState({
@@ -70,7 +71,7 @@ export default class DashboardItem extends Component {
   stop() {
     this.props.simulationService.stop({
       trackerId: this.props.trackerId,
-      authToken: this.props.authService.getToken(),
+      authToken: this.props.authToken(),
     })
     .then(() => {
       this.setState({
@@ -123,7 +124,7 @@ export default class DashboardItem extends Component {
         />
         <CardText expandable>
           <DashboardItemProgressBar trackerId={this.props.trackerId}
-                                    authToken={this.props.authService.getToken()}
+                                    authToken={this.props.authToken}
                                     simulationStatus={this.props.simulationStatus}
                                     simulationService={this.props.simulationService}
                                     updateInterval={5000}
@@ -166,9 +167,7 @@ DashboardItem.propTypes = {
   trackerId: React.PropTypes.string.isRequired,
   startDisabled: React.PropTypes.bool.isRequired,
   stopDisabled: React.PropTypes.bool.isRequired,
-  authService: React.PropTypes.shape({
-    getToken: React.PropTypes.func.isRequired,
-  }),
+  authToken: React.PropTypes.string.isRequired,
   simulationService: React.PropTypes.shape({
     start: React.PropTypes.func.isRequired,
     stop: React.PropTypes.func.isRequired,
@@ -179,3 +178,5 @@ DashboardItem.propTypes = {
     remainingPositions: React.PropTypes.number
   })
 };
+
+export default DashboardItem;

@@ -2,13 +2,13 @@ import React from 'react';
 import { Row } from 'react-bootstrap';
 import DashboardItem from '../DashboardItem';
 
-const DashboardItemContainer = ({ device, authService, simulationService }) => {
+const DashboardItemContainer = ({ device, authToken, simulationService }) => {
   return (
     <Row>
       <DashboardItem
         title={device.relationships.equipment.data.description}
         trackerId={device.id}
-        authService={authService}
+        authToken={authToken}
         simulationService={simulationService}
         startDisabled={!device.relationships.equipment.data.default_simulation}
         stopDisabled
@@ -28,12 +28,7 @@ DashboardItemContainer.propTypes = {
       })
     })
   }),
-  authService: React.PropTypes.shape({
-    login: React.PropTypes.func.isRequired,
-    loggedIn: React.PropTypes.func.isRequired,
-    getToken: React.PropTypes.func.isRequired,
-    logout: React.PropTypes.func.isRequired
-  }),
+  authToken: React.PropTypes.string.isRequired,
   simulationService: React.PropTypes.shape({
     start: React.PropTypes.func.isRequired,
     stop: React.PropTypes.func.isRequired,
