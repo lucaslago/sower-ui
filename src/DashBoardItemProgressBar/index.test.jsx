@@ -9,6 +9,7 @@ describe('<DashboardItemProgressBar>', () => {
       authToken={'Bearer 12312312'}
       simulationService={simulationService}
       simulationStatus={simulationStatus}
+      updateInterval={5000}
     />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });

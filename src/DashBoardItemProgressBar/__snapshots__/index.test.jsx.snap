@@ -3,9 +3,7 @@ exports[`<DashboardItemProgressBar> should render correctly 1`] = `
   className="dashboard-item-progress-bar">
   <Subheader
     inset={false}>
-     
-     / 
-     
+    /
   </Subheader>
   <LinearProgress
     max={100}
