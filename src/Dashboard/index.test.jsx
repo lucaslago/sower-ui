@@ -21,7 +21,7 @@ describe('<Dashboard />', () => {
   const authServiceFake = {
     login: jest.fn(),
     loggedIn: jest.fn(),
-    getToken: jest.fn(),
+    getToken: jest.fn().mockReturnValue('basic 123123'),
     logout: jest.fn()
   };
   const simulationServiceFake = {

@@ -10,7 +10,7 @@ const simulationStatusFetcher = simulationService => authToken => device => {
   return simulationService.status({trackerId: device.id, authToken});
 };
 
-const transformDevice = device => statusResponse => Object.assign({ simulationStatus: statusResponse.data.data }, device);
+const transformDevice = device => simulationStatus => Object.assign({ simulationStatus }, device);
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -28,7 +28,7 @@ export default class Dashboard extends Component {
       .then((response) => {
         const devices = response.data;
         const devicesPromise = devices.map(d => {
-          return fetchSimulationStatus(d).then(response => transformDevice(d)(response))
+          return fetchSimulationStatus(d).then(simulationStatus => transformDevice(d)(simulationStatus))
         });
         Promise.all(devicesPromise).then(transformedDevices => {
           this.setState({ devices: transformedDevices });
@@ -44,7 +44,7 @@ export default class Dashboard extends Component {
             { this.state.devices.map(d => (
               <DashboardItemContainer key={d.id}
                 device={d}
-                authService={this.props.route.authService}
+                authToken={this.props.route.authService.getToken()}
                 simulationService={this.props.route.simulationService}/>)
             )
             }

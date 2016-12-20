@@ -1,14 +1,7 @@
 exports[`<DashBoardItem /> renders correctly 1`] = `
 <MuiThemeProvider>
   <DashboardItem
-    authService={
-      Object {
-        "getToken": [Function],
-        "loggedIn": [Function],
-        "login": [Function],
-        "logout": [Function],
-      }
-    }
+    authToken="basic 123123"
     expanded={false}
     simulationService={
       Object {
