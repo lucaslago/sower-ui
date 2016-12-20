@@ -36,13 +36,13 @@ class DashboardItemProgressBar extends Component {
   async updateProgressBar() {
     const { trackerId, authToken } = this.props;
     try { 
-      const response = await this.props.simulationService.status({ trackerId, authToken });
-      if(response.data.data.status === 'active') {
-        const { totalPositions, remainingPositions } = response.data.data;
+      const simulationStatus = await this.props.simulationService.status({ trackerId, authToken });
+      if(simulationStatus.status === 'active') {
+        const { totalPositions, remainingPositions } = simulationStatus;
         this.setState({
           completed: completedPercentage(totalPositions, remainingPositions),
-          totalPositions: response.data.data.totalPositions,
-          remainingPositions: response.data.data.remainingPositions
+          totalPositions,
+          remainingPositions
         });
         this.timer = setTimeout(this.updateProgressBar.bind(this), this.props.updateInterval);
       }
