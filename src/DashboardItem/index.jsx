@@ -73,7 +73,7 @@ class DashboardItem extends Component {
   stop() {
     this.props.simulationService.stop({
       trackerId: this.props.trackerId,
-      authToken: this.props.authToken(),
+      authToken: this.props.authToken,
     })
     .then(() => {
       this.setState({
