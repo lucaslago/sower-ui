@@ -121,12 +121,12 @@ describe('Simulation Service', () => {
       ],
     };
 
-    it('should post a new simulation to sower', () => {
-      const trackerId = '123';
-      return simulationService.create({ trackerId, authToken, payload }).then((response) => {
-        expect(fakeAxios.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}`, payload, expectedHeaders);
-        expect(response).toBe(successResponse);
-      });
-    });
+    const axiosStub = { post: jest.fn().mockReturnValue(Promise.resolve(payload)) };
+    const simulationService = SimulationService(axiosStub);
+
+    it('should post a new simulation to sower', () => simulationService.create({ trackerId, authToken, payload }).then((response) => {
+      expect(axiosStub.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}`, payload, expectedHeaders);
+      expect(response).toBe(payload);
+    }));
   });
 });
