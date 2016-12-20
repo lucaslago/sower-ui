@@ -36,24 +36,24 @@ export default class Dashboard extends Component {
   }
 
   render() {
+    const renderDashboardItem = device => (
+      <Row key={device.id}>
+        <DashboardItem
+          device={device}
+          startDisabled={!device.relationships.equipment.data.default_simulation}
+          stopDisabled
+          authToken={this.props.route.authService.getToken()}
+          simulationService={this.props.route.simulationService}
+          simulationStatus={device.simulationStatus}
+        />
+      </Row>
+      );
+
     return (
       <div style={dashboardStyle} className="Dashboard">
         <Row>
           <Col xs={12} smOffset={1} sm={10}>
-            { this.state.devices.map(d => (
-              <Row key={d.id}>
-                <DashboardItem
-                  device={d}
-                  startDisabled={!d.relationships.equipment.data.default_simulation}
-                  stopDisabled
-                  authToken={this.props.route.authService.getToken()}
-                  simulationService={this.props.route.simulationService}
-                  simulationStatus={d.simulationStatus}
-                />
-              </Row>
-            ),
-            )
-            }
+            { this.state.devices.map(d => renderDashboardItem(d))}
           </Col>
         </Row>
       </div>
