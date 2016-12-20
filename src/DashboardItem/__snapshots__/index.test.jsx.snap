@@ -2,6 +2,25 @@ exports[`<DashBoardItem /> renders correctly 1`] = `
 <MuiThemeProvider>
   <DashboardItem
     authToken="basic 123123"
+    device={
+      Object {
+        "id": "123",
+        "relationships": Object {
+          "equipment": Object {
+            "data": Object {
+              "default_simulation": true,
+              "description": "a cool tractor simulation",
+              "id": "anotherid",
+              "simulation_type": "applicator",
+              "type": "equipment",
+            },
+          },
+        },
+        "simulationStatus": Object {
+          "status": "inactive",
+        },
+      }
+    }
     expanded={false}
     simulationService={
       Object {
@@ -11,15 +30,9 @@ exports[`<DashBoardItem /> renders correctly 1`] = `
         "stop": [Function],
       }
     }
-    simulationStatus={
-      Object {
-        "status": "inactive",
-      }
-    }
     startDisabled={false}
     stopDisabled={true}
-    title="Tractor"
-    trackerId="123">
+    title="Tractor">
     <Card
       className="DashboardItem"
       expandable={false}
@@ -71,7 +84,7 @@ exports[`<DashBoardItem /> renders correctly 1`] = `
               avatar="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
               showExpandableButton={false}
               subtitle="123"
-              title="Tractor">
+              title="a cool tractor simulation">
               <div
                 style={
                   Object {
@@ -130,7 +143,7 @@ exports[`<DashBoardItem /> renders correctly 1`] = `
                         "muiPrepared": true,
                       }
                     }>
-                    Tractor
+                    a cool tractor simulation
                   </span>
                   <span
                     style={

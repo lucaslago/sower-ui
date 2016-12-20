@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import DashboardItemContainer from '../DashboardItemContainer';
+import DashboardItem from '../DashboardItem';
 
 const dashboardStyle = {
   marginTop: '10rem',
@@ -41,12 +41,17 @@ export default class Dashboard extends Component {
         <Row>
           <Col xs={12} smOffset={1} sm={10}>
             { this.state.devices.map(d => (
-              <DashboardItemContainer
-                key={d.id}
-                device={d}
-                authToken={this.props.route.authService.getToken()}
-                simulationService={this.props.route.simulationService}
-              />),
+              <Row key={d.id}>
+                <DashboardItem
+                  device={d}
+                  startDisabled={!d.relationships.equipment.data.default_simulation}
+                  stopDisabled
+                  authToken={this.props.route.authService.getToken()}
+                  simulationService={this.props.route.simulationService}
+                  simulationStatus={d.simulationStatus}
+                />
+              </Row>
+            ),
             )
             }
           </Col>
