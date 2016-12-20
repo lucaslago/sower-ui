@@ -18,8 +18,8 @@ const actionsStyle = {
   paddingRight: '0px',
 };
 
-const shouldExpand = simulationStatus => {
-  switch(simulationStatus) {
+const shouldExpand = (simulationStatus) => {
+  switch (simulationStatus) {
     case 'active':
       return true;
     case 'inactive':
@@ -27,7 +27,7 @@ const shouldExpand = simulationStatus => {
     default:
       return false;
   }
-}
+};
 
 class DashboardItem extends Component {
   constructor(props) {
@@ -129,12 +129,13 @@ class DashboardItem extends Component {
           avatar="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
         />
         <CardText expandable>
-          <DashboardItemProgressBar trackerId={this.props.trackerId}
-                                    authToken={this.props.authToken}
-                                    simulationStatus={this.props.simulationStatus}
-                                    simulationService={this.props.simulationService}
-                                    updateInterval={5000}
-                                 />
+          <DashboardItemProgressBar
+            trackerId={this.props.trackerId}
+            authToken={this.props.authToken}
+            simulationStatus={this.props.simulationStatus}
+            simulationService={this.props.simulationService}
+            updateInterval={5000}
+          />
         </CardText>
         <CardActions style={actionsStyle}>
           <RaisedButton
@@ -189,8 +190,8 @@ DashboardItem.propTypes = {
   simulationStatus: React.PropTypes.shape({
     status: React.PropTypes.string.isRequired,
     totalPositions: React.PropTypes.number,
-    remainingPositions: React.PropTypes.number
-  })
+    remainingPositions: React.PropTypes.number,
+  }),
 };
 
 export default DashboardItem;

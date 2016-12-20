@@ -16,8 +16,8 @@ describe('<DashBoardItem />', () => {
     },
     authToken: 'basic 123123',
     simulationStatus: {
-      status: 'inactive'
-    }
+      status: 'inactive',
+    },
   };
 
   let wrapper;

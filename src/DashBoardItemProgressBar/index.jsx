@@ -4,18 +4,19 @@ import LinearProgress from 'material-ui/LinearProgress';
 
 const completedPercentage = (totalPositions, remainingPositions) => {
   const completedPositions = totalPositions - remainingPositions;
-  return ( completedPositions * 100 ) / totalPositions;
+  return (completedPositions * 100) / totalPositions;
 };
 
-const initialState = simulationStatus => {
-  if(simulationStatus.status === 'active') {
+const initialState = (simulationStatus) => {
+  if (simulationStatus.status === 'active') {
     return {
-      completed: completedPercentage(simulationStatus.totalPositions, simulationStatus.remainingPositions),
+      completed: completedPercentage(simulationStatus.totalPositions,
+                                     simulationStatus.remainingPositions),
       totalPositions: simulationStatus.totalPositions,
-      remainingPositions: simulationStatus.remainingPositions
-    }
+      remainingPositions: simulationStatus.remainingPositions,
+    };
   }
-  return { completed: 0, totalPositions: 0, remainingPositions: 0};
+  return { completed: 0, totalPositions: 0, remainingPositions: 0 };
 };
 
 class DashboardItemProgressBar extends Component {
@@ -35,26 +36,31 @@ class DashboardItemProgressBar extends Component {
 
   async updateProgressBar() {
     const { trackerId, authToken } = this.props;
-    try { 
+    try {
       const simulationStatus = await this.props.simulationService.status({ trackerId, authToken });
-      if(simulationStatus.status === 'active') {
+      if (simulationStatus.status === 'active') {
         const { totalPositions, remainingPositions } = simulationStatus;
         this.setState({
           completed: completedPercentage(totalPositions, remainingPositions),
           totalPositions,
-          remainingPositions
+          remainingPositions,
         });
         this.timer = setTimeout(this.updateProgressBar.bind(this), this.props.updateInterval);
       }
-    } catch(error) {
-      console.log(error);
+    } catch (error) {
+      console.log(error); // eslint-disable-line
     }
   }
 
   render() {
+    const renderSubheader = () => (
+      <Subheader>
+        { this.state.totalPositions - this.state.remainingPositions }/{ this.state.totalPositions }
+      </Subheader>
+      );
     return (
       <div className="dashboard-item-progress-bar">
-        <Subheader> { this.state.totalPositions - this.state.remainingPositions } / { this.state.totalPositions } </Subheader>
+        {renderSubheader()}
         <LinearProgress mode="determinate" value={this.state.completed} />
       </div>
     );
@@ -71,8 +77,9 @@ DashboardItemProgressBar.propTypes = {
   simulationStatus: React.PropTypes.shape({
     status: React.PropTypes.string.isRequired,
     totalPositions: React.PropTypes.number,
-    remainingPositions: React.PropTypes.number
-  })
+    remainingPositions: React.PropTypes.number,
+  }),
+  updateInterval: React.PropTypes.number.isRequired,
 };
 
 export default DashboardItemProgressBar;

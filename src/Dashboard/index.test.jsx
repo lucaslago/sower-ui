@@ -22,18 +22,18 @@ describe('<Dashboard />', () => {
     login: jest.fn(),
     loggedIn: jest.fn(),
     getToken: jest.fn().mockReturnValue('basic 123123'),
-    logout: jest.fn()
+    logout: jest.fn(),
   };
   const simulationServiceFake = {
-    status: jest.fn().mockReturnValue(Promise.resolve({status: 'active', totalPositions: 1000, remainingPositions: 500})),
+    status: jest.fn().mockReturnValue(Promise.resolve({ status: 'active', totalPositions: 1000, remainingPositions: 500 })),
     stop: jest.fn(),
-    start: jest.fn()
+    start: jest.fn(),
   };
   const devicesServiceFake = { fetch: jest.fn().mockReturnValueOnce(Promise.resolve(devices)) };
   const route = {
     authService: authServiceFake,
     devicesService: devicesServiceFake,
-    simulationService: simulationServiceFake
+    simulationService: simulationServiceFake,
   };
 
   it('renders without crashing', () => {
