@@ -7,15 +7,28 @@ describe('<DashBoardItem />', () => {
     expanded: false,
     startDisabled: false,
     stopDisabled: true,
-    trackerId: '123',
     simulationService: {
       start: jest.fn().mockReturnValue(Promise.resolve({ message: 'ok' })),
       stop: jest.fn().mockReturnValue(Promise.resolve({ message: 'ok' })),
       status: jest.fn().mockReturnValue(Promise.resolve('fake status response')),
     },
     authToken: 'basic 123123',
-    simulationStatus: {
-      status: 'inactive',
+    device: {
+      id: '123',
+      relationships: {
+        equipment: {
+          data: {
+            description: 'a cool tractor simulation',
+            default_simulation: true,
+            id: 'anotherid',
+            type: 'equipment',
+            simulation_type: 'applicator',
+          },
+        },
+      },
+      simulationStatus: {
+        status: 'inactive',
+      },
     },
   };
 
@@ -29,7 +42,7 @@ describe('<DashBoardItem />', () => {
           expanded={props.expanded}
           startDisabled={props.startDisabled}
           stopDisabled={props.stopDisabled}
-          trackerId={props.trackerId}
+          device={props.device}
           simulationService={props.simulationService}
           authToken={props.authToken}
           simulationStatus={props.simulationStatus}

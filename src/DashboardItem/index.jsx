@@ -32,14 +32,13 @@ class DashboardItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      startDisabled: shouldExpand(this.props.simulationStatus.status),
-      stopDisabled: !shouldExpand(this.props.simulationStatus.status),
+      startDisabled: shouldExpand(this.props.device.simulationStatus.status),
+      stopDisabled: !shouldExpand(this.props.device.simulationStatus.status),
+      expanded: shouldExpand(this.props.device.simulationStatus.status),
       notification: false,
-      expanded: shouldExpand(this.props.simulationStatus.status),
       notificationMessage: '',
       dialogOpen: false,
     };
-
     this.start = this.start.bind(this);
     this.stop = this.stop.bind(this);
     this.handleNotification = this.handleNotification.bind(this);
@@ -48,7 +47,7 @@ class DashboardItem extends Component {
 
   start() {
     this.props.simulationService.start({
-      trackerId: this.props.trackerId,
+      trackerId: this.props.device.id,
       authToken: this.props.authToken,
     })
     .then(() => {
@@ -70,7 +69,7 @@ class DashboardItem extends Component {
 
   stop() {
     this.props.simulationService.stop({
-      trackerId: this.props.trackerId,
+      trackerId: this.props.device.id,
       authToken: this.props.authToken,
     })
     .then(() => {
@@ -116,17 +115,17 @@ class DashboardItem extends Component {
     return (
       <Card className="DashboardItem" expanded={this.state.expanded} style={itemStyle}>
         <CardHeader
-          title={this.props.title}
-          subtitle={this.props.trackerId}
+          title={this.props.device.relationships.equipment.data.description}
+          subtitle={this.props.device.id}
           actAsExpander={false}
           showExpandableButton={false}
           avatar="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
         />
         <CardText expandable>
           <DashboardItemProgressBar
-            trackerId={this.props.trackerId}
+            trackerId={this.props.device.id}
             authToken={this.props.authToken}
-            simulationStatus={this.props.simulationStatus}
+            simulationStatus={this.props.device.simulationStatus}
             simulationService={this.props.simulationService}
             updateInterval={5000}
           />
@@ -164,8 +163,6 @@ class DashboardItem extends Component {
 }
 
 DashboardItem.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  trackerId: React.PropTypes.string.isRequired,
   startDisabled: React.PropTypes.bool.isRequired,
   stopDisabled: React.PropTypes.bool.isRequired,
   authToken: React.PropTypes.string.isRequired,
@@ -177,6 +174,21 @@ DashboardItem.propTypes = {
     status: React.PropTypes.string.isRequired,
     totalPositions: React.PropTypes.number,
     remainingPositions: React.PropTypes.number,
+  }),
+  device: React.PropTypes.shape({
+    id: React.PropTypes.string.isRequired,
+    simulationStatus: React.PropTypes.shape({
+      status: React.PropTypes.string.isRequired,
+      totalPositions: React.PropTypes.number,
+      remainingPositions: React.PropTypes.number,
+    }),
+    relationships: React.PropTypes.shape({
+      equipment: React.PropTypes.shape({
+        data: React.PropTypes.shape({
+          description: React.PropTypes.string.isRequired,
+        }),
+      }),
+    }),
   }),
 };
 
