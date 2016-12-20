@@ -14,5 +14,11 @@ export default (requestLib = axios) => {
     },
   });
 
-  return { start, stop };
+  const create = ({ trackerId, authToken, payload }) => requestLib.post(`${SOWER_URL}/simulation/${trackerId}`, payload, {
+    headers: {
+      Authorization: authToken,
+    },
+  });
+
+  return { start, stop, create };
 };
