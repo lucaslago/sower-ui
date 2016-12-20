@@ -17,7 +17,7 @@ const actionsStyle = {
   paddingRight: '0px',
 };
 
-const shouldExpand = (simulationStatus) => {
+const isActiveSimulation = (simulationStatus) => {
   switch (simulationStatus) {
     case 'active':
       return true;
@@ -32,9 +32,9 @@ class DashboardItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      startDisabled: shouldExpand(this.props.device.simulationStatus.status),
-      stopDisabled: !shouldExpand(this.props.device.simulationStatus.status),
-      expanded: shouldExpand(this.props.device.simulationStatus.status),
+      startDisabled: isActiveSimulation(this.props.device.simulationStatus.status),
+      stopDisabled: !isActiveSimulation(this.props.device.simulationStatus.status),
+      expanded: isActiveSimulation(this.props.device.simulationStatus.status),
       notification: false,
       notificationMessage: '',
       dialogOpen: false,
