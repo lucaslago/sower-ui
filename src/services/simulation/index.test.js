@@ -16,26 +16,20 @@ describe('Simulation Service', () => {
     const axiosStub = { post: jest.fn().mockReturnValue(Promise.resolve(successGenericResponse)) };
     const simulationService = SimulationService(axiosStub);
 
-    it('should successfully post to sower start simulation endpoint', () => {
-      return simulationService.start({ trackerId, authToken }).then((response) => {
-        expect(axiosStub.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_start`, {}, expectedHeaders);
-        expect(response).toBe(successGenericResponse);
-      });
-    });
-
+    it('should successfully post to sower start simulation endpoint', () => simulationService.start({ trackerId, authToken }).then((response) => {
+      expect(axiosStub.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_start`, {}, expectedHeaders);
+      expect(response).toBe(successGenericResponse);
+    }));
   });
 
   context('stop', () => {
     const axiosStub = { post: jest.fn().mockReturnValue(Promise.resolve(successGenericResponse)) };
     const simulationService = SimulationService(axiosStub);
 
-    it('should post to sower stop simulation endpoint', () => {
-      return simulationService.stop({ trackerId, authToken }).then((response) => {
-        expect(axiosStub.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_stop`, {}, expectedHeaders);
-        expect(response).toBe(successGenericResponse);
-      });
-    });
-
+    it('should post to sower stop simulation endpoint', () => simulationService.stop({ trackerId, authToken }).then((response) => {
+      expect(axiosStub.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_stop`, {}, expectedHeaders);
+      expect(response).toBe(successGenericResponse);
+    }));
   });
 
   context('status', () => {
@@ -45,10 +39,10 @@ describe('Simulation Service', () => {
           data: {
             status: 'active',
             totalPositions: 100,
-            remainingPositions: 20
+            remainingPositions: 20,
 
-          }
-        }
+          },
+        },
       };
       const axiosStub = { get: jest.fn().mockReturnValue(Promise.resolve(runningResponse)) };
       const simulationService = SimulationService(axiosStub);
@@ -63,9 +57,9 @@ describe('Simulation Service', () => {
       const notRunningResponse = {
         data: {
           data: {
-            status: 'inactive'
-          }
-        }
+            status: 'inactive',
+          },
+        },
       };
       const axiosStub = { get: jest.fn().mockReturnValue(Promise.resolve(notRunningResponse)) };
       const simulationService = SimulationService(axiosStub);
