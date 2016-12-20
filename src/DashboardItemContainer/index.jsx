@@ -10,13 +10,14 @@ const DashboardItemContainer = ({ device, authService, simulationService }) => {
         trackerId={device.id}
         authService={authService}
         simulationService={simulationService}
-        expanded={false}
         startDisabled={!device.relationships.equipment.data.default_simulation}
         stopDisabled
+        simulationStatus={device.simulationStatus}
       />
     </Row>
   );
 };
+
 DashboardItemContainer.propTypes = {
   device: React.PropTypes.shape({
     relationships: React.PropTypes.shape({
@@ -39,4 +40,5 @@ DashboardItemContainer.propTypes = {
     status: React.PropTypes.func.isRequired
   })
 }
+
 export default DashboardItemContainer;

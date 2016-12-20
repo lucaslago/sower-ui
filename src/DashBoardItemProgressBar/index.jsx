@@ -2,53 +2,52 @@ import React, { Component } from 'react';
 import Subheader from 'material-ui/Subheader';
 import LinearProgress from 'material-ui/LinearProgress';
 
+const completedPercentage = (totalPositions, remainingPositions) => {
+  const completedPositions = totalPositions - remainingPositions;
+  return ( completedPositions * 100 ) / totalPositions;
+};
+
+const initialState = simulationStatus => {
+  if(simulationStatus.status === 'active') {
+    return {
+      completed: completedPercentage(simulationStatus.totalPositions, simulationStatus.remainingPositions),
+      totalPositions: simulationStatus.totalPositions,
+      remainingPositions: simulationStatus.remainingPositions
+    }
+  }
+  return { completed: 0, totalPositions: 0, remainingPositions: 0};
+};
+
 class DashboardItemProgressBar extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      completed: 0,
-      totalPositions: 0,
-      remainingPositions: 0
-    };
+    this.state = initialState(props.simulationStatus);
+    this.timer = null;
   }
 
   componentDidMount() {
-    this.timer = setTimeout(this.updateProgressBar.bind(this), 5000);
+    this.timer = setTimeout(this.updateProgressBar.bind(this), this.props.updateInterval);
   }
 
   componentWillUnmount() {
     clearTimeout(this.timer);
   }
 
-  fetchSimulationStatus() {
-    const { trackerId, authToken } = this.props;
-    return this.props.simulationService.status({ trackerId, authToken });
-  }
-
   async updateProgressBar() {
-    const response = await this.fetchSimulationStatus();
-    if(response.data.data.status === 'active') {
-      const { totalPositions, remainingPositions } = response.data.data;
-      const completedPositions = totalPositions - remainingPositions;
-      const completedPercentage = ( completedPositions * 100 ) / totalPositions;
-      this.setState({
-        completed: completedPercentage,
-        totalPositions: response.data.data.totalPositions,
-        remainingPositions: response.data.data.remainingPositions
-      });
-      this.timer = setTimeout(this.updateProgressBar.bind(this), 1000);
-    }
-    console.log(response);
-
-  }
-
-  progress(completed) {
-    if(completed > 100) {
-      this.setState({ completed: 100 });
-    } else {
-      this.setState({ completed });
-      const diff = Math.random() * 10;
-      this.timer = setTimeout(() => this.progress(completed + diff), 1000);
+    const { trackerId, authToken } = this.props;
+    try { 
+      const response = await this.props.simulationService.status({ trackerId, authToken });
+      if(response.data.data.status === 'active') {
+        const { totalPositions, remainingPositions } = response.data.data;
+        this.setState({
+          completed: completedPercentage(totalPositions, remainingPositions),
+          totalPositions: response.data.data.totalPositions,
+          remainingPositions: response.data.data.remainingPositions
+        });
+        this.timer = setTimeout(this.updateProgressBar.bind(this), this.props.updateInterval);
+      }
+    } catch(error) {
+      console.log(error);
     }
   }
 
@@ -68,7 +67,12 @@ DashboardItemProgressBar.propTypes = {
     status: React.PropTypes.func.isRequired,
   }),
   trackerId: React.PropTypes.string.isRequired,
-  authToken: React.PropTypes.string.isRequired
+  authToken: React.PropTypes.string.isRequired,
+  simulationStatus: React.PropTypes.shape({
+    status: React.PropTypes.string.isRequired,
+    totalPositions: React.PropTypes.number,
+    remainingPositions: React.PropTypes.number
+  })
 };
 
 export default DashboardItemProgressBar;

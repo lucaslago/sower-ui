@@ -19,6 +19,9 @@ describe('<DashBoardItem />', () => {
       loggedIn: jest.fn(),
       getToken: jest.fn().mockReturnValue('basic 123123'),
       logout: jest.fn()
+    },
+    simulationStatus: {
+      status: 'inactive'
     }
   };
 
@@ -35,6 +38,7 @@ describe('<DashBoardItem />', () => {
           trackerId={props.trackerId}
           simulationService={props.simulationService}
           authService={props.authService}
+          simulationStatus={props.simulationStatus}
         />
       </MuiThemeProvider>,
     );
