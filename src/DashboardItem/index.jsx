@@ -17,15 +17,24 @@ const actionsStyle = {
   paddingRight: '0px',
 };
 
+const shouldExpand = simulationStatus => {
+  switch(simulationStatus) {
+    case 'active':
+      return true;
+    case 'inactive':
+      return false;
+    default:
+      return false;
+  }
+
 export default class DashboardItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      expanded: this.props.expanded,
-      startDisabled: this.props.startDisabled,
-      stopDisabled: this.props.stopDisabled,
-      simulationStatus: {},
+      startDisabled: shouldExpand(this.props.simulationStatus.status),
+      stopDisabled: !shouldExpand(this.props.simulationStatus.status),
       notification: false,
+      expanded: shouldExpand(this.props.simulationStatus.status),
       notificationMessage: '',
       dialogOpen: false,
     };
@@ -92,7 +101,7 @@ export default class DashboardItem extends Component {
 
   reset() {
     this.setState({
-      expanded: this.props.expanded,
+      expanded: false,
       startDisabled: this.props.startDisabled,
       stopDisabled: this.props.stopDisabled,
     });
@@ -115,7 +124,10 @@ export default class DashboardItem extends Component {
         <CardText expandable>
           <DashboardItemProgressBar trackerId={this.props.trackerId}
                                     authToken={this.props.authService.getToken()}
-                                    simulationService={this.props.simulationService}/>
+                                    simulationStatus={this.props.simulationStatus}
+                                    simulationService={this.props.simulationService}
+                                    updateInterval={5000}
+                                 />
         </CardText>
         <CardActions style={actionsStyle}>
           <RaisedButton
@@ -152,7 +164,6 @@ export default class DashboardItem extends Component {
 DashboardItem.propTypes = {
   title: React.PropTypes.string.isRequired,
   trackerId: React.PropTypes.string.isRequired,
-  expanded: React.PropTypes.bool.isRequired,
   startDisabled: React.PropTypes.bool.isRequired,
   stopDisabled: React.PropTypes.bool.isRequired,
   authService: React.PropTypes.shape({
@@ -162,4 +173,9 @@ DashboardItem.propTypes = {
     start: React.PropTypes.func.isRequired,
     stop: React.PropTypes.func.isRequired,
   }),
+  simulationStatus: React.PropTypes.shape({
+    status: React.PropTypes.string.isRequired,
+    totalPositions: React.PropTypes.number,
+    remainingPositions: React.PropTypes.number
+  })
 };

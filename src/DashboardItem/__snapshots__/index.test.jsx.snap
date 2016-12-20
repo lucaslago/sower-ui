@@ -17,6 +17,11 @@ exports[`<DashBoardItem /> renders correctly 1`] = `
         "stop": [Function],
       }
     }
+    simulationStatus={
+      Object {
+        "status": "inactive",
+      }
+    }
     startDisabled={false}
     stopDisabled={true}
     title="Tractor"
