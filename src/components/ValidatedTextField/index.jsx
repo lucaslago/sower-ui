@@ -6,7 +6,7 @@ const ValidatedTextField = (props) => {
       <TextField
         floatingLabelText={ props.label }
         type={ props.type }
-        fullWidth={ true }
+        fullWidth={ props.fullWidth }
         disabled={ props.disabled }
         errorText={ props.showValidationError ? props.errorText : '' }
         value={ props.fieldValue }
