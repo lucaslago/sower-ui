@@ -5,6 +5,7 @@ import Snackbar from 'material-ui/Snackbar';
 import DashboardItemProgressBar from '../DashBoardItemProgressBar';
 import Menu from '../components/Menu';
 import CustomSimulationDialog from '../CustomSimulationDialog';
+import SIMULATION_STATUS from '../utils/simulation_status';
 
 const itemStyle = {
   marginTop: '1rem',
@@ -18,16 +19,7 @@ const actionsStyle = {
   paddingRight: '0px',
 };
 
-const isActiveSimulation = (simulationStatus) => {
-  switch (simulationStatus) {
-    case 'active':
-      return true;
-    case 'inactive':
-      return false;
-    default:
-      return false;
-  }
-};
+const isActiveSimulation = status => status === SIMULATION_STATUS.ACTIVE;
 
 class DashboardItem extends Component {
   constructor(props) {
