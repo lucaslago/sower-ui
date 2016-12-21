@@ -6,10 +6,8 @@ const dashboardStyle = {
   marginTop: '10rem',
 };
 
-const simulationStatusFetcher = simulationService => authToken => device => (
-  simulationService.status({ trackerId: device.id, authToken })
-);
-const transformDevice = device => simulationStatus => Object.assign({ simulationStatus }, device);
+const addSimulationStatus = (device, simulationStatus) => (
+  Object.assign({ simulationStatus }, device));
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -20,23 +18,27 @@ export default class Dashboard extends Component {
   }
 
   componentWillMount() {
-    const authToken = this.props.route.authService.getToken();
-    const simulationStatus = simulationStatusFetcher(this.props.route.simulationService)(authToken);
-
-    return this.props.route.devicesService.fetch(authToken)
-      .then((response) => {
-        const devices = response.data;
-        const devicesPromise = devices.map(d => simulationStatus(d).then(status => (
-          transformDevice(d)(status))),
-        );
-        Promise.all(devicesPromise).then((transformedDevices) => {
-          this.setState({ devices: transformedDevices });
-        });
+    return this.getDevices()
+      .then(response => response.data.map(device => this.getSimulationStatus(device.id)
+        .then(status => addSimulationStatus(device, status))))
+      .then(devicesPromise => Promise.all(devicesPromise))
+      .then((transformedDevices) => {
+        this.setState({ devices: transformedDevices });
       }).catch(err => console.error(err)); //eslint-disable-line
   }
 
-  render() {
-    const renderDashboardItem = device => (
+  getSimulationStatus(trackerId) {
+    const authToken = this.props.route.authService.getToken();
+    return this.props.route.simulationService.status({ trackerId, authToken });
+  }
+
+  getDevices() {
+    const authToken = this.props.route.authService.getToken();
+    return this.props.route.devicesService.fetch(authToken);
+  }
+
+  renderDashboardItem(device) {
+    return (
       <Row key={device.id}>
         <DashboardItem
           device={device}
@@ -47,13 +49,15 @@ export default class Dashboard extends Component {
           simulationStatus={device.simulationStatus}
         />
       </Row>
-      );
+    );
+  }
 
+  render() {
     return (
       <div style={dashboardStyle} className="Dashboard">
         <Row>
           <Col xs={12} smOffset={1} sm={10}>
-            { this.state.devices.map(d => renderDashboardItem(d))}
+            { this.state.devices.map(d => this.renderDashboardItem(d))}
           </Col>
         </Row>
       </div>
@@ -69,6 +73,7 @@ Dashboard.propTypes = {
     simulationService: React.PropTypes.shape({
       start: React.PropTypes.func.isRequired,
       stop: React.PropTypes.func.isRequired,
+      status: React.PropTypes.func.isRequired,
     }),
     devicesService: React.PropTypes.shape({
       fetch: React.PropTypes.func.isRequired,

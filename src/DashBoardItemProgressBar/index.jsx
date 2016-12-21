@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Subheader from 'material-ui/Subheader';
 import LinearProgress from 'material-ui/LinearProgress';
+import SIMULATION_STATUS from '../utils/simulation_status';
 
 const completedPercentage = (totalPositions, remainingPositions) => {
   const completedPositions = totalPositions - remainingPositions;
@@ -8,10 +9,10 @@ const completedPercentage = (totalPositions, remainingPositions) => {
 };
 
 const initialState = (simulationStatus) => {
-  if (simulationStatus.status === 'active') {
+  if (simulationStatus.status === SIMULATION_STATUS.ACTIVE) {
     return {
       completed: completedPercentage(simulationStatus.totalPositions,
-                                     simulationStatus.remainingPositions),
+        simulationStatus.remainingPositions),
       totalPositions: simulationStatus.totalPositions,
       remainingPositions: simulationStatus.remainingPositions,
     };
@@ -38,7 +39,7 @@ class DashboardItemProgressBar extends Component {
     const { trackerId, authToken } = this.props;
     try {
       const simulationStatus = await this.props.simulationService.status({ trackerId, authToken });
-      if (simulationStatus.status === 'active') {
+      if (simulationStatus.status === SIMULATION_STATUS.ACTIVE) {
         const { totalPositions, remainingPositions } = simulationStatus;
         this.setState({
           completed: completedPercentage(totalPositions, remainingPositions),
@@ -57,7 +58,7 @@ class DashboardItemProgressBar extends Component {
       <Subheader>
         { this.state.totalPositions - this.state.remainingPositions }/{ this.state.totalPositions }
       </Subheader>
-      );
+    );
     return (
       <div className="dashboard-item-progress-bar">
         {renderSubheader()}
