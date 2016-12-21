@@ -27,6 +27,7 @@ class DashboardItem extends Component {
       startDisabled: isActiveSimulation(this.props.device.simulationStatus.status),
       stopDisabled: !isActiveSimulation(this.props.device.simulationStatus.status),
       expanded: isActiveSimulation(this.props.device.simulationStatus.status),
+      simulationStatus: this.props.device.simulationStatus,
       notification: false,
       notificationMessage: '',
       dialogOpen: false,
@@ -42,19 +43,21 @@ class DashboardItem extends Component {
       trackerId: this.props.device.id,
       authToken: this.props.authToken,
     })
-    .then(() => {
-      this.setState({
-        notification: true,
-        notificationMessage: 'Simulation started',
+      .then(() => {
+        this.setState({
+          notification: true,
+          notificationMessage: 'Simulation started',
+          simulationStatus: { status: SIMULATION_STATUS.INACTIVE },
+        });
+      })
+      .catch(() => {
+        this.setState({
+          notification: true,
+          notificationMessage: 'Error while trying to start the simulation',
+          simulationStatus: { status: SIMULATION_STATUS.INACTIVE },
+        });
+        return this.reset();
       });
-    })
-    .catch(() => {
-      this.setState({
-        notification: true,
-        notificationMessage: 'Error while trying to start the simulation',
-      });
-      return this.reset();
-    });
 
     return this.expand();
   }
@@ -63,18 +66,18 @@ class DashboardItem extends Component {
     this.props.simulationService.stop({
       trackerId: this.props.device.id,
       authToken: this.props.authToken,
-    })
-    .then(() => {
+    }).then(() => {
       this.setState({
         notification: true,
         notificationMessage: 'Simulation stopped',
+        simulationStatus: { status: SIMULATION_STATUS.INACTIVE },
       });
       this.reset();
-    })
-    .catch(() => {
+    }).catch(() => {
       this.setState({
         notification: true,
         notificationMessage: 'Error while trying to stop the simulation',
+        simulationStatus: { status: SIMULATION_STATUS.INACTIVE },
       });
     });
   }
@@ -117,7 +120,7 @@ class DashboardItem extends Component {
           <DashboardItemProgressBar
             trackerId={this.props.device.id}
             authToken={this.props.authToken}
-            simulationStatus={this.props.device.simulationStatus}
+            simulationStatus={this.state.simulationStatus}
             simulationService={this.props.simulationService}
             updateInterval={5000}
           />
