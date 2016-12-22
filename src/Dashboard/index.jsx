@@ -6,6 +6,9 @@ const dashboardStyle = {
   marginTop: '10rem',
 };
 
+const addSimulationStatus = (device, simulationStatus) => (
+  Object.assign({ simulationStatus }, device));
+
 export default class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -15,34 +18,43 @@ export default class Dashboard extends Component {
   }
 
   componentWillMount() {
-    const authToken = this.props.route.authService.getToken();
-    return this.props.route.devicesService.fetch(authToken)
-      .then((response) => {
-        const devices = response.data;
-        this.setState({ devices });
+    return this.getDevices()
+      .then(response => response.data.map(device => this.getSimulationStatus(device.id)
+        .then(status => addSimulationStatus(device, status))))
+      .then(devicesPromise => Promise.all(devicesPromise))
+      .then((transformedDevices) => {
+        this.setState({ devices: transformedDevices });
       }).catch(err => console.error(err)); //eslint-disable-line
   }
 
-  render() {
-    const renderDashboardItem = device => (
+  getSimulationStatus(trackerId) {
+    const authToken = this.props.route.authService.getToken();
+    return this.props.route.simulationService.status({ trackerId, authToken });
+  }
+
+  getDevices() {
+    const authToken = this.props.route.authService.getToken();
+    return this.props.route.devicesService.fetch(authToken);
+  }
+
+  renderDashboardItem(device) {
+    return (
       <Row key={device.id}>
         <DashboardItem
-          title={device.relationships.equipment.data.description}
-          trackerId={device.id}
-          authService={this.props.route.authService}
+          device={device}
+          authToken={this.props.route.authService.getToken()}
           simulationService={this.props.route.simulationService}
-          expanded={false}
-          startDisabled={!device.relationships.equipment.data.default_simulation}
-          stopDisabled
         />
       </Row>
-      );
+    );
+  }
 
+  render() {
     return (
       <div style={dashboardStyle} className="Dashboard">
         <Row>
           <Col xs={12} smOffset={1} sm={10}>
-            { this.state.devices.map(d => renderDashboardItem(d)) }
+            { this.state.devices.map(d => this.renderDashboardItem(d))}
           </Col>
         </Row>
       </div>
@@ -58,6 +70,7 @@ Dashboard.propTypes = {
     simulationService: React.PropTypes.shape({
       start: React.PropTypes.func.isRequired,
       stop: React.PropTypes.func.isRequired,
+      status: React.PropTypes.func.isRequired,
       create: React.PropTypes.func.isRequired,
     }),
     devicesService: React.PropTypes.shape({

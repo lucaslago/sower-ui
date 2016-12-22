@@ -14,11 +14,17 @@ export default (requestLib = axios) => {
     },
   });
 
+  const status = ({ trackerId, authToken }) => requestLib.get(`${SOWER_URL}/simulation/${trackerId}/_status`, {
+    headers: {
+      Authorization: authToken,
+    },
+  }).then(response => response.data.data);
+
   const create = ({ trackerId, authToken, payload }) => requestLib.post(`${SOWER_URL}/simulation/${trackerId}`, payload, {
     headers: {
       Authorization: authToken,
     },
   });
 
-  return { start, stop, create };
+  return { start, stop, status, create };
 };

@@ -1,23 +1,34 @@
 exports[`<DashBoardItem /> renders correctly 1`] = `
 <MuiThemeProvider>
   <DashboardItem
-    authService={
+    authToken="basic 123123"
+    device={
       Object {
-        "getToken": [Function],
+        "id": "123",
+        "relationships": Object {
+          "equipment": Object {
+            "data": Object {
+              "default_simulation": true,
+              "description": "a cool tractor simulation",
+              "id": "anotherid",
+              "simulation_type": "applicator",
+              "type": "equipment",
+            },
+          },
+        },
+        "simulationStatus": Object {
+          "status": "inactive",
+        },
       }
     }
-    expanded={false}
     simulationService={
       Object {
         "create": [Function],
         "start": [Function],
+        "status": [Function],
         "stop": [Function],
       }
-    }
-    startDisabled={false}
-    stopDisabled={true}
-    title="Tractor"
-    trackerId="123">
+    }>
     <Card
       className="DashboardItem"
       expandable={false}
@@ -69,7 +80,7 @@ exports[`<DashBoardItem /> renders correctly 1`] = `
               avatar="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
               showExpandableButton={false}
               subtitle="123"
-              title="Tractor">
+              title="a cool tractor simulation">
               <div
                 style={
                   Object {
@@ -128,7 +139,7 @@ exports[`<DashBoardItem /> renders correctly 1`] = `
                         "muiPrepared": true,
                       }
                     }>
-                    Tractor
+                    a cool tractor simulation
                   </span>
                   <span
                     style={
@@ -1144,13 +1155,14 @@ exports[`<DashBoardItem /> renders correctly 1`] = `
                   </IconMenu>
                 </Menu>
                 <CustomSimulationDialog
-                  authToken="a-fake-token"
+                  authToken="basic 123123"
                   handleClose={[Function]}
                   open={false}
                   simulationService={
                     Object {
                       "create": [Function],
                       "start": [Function],
+                      "status": [Function],
                       "stop": [Function],
                     }
                   }

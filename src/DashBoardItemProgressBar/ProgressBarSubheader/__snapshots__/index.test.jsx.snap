@@ -1,0 +1,35 @@
+exports[`<ProgressBarSubheader /> should render correctly when status is active 1`] = `
+<div>
+  <Subheader
+    inset={false}>
+    10
+     / 
+    100
+  </Subheader>
+  <LinearProgress
+    max={100}
+    min={0}
+    mode="determinate"
+    value={10} />
+</div>
+`;
+
+exports[`<ProgressBarSubheader /> should render correctly when status is inactive 1`] = `
+<Row
+  bsClass="row"
+  componentClass="div">
+  <Col
+    bsClass="col"
+    componentClass="div"
+    md={2}
+    mdOffset={5}>
+    <CircularProgress
+      max={100}
+      min={0}
+      mode="indeterminate"
+      size={40}
+      thickness={3.5}
+      value={0} />
+  </Col>
+</Row>
+`;
