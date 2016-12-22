@@ -3,13 +3,13 @@ import DashBoardItem from './index';
 
 describe('<DashBoardItem />', () => {
   const props = {
+    authToken: 'basic 123123',
     simulationService: {
       start: jest.fn().mockReturnValue(Promise.resolve({ message: 'ok' })),
       stop: jest.fn().mockReturnValue(Promise.resolve({ message: 'ok' })),
       create: jest.fn().mockReturnValue(Promise.resolve({ message: 'ok' })),
       status: jest.fn().mockReturnValue(Promise.resolve('fake status response')),
     },
-    authToken: 'basic 123123',
     device: {
       id: '123',
       relationships: {

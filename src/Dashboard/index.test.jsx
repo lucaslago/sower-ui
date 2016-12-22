@@ -27,6 +27,7 @@ describe('<Dashboard />', () => {
   const simulationServiceFake = {
     status: jest.fn().mockReturnValue(Promise.resolve({ status: 'active', totalPositions: 1000, remainingPositions: 500 })),
     stop: jest.fn(),
+    create: jest.fn(),
     start: jest.fn(),
   };
   const devicesServiceFake = { fetch: jest.fn().mockReturnValueOnce(Promise.resolve(devices)) };

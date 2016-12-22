@@ -1155,13 +1155,14 @@ exports[`<DashBoardItem /> renders correctly 1`] = `
                   </IconMenu>
                 </Menu>
                 <CustomSimulationDialog
-                  authToken="a-fake-token"
+                  authToken="basic 123123"
                   handleClose={[Function]}
                   open={false}
                   simulationService={
                     Object {
                       "create": [Function],
                       "start": [Function],
+                      "status": [Function],
                       "stop": [Function],
                     }
                   }

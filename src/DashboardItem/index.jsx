@@ -4,8 +4,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Snackbar from 'material-ui/Snackbar';
 import DashboardItemProgressBar from '../DashBoardItemProgressBar';
 import Menu from '../components/Menu';
-import CustomSimulationDialog from '../CustomSimulationDialog';
 import SIMULATION_STATUS from '../utils/simulation_status';
+import CustomSimulationDialog from '../CustomSimulationDialog';
 
 const itemStyle = {
   marginTop: '1rem',
@@ -192,10 +192,10 @@ class DashboardItem extends Component {
             primaryText="Add Custom Simulation"
           />
           <CustomSimulationDialog
-            trackerId={this.props.trackerId}
+            trackerId={this.props.device.id}
             open={this.state.dialogOpen}
             handleClose={this.handleDialogClose}
-            authToken={this.props.authService.getToken()}
+            authToken={this.props.authToken}
             simulationService={this.props.simulationService}
           />
         </CardActions>
