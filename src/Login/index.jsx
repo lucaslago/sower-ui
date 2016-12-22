@@ -135,7 +135,7 @@ export class Login extends Component {
                   errorText={'E-mail is required'}
                   fieldValue={this.state.email}
                   handleChange={this.setEmail}
-                  fullWidth={true}
+                  fullWidth
                   showValidationError={this.state.emailError}
                 />
               </Row>
@@ -147,7 +147,7 @@ export class Login extends Component {
                   errorText={'Password is required'}
                   fieldValue={this.state.password}
                   handleChange={this.setPassword}
-                  fullWidth={true}
+                  fullWidth
                   showValidationError={this.state.passwordError}
                 />
               </Row>

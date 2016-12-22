@@ -4,6 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Snackbar from 'material-ui/Snackbar';
 import DashboardItemProgressBar from '../DashBoardItemProgressBar';
 import Menu from '../components/Menu';
+import CustomSimulationDialog from '../CustomSimulationDialog';
 
 const itemStyle = {
   marginTop: '1rem',
@@ -33,6 +34,7 @@ export default class DashboardItem extends Component {
     this.stop = this.stop.bind(this);
     this.handleNotification = this.handleNotification.bind(this);
     this.openDialog = this.openDialog.bind(this);
+    this.handleDialogClose = this.handleDialogClose.bind(this);
   }
 
   start() {
@@ -101,6 +103,10 @@ export default class DashboardItem extends Component {
     this.setState({ dialogOpen: true });
   }
 
+  handleDialogClose() {
+    this.setState({ dialogOpen: false });
+  }
+
   render() {
     return (
       <Card className="DashboardItem" expanded={this.state.expanded} style={itemStyle}>
@@ -132,6 +138,13 @@ export default class DashboardItem extends Component {
           <Menu
             handleClick={this.openDialog}
             primaryText="Add Custom Simulation"
+          />
+          <CustomSimulationDialog
+            trackerId={this.props.trackerId}
+            open={this.state.dialogOpen}
+            handleClose={this.handleDialogClose}
+            authService={this.props.authService}
+            simulationService={this.props.simulationService}
           />
         </CardActions>
         <Snackbar

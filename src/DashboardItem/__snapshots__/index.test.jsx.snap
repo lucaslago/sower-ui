@@ -1142,6 +1142,148 @@ exports[`<DashBoardItem /> renders correctly 1`] = `
                     </div>
                   </IconMenu>
                 </Menu>
+                <CustomSimulationDialog
+                  authService={
+                    Object {
+                      "getToken": [Function],
+                    }
+                  }
+                  handleClose={[Function]}
+                  open={false}
+                  simulationService={
+                    Object {
+                      "start": [Function],
+                      "stop": [Function],
+                    }
+                  }
+                  style={
+                    Object {
+                      "marginRight": 8,
+                    }
+                  }
+                  trackerId="123">
+                  <div>
+                    <Dialog
+                      actions={
+                        Array [
+                          <FlatButton
+                            disabled={false}
+                            label="Cancel"
+                            labelPosition="after"
+                            labelStyle={Object {}}
+                            onKeyboardFocus={[Function]}
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                            onTouchStart={[Function]}
+                            onTouchTap={[Function]}
+                            primary={true}
+                            secondary={false} />,
+                          <FlatButton
+                            disabled={true}
+                            label="Submit"
+                            labelPosition="after"
+                            labelStyle={Object {}}
+                            onKeyboardFocus={[Function]}
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                            onTouchStart={[Function]}
+                            onTouchTap={[Function]}
+                            primary={true}
+                            secondary={false} />,
+                        ]
+                      }
+                      actionsContainerStyle={
+                        Object {
+                          "textAlign": "right",
+                        }
+                      }
+                      autoDetectWindowHeight={true}
+                      autoScrollBodyContent={true}
+                      modal={true}
+                      open={false}
+                      repositionOnUpdate={true}
+                      title="Create Custom Simulation">
+                      <RenderToLayer
+                        open={true}
+                        render={[Function]}
+                        useLayerForClickAway={false} />
+                    </Dialog>
+                    <Snackbar
+                      autoHideDuration={4000}
+                      message=""
+                      onRequestClose={[Function]}
+                      open={false}
+                      style={
+                        Object {
+                          "textAlign": "center",
+                        }
+                      }>
+                      <ClickAwayListener
+                        onClickAway={null}>
+                        <div
+                          open={false}
+                          style={
+                            Object {
+                              "bottom": 0,
+                              "display": "flex",
+                              "left": "50%",
+                              "muiPrepared": true,
+                              "position": "fixed",
+                              "textAlign": "center",
+                              "transform": "translate(-50%, 48px)",
+                              "transition": "transform 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, visibility 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                              "visibility": "hidden",
+                              "zIndex": 2900,
+                            }
+                          }>
+                          <WithWidth
+                            message=""
+                            open={false}>
+                            <EventListener
+                              onResize={[Function]}
+                              target="window">
+                              <SnackbarBody
+                                message=""
+                                open={false}
+                                width={3}>
+                                <div
+                                  style={
+                                    Object {
+                                      "backgroundColor": "rgba(0, 0, 0, 0.87)",
+                                      "borderRadius": 2,
+                                      "flexGrow": 0,
+                                      "fontFamily": "Roboto, sans-serif",
+                                      "height": 48,
+                                      "lineHeight": "48px",
+                                      "maxWidth": 568,
+                                      "minWidth": 288,
+                                      "muiPrepared": true,
+                                      "padding": "0 24px",
+                                      "width": "auto",
+                                    }
+                                  }
+                                  width={3}>
+                                  <div
+                                    style={
+                                      Object {
+                                        "color": "#ffffff",
+                                        "fontSize": 14,
+                                        "muiPrepared": true,
+                                        "opacity": 0,
+                                        "transition": "opacity 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                                      }
+                                    }>
+                                    <span />
+                                  </div>
+                                </div>
+                              </SnackbarBody>
+                            </EventListener>
+                          </WithWidth>
+                        </div>
+                      </ClickAwayListener>
+                    </Snackbar>
+                  </div>
+                </CustomSimulationDialog>
               </div>
             </CardActions>
             <Snackbar
