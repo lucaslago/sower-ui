@@ -5,6 +5,7 @@ import Snackbar from 'material-ui/Snackbar';
 import DashboardItemProgressBar from '../DashBoardItemProgressBar';
 import Menu from '../components/Menu';
 import SIMULATION_STATUS from '../utils/simulation_status';
+import CustomSimulationDialog from '../CustomSimulationDialog';
 
 const itemStyle = {
   marginTop: '1rem',
@@ -40,6 +41,7 @@ class DashboardItem extends Component {
     this.handleNotification = this.handleNotification.bind(this);
     this.handleSimulationFinished = this.handleSimulationFinished.bind(this);
     this.openDialog = this.openDialog.bind(this);
+    this.handleDialogClose = this.handleDialogClose.bind(this);
   }
 
   successStartNotification() {
@@ -144,6 +146,9 @@ class DashboardItem extends Component {
     this.inactiveSimulationButtons();
     this.toggleExpandCard();
     this.simulationFinishedNotification();
+    
+  handleDialogClose() {
+    this.setState({ dialogOpen: false });
   }
 
   render() {
@@ -185,6 +190,13 @@ class DashboardItem extends Component {
             handleClick={this.openDialog}
             primaryText="Add Custom Simulation"
           />
+          <CustomSimulationDialog
+            trackerId={this.props.trackerId}
+            open={this.state.dialogOpen}
+            handleClose={this.handleDialogClose}
+            authToken={this.props.authService.getToken()}
+            simulationService={this.props.simulationService}
+          />
         </CardActions>
         <Snackbar
           style={notificationStyle}
@@ -203,6 +215,7 @@ DashboardItem.propTypes = {
   simulationService: React.PropTypes.shape({
     start: React.PropTypes.func.isRequired,
     stop: React.PropTypes.func.isRequired,
+    create: React.PropTypes.func.isRequired,
   }),
   device: React.PropTypes.shape({
     id: React.PropTypes.string.isRequired,

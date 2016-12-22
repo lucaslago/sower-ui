@@ -71,6 +71,7 @@ Dashboard.propTypes = {
       start: React.PropTypes.func.isRequired,
       stop: React.PropTypes.func.isRequired,
       status: React.PropTypes.func.isRequired,
+      create: React.PropTypes.func.isRequired,
     }),
     devicesService: React.PropTypes.shape({
       fetch: React.PropTypes.func.isRequired,
