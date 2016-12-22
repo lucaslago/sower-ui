@@ -3,10 +3,6 @@ import DashBoardItem from './index';
 
 describe('<DashBoardItem />', () => {
   const props = {
-    title: 'Tractor',
-    expanded: false,
-    startDisabled: false,
-    stopDisabled: true,
     simulationService: {
       start: jest.fn().mockReturnValue(Promise.resolve({ message: 'ok' })),
       stop: jest.fn().mockReturnValue(Promise.resolve({ message: 'ok' })),
@@ -37,16 +33,7 @@ describe('<DashBoardItem />', () => {
   beforeEach(() => {
     wrapper = mount(
       <MuiThemeProvider>
-        <DashBoardItem
-          title={props.title}
-          expanded={props.expanded}
-          startDisabled={props.startDisabled}
-          stopDisabled={props.stopDisabled}
-          device={props.device}
-          simulationService={props.simulationService}
-          authToken={props.authToken}
-          simulationStatus={props.simulationStatus}
-        />
+        <DashBoardItem {...props} />
       </MuiThemeProvider>,
     );
   });
@@ -58,7 +45,9 @@ describe('<DashBoardItem />', () => {
   it('should expand <Card /> when start button is clicked', () => {
     expect(wrapper.find('.dashboard-item-progress-bar').length).toEqual(0);
     wrapper.find('.start button').simulate('click');
-    expect(wrapper.find('.dashboard-item-progress-bar').length).toEqual(1);
+    setTimeout(() => {
+      expect(wrapper.find('.dashboard-item-progress-bar').length).toEqual(1);
+    }, 0);
   });
 
   it('should disable the start button after it is clicked', () => {
@@ -73,6 +62,8 @@ describe('<DashBoardItem />', () => {
     const stopButton = wrapper.find('.stop button');
     expect(stopButton.prop('disabled')).toEqual(true);
     startButton.simulate('click');
-    expect(stopButton.prop('disabled')).toEqual(false);
+    setTimeout(() => {
+      expect(stopButton.prop('disabled')).toEqual(false);
+    }, 0);
   });
 });
