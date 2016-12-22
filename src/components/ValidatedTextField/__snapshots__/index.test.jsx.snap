@@ -5,7 +5,7 @@ exports[`<ValidatedTextField /> renders without crashing 1`] = `
   errorText=""
   floatingLabelFixed={false}
   floatingLabelText="login"
-  fullWidth={true}
+  fullWidth={false}
   multiLine={false}
   rows={1}
   type="text"
@@ -19,7 +19,7 @@ exports[`<ValidatedTextField /> should not display error when showValidationErro
   errorText=""
   floatingLabelFixed={false}
   floatingLabelText="login"
-  fullWidth={true}
+  fullWidth={false}
   multiLine={false}
   onChange={[Function]}
   rows={1}
