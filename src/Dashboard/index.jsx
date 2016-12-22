@@ -42,11 +42,8 @@ export default class Dashboard extends Component {
       <Row key={device.id}>
         <DashboardItem
           device={device}
-          startDisabled={!device.relationships.equipment.data.default_simulation}
-          stopDisabled
           authToken={this.props.route.authService.getToken()}
           simulationService={this.props.route.simulationService}
-          simulationStatus={device.simulationStatus}
         />
       </Row>
     );

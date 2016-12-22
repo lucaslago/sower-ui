@@ -21,7 +21,6 @@ exports[`<DashBoardItem /> renders correctly 1`] = `
         },
       }
     }
-    expanded={false}
     simulationService={
       Object {
         "create": [Function],
@@ -29,10 +28,7 @@ exports[`<DashBoardItem /> renders correctly 1`] = `
         "status": [Function],
         "stop": [Function],
       }
-    }
-    startDisabled={false}
-    stopDisabled={true}
-    title="Tractor">
+    }>
     <Card
       className="DashboardItem"
       expandable={false}

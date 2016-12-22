@@ -17,25 +17,31 @@ class DashboardItemProgressBar extends Component {
       completed: calculatePercentage(props.simulationStatus),
     };
     this.timer = null;
+    this.updateProgressBar = this.updateProgressBar.bind(this);
   }
 
   componentDidMount() {
-    this.timer = setTimeout(this.updateProgressBar.bind(this), this.props.updateInterval);
+    this.updateProgressBar();
   }
 
   componentWillUnmount() {
     clearTimeout(this.timer);
   }
 
+  updateProgressBarState(simulationStatus) {
+    this.setState({ ...simulationStatus, completed: calculatePercentage(simulationStatus) });
+    this.timer = setTimeout(this.updateProgressBar, this.props.updateInterval);
+  }
+
   async updateProgressBar() {
     const { trackerId, authToken } = this.props;
     try {
       const simulationStatus = await this.props.simulationService.status({ trackerId, authToken });
-      this.setState({
-        ...simulationStatus,
-        completed: calculatePercentage(simulationStatus),
-      });
-      this.timer = setTimeout(this.updateProgressBar.bind(this), this.props.updateInterval);
+      if (simulationStatus.status === SIMULATION_STATUS.INACTIVE) {
+        this.props.simulationFinished();
+      } else {
+        this.updateProgressBarState(simulationStatus);
+      }
     } catch (error) {
       console.log(error); // eslint-disable-line
     }
@@ -63,6 +69,7 @@ DashboardItemProgressBar.propTypes = {
     remainingPositions: React.PropTypes.number,
   }),
   updateInterval: React.PropTypes.number.isRequired,
+  simulationFinished: React.PropTypes.func.isRequired,
 };
 
 export default DashboardItemProgressBar;
