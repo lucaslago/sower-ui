@@ -143,7 +143,7 @@ export default class DashboardItem extends Component {
             trackerId={this.props.trackerId}
             open={this.state.dialogOpen}
             handleClose={this.handleDialogClose}
-            authService={this.props.authService}
+            authToken={this.props.authService.getToken()}
             simulationService={this.props.simulationService}
           />
         </CardActions>

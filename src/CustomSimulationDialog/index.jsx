@@ -6,7 +6,6 @@ import Snackbar from 'material-ui/Snackbar';
 import CircularProgress from 'material-ui/CircularProgress';
 import ValidatedTextField from '../components/ValidatedTextField';
 
-
 const notificationStyle = {
   textAlign: 'center',
 };
@@ -111,7 +110,7 @@ export default class CustomSimulationDialog extends Component {
     this.props.simulationService
       .create({
         trackerId: this.props.trackerId,
-        authToken: this.props.authService.getToken(),
+        authToken: this.props.authToken,
         payload,
       })
       .then(() => {
@@ -231,9 +230,7 @@ CustomSimulationDialog.propTypes = {
   open: React.PropTypes.bool.isRequired,
   trackerId: React.PropTypes.string.isRequired,
   handleClose: React.PropTypes.func.isRequired,
-  authService: React.PropTypes.shape({
-    getToken: React.PropTypes.func.isRequired,
-  }),
+  authToken: React.PropTypes.string.isRequired,
   simulationService: React.PropTypes.shape({
     create: React.PropTypes.func.isRequired,
   }),

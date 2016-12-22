@@ -1,11 +1,7 @@
 exports[`<CustomSimulationDialog /> renders correctly 1`] = `
 <MuiThemeProvider>
   <CustomSimulationDialog
-    authService={
-      Object {
-        "getToken": [Function],
-      }
-    }
+    authToken="Basic 12313ABDKS"
     handleClose={[Function]}
     open={true}
     simulationService={
