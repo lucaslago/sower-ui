@@ -171,5 +171,6 @@ DashboardItem.propTypes = {
   simulationService: React.PropTypes.shape({
     start: React.PropTypes.func.isRequired,
     stop: React.PropTypes.func.isRequired,
+    create: React.PropTypes.func.isRequired,
   }),
 };

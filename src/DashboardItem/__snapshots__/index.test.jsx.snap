@@ -9,6 +9,7 @@ exports[`<DashBoardItem /> renders correctly 1`] = `
     expanded={false}
     simulationService={
       Object {
+        "create": [Function],
         "start": [Function],
         "stop": [Function],
       }
@@ -1152,6 +1153,7 @@ exports[`<DashBoardItem /> renders correctly 1`] = `
                   open={false}
                   simulationService={
                     Object {
+                      "create": [Function],
                       "start": [Function],
                       "stop": [Function],
                     }
