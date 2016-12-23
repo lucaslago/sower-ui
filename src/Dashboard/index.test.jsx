@@ -1,3 +1,4 @@
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Dashboard from './index';
 
 describe('<Dashboard />', () => {
@@ -18,6 +19,7 @@ describe('<Dashboard />', () => {
       },
     ],
   };
+
   const authServiceFake = {
     login: jest.fn(),
     loggedIn: jest.fn(),
@@ -30,16 +32,42 @@ describe('<Dashboard />', () => {
     create: jest.fn(),
     start: jest.fn(),
   };
-  const devicesServiceFake = { fetch: jest.fn().mockReturnValueOnce(Promise.resolve(devices)) };
-  const route = {
-    authService: authServiceFake,
-    devicesService: devicesServiceFake,
-    simulationService: simulationServiceFake,
-  };
 
   it('renders without crashing', () => {
+    const devicesServiceFake = { fetch: jest.fn().mockReturnValueOnce(Promise.resolve(devices)) };
+    const route = {
+      authService: authServiceFake,
+      devicesService: devicesServiceFake,
+      simulationService: simulationServiceFake,
+    };
     const wrapper = shallow(<Dashboard route={route} />);
+
     expect(wrapper.length).toEqual(1);
     expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('should render ServerError in case of error while loading the devices', () => {
+    const devicesServiceFake = {
+      fetch: jest.fn().mockReturnValue(Promise.reject({ status: 500 })),
+    };
+    const route = {
+      authService: authServiceFake,
+      devicesService: devicesServiceFake,
+      simulationService: simulationServiceFake,
+    };
+
+    const wrapper = mount(
+      <MuiThemeProvider>
+        <Dashboard route={route} />
+      </MuiThemeProvider>,
+    );
+
+    const wait = new Promise((resolve) => {
+      setTimeout(() => { resolve(true); }, 0);
+    });
+
+    return wait.then(() => {
+      expect(wrapper.find('.server-error').length).toBe(1);
+    });
   });
 });

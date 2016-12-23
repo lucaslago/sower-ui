@@ -1,30 +1,55 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
+import CircularProgress from 'material-ui/CircularProgress';
 import DashboardItem from '../DashboardItem';
+import ServerError from '../components/ServerError';
 
-const dashboardStyle = {
+const loadedStyle = {
   marginTop: '10rem',
 };
 
 const addSimulationStatus = (device, simulationStatus) => (
   Object.assign({ simulationStatus }, device));
 
+const loadingStyle = {
+  textAlign: 'center',
+  marginTop: '30rem',
+};
+
+const errorStyle = loadingStyle;
+
 export default class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       devices: [],
+      loadingItems: true,
+      dashboardStyle: loadingStyle,
+      error: false,
     };
+
+    this.renderDashBoardItems = this.renderDashBoardItems.bind(this);
   }
 
   componentWillMount() {
     return this.getDevices()
       .then(response => response.data.map(device => this.getSimulationStatus(device.id)
-        .then(status => addSimulationStatus(device, status))))
+      .then(status => addSimulationStatus(device, status))))
       .then(devicesPromise => Promise.all(devicesPromise))
       .then((transformedDevices) => {
-        this.setState({ devices: transformedDevices });
-      }).catch(err => console.error(err)); //eslint-disable-line
+        this.setState({
+          devices: transformedDevices,
+          loadingItems: false,
+          dashboardStyle: loadedStyle,
+        });
+      })
+      .catch(() => {
+        this.setState({
+          loadingItems: false,
+          dashboardStyle: errorStyle,
+          error: true,
+        });
+      });
   }
 
   getSimulationStatus(trackerId) {
@@ -37,8 +62,8 @@ export default class Dashboard extends Component {
     return this.props.route.devicesService.fetch(authToken);
   }
 
-  renderDashboardItem(device) {
-    return (
+  renderDashBoardItems() {
+    return this.state.devices.map(device => (
       <Row key={device.id}>
         <DashboardItem
           device={device}
@@ -46,15 +71,23 @@ export default class Dashboard extends Component {
           simulationService={this.props.route.simulationService}
         />
       </Row>
-    );
+      ));
   }
 
   render() {
+    let asyncItems;
+
+    if (this.state.loadingItems) {
+      asyncItems = <CircularProgress className="loading" size={80} thickness={5} />;
+    } else {
+      asyncItems = this.state.error ? <ServerError /> : this.renderDashBoardItems();
+    }
+
     return (
-      <div style={dashboardStyle} className="Dashboard">
+      <div style={this.state.dashboardStyle} className="Dashboard">
         <Row>
           <Col xs={12} smOffset={1} sm={10}>
-            { this.state.devices.map(d => this.renderDashboardItem(d))}
+            { asyncItems }
           </Col>
         </Row>
       </div>
