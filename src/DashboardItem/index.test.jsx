@@ -30,6 +30,8 @@ describe('<DashBoardItem />', () => {
   };
 
   let wrapper;
+  let startButton;
+  let stopButton;
 
   beforeEach(() => {
     wrapper = mount(
@@ -37,6 +39,8 @@ describe('<DashBoardItem />', () => {
         <DashBoardItem {...props} />
       </MuiThemeProvider>,
     );
+    startButton = wrapper.find('.start button');
+    stopButton = wrapper.find('.stop button');
   });
 
   it('renders correctly', () => {
@@ -45,26 +49,24 @@ describe('<DashBoardItem />', () => {
 
   it('should expand <Card /> when start button is clicked', () => {
     expect(wrapper.find('.dashboard-item-progress-bar').length).toEqual(0);
-    wrapper.find('.start button').simulate('click');
+    startButton.simulate('click');
     setTimeout(() => {
       expect(wrapper.find('.dashboard-item-progress-bar').length).toEqual(1);
     }, 0);
   });
 
   it('should disable the start button after it is clicked', () => {
-    const startButton = wrapper.find('.start button');
     expect(startButton.prop('disabled')).toEqual(false);
     startButton.simulate('click');
     expect(startButton.prop('disabled')).toEqual(true);
   });
 
   it('should enable the stop button after clicking the start button', () => {
-    const startButton = wrapper.find('.start button');
-    const stopButton = wrapper.find('.stop button');
     expect(stopButton.prop('disabled')).toEqual(true);
     startButton.simulate('click');
     setTimeout(() => {
       expect(stopButton.prop('disabled')).toEqual(false);
     }, 0);
   });
+
 });
