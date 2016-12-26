@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import DashboardItem from '../DashboardItem';
-import AsyncContainer from '../components/AsyncContainer'
+import AsyncContainer from '../components/AsyncContainer';
 import ServerError from '../components/ServerError';
 
 const loadedStyle = {
@@ -32,6 +32,16 @@ export default class Dashboard extends Component {
     this.renderServerError = this.renderServerError.bind(this);
   }
 
+  getSimulationStatus(trackerId) {
+    const authToken = this.props.route.authService.getToken();
+    return this.props.route.simulationService.status({ trackerId, authToken });
+  }
+
+  getDevices() {
+    const authToken = this.props.route.authService.getToken();
+    return this.props.route.devicesService.fetch(authToken);
+  }
+
   fetchDevices() {
     return this.getDevices()
       .then(response => response.data.map(device => this.getSimulationStatus(device.id)
@@ -47,16 +57,6 @@ export default class Dashboard extends Component {
         this.setState({ dashboardStyle: errorStyle });
         throw err;
       });
-  }
-
-  getSimulationStatus(trackerId) {
-    const authToken = this.props.route.authService.getToken();
-    return this.props.route.simulationService.status({ trackerId, authToken });
-  }
-
-  getDevices() {
-    const authToken = this.props.route.authService.getToken();
-    return this.props.route.devicesService.fetch(authToken);
   }
 
   renderDashBoardItems() {
