@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import CircularProgress from 'material-ui/CircularProgress';
 import DashboardItem from '../DashboardItem';
+import AsyncContainer from '../components/AsyncContainer'
 import ServerError from '../components/ServerError';
 
 const loadedStyle = {
@@ -23,15 +23,16 @@ export default class Dashboard extends Component {
     super(props);
     this.state = {
       devices: [],
-      loadingItems: true,
       dashboardStyle: loadingStyle,
-      error: false,
+      errorMessage: "We're sorry, something went wrong in our servers",
     };
 
+    this.fetchDevices = this.fetchDevices.bind(this);
     this.renderDashBoardItems = this.renderDashBoardItems.bind(this);
+    this.renderServerError = this.renderServerError.bind(this);
   }
 
-  componentWillMount() {
+  fetchDevices() {
     return this.getDevices()
       .then(response => response.data.map(device => this.getSimulationStatus(device.id)
       .then(status => addSimulationStatus(device, status))))
@@ -39,16 +40,12 @@ export default class Dashboard extends Component {
       .then((transformedDevices) => {
         this.setState({
           devices: transformedDevices,
-          loadingItems: false,
           dashboardStyle: loadedStyle,
         });
       })
-      .catch(() => {
-        this.setState({
-          loadingItems: false,
-          dashboardStyle: errorStyle,
-          error: true,
-        });
+      .catch((err) => {
+        this.setState({ dashboardStyle: errorStyle });
+        throw err;
       });
   }
 
@@ -74,20 +71,22 @@ export default class Dashboard extends Component {
       ));
   }
 
+  renderServerError() {
+    return (<ServerError message={this.state.errorMessage} />);
+  }
+
   render() {
-    let asyncItems;
-
-    if (this.state.loadingItems) {
-      asyncItems = <CircularProgress className="loading" size={80} thickness={5} />;
-    } else {
-      asyncItems = this.state.error ? <ServerError /> : this.renderDashBoardItems();
-    }
-
     return (
       <div style={this.state.dashboardStyle} className="Dashboard">
         <Row>
           <Col xs={12} smOffset={1} sm={10}>
-            { asyncItems }
+            <AsyncContainer
+              promise={this.fetchDevices}
+              renderOnResolve={this.renderDashBoardItems}
+              renderOnReject={this.renderServerError}
+              spinnerSize={80}
+              spinnerThickness={5}
+            />
           </Col>
         </Row>
       </div>
