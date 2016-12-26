@@ -16,7 +16,7 @@ module.exports = (function(settings) {
       browserName: "chrome",
       marionette: true,
       build: `build-${TRAVIS_JOB_NUMBER}`,
-      tunnel-identifier: TRAVIS_JOB_NUMBER,
+      'tunnel-identifier': TRAVIS_JOB_NUMBER,
     },
   };
   return settings;
