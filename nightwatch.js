@@ -20,5 +20,10 @@ module.exports = (function(settings) {
       'tunnel-identifier': TRAVIS_JOB_NUMBER,
     },
   };
+  setting.test_settings.chrome = {
+    browserName: "chrome",
+    build: `build-${TRAVIS_JOB_NUMBER}`,
+    'tunnel-identifier': TRAVIS_JOB_NUMBER,
+  };
   return settings;
 })(require('./nightwatch.json'));
