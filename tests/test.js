@@ -1,7 +1,7 @@
 module.exports = {
   'Demo test' : function (browser) {
     browser
-      .url(`${browser.launchUrl}#/login`)
+      .url(`http://localhost:3000/#/login`)
       .waitForElementVisible('body', 2000)
       .setValue('input[type=email]', 'test-email@gmail.com')
       .setValue('input[type=password]', 'fakepassword')
