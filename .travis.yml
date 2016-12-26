@@ -8,10 +8,14 @@ env:
   - secure: Pb+hPY4sz5KPYSt/KyJA//YgCxbYIqAFVqvWmdo9gouFOFtxHA3EYWd5+w4SrdTWDVZsYHzhv/LxahGkU412hUDTtcSTR+LomwWFoBUT8cvF5Y9TSlaGsPiWrx7PHaPpDznLrpANAJlUxi1Z8rYQUBphO8uSmsNl15P5IBGJtpNxtirC++Ed6mE50zQyg3J9NZdEnwsZwo5Yu5n2ZAC0uLpztyPNoWwTyfTWWjOEnB+7s+vThmtiIWHKzeH7B2zGmDoilPZuiG7jotwfCDMKHlz2vJpHCxRtUufFhW+4MX/Xqvmng+wKYz3B1nvIiUshLw9PsnyFCJeE74tLj7pYkHLBDnc8HA9xu1UZAO+RZ1/LUBh/Gco1GspfbewpXGeuCNOlUM7S6ws60bZx4tkJ4i6IYHmiljs8WT5bk3dnQsbY7jmV65xFl536nO2+u6/BiU5+hk6c/YQX+RICC62x5HUd7HGthSqGN7qgu0u/PP3AXg9CzghwhZtivntjAcdcJGN5tb9OpOqf/aiUrNvp/tWHF1W89uEey+UjUU2RouNMcw0ju+L9kRSTFMDXXwcvn2SiQO9QoMA84vvQfmRPdSSTsQ0BTmLc6SPjNpGRh4Ui1rwdQ6Qa+fW3/eKAEaGqqo6QJIoHCYuuAR39a8bIfFaF9gVPfqLUICb7pOWw8jo=
 addons:
   sauce_connect: true
+
 install:
 - npm install -g nightwatch
+- npm install
+
 before_script:
 - npm start &
+
 script:
 - npm run ci
 - nightwatch --config nightwatch.js --env chrome
