@@ -1,5 +1,6 @@
 const TRAVIS_JOB_NUMBER = process.env.TRAVIS_JOB_NUMBER;
 
+console.log('TRAVIS_JOB_NUMBER', TRAVIS_JOB_NUMBER)
 module.exports = (function(settings) {
   settings.test_settings.default = {
     launch_url: "http://ondemand.saucelabs.com:80",
