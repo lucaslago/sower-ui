@@ -20,17 +20,24 @@
 
   "test_settings" : {
     "default" : {
-      "launch_url" : "http://localhost",
+      "launch_url" : "app",
       "selenium_port"  : 4444,
-      "selenium_host"  : "localhost",
-      "silent": true,
-      "screenshots" : {
-        "enabled" : false,
-        "path" : ""
-      },
-      "desiredCapabilities": {
-        "browserName": "firefox",
+      "selenium_host"  : "selenium",
+			"silent": true,
+			"screenshots" : {
+				"enabled" : true,
+				"on_failure" : true,
+				"on_error" : false,
+				"path" : "/home/app/sower-ui/nightwatch-screenshots"
+			},
+			"desiredCapabilities": {
+        "browserName": "chrome",
         "marionette": true
+      }
+    },
+    "chrome" : {
+      "desiredCapabilities": {
+        "browserName": "chrome"
       }
     }
   }
