@@ -11,7 +11,6 @@ addons:
   jwt:
     secure: NHAxJeJXyatLAOzIJaQ3dBK/Ik9LntQRBa1aDlq2x6K9poozuyJKFSIUstV2g5OBp1Lhx39cibPqjB3sJV8CPuU/1nV6UqeB3ec/dgTdnEmT9DhOrHv7CYCUb6i18NHN7aAuF4IlL51C0JE8/nJWTQUnQkLHOACETCnG/YEs71zHR47MIVIc86tM/7I5ymTo12tX7/UdUadsmkPJpr1/PZkt5Tb62GlSf4ZcR8/eY7wx2VD/He06Y7tkobLbm0gt92fAjDAjO/pe2vWW0lDvXDewSE47YtKzmbeIzyjaDt/C2pkZ50pP0eIbPXnCpRO+BpP2K6+ZIdx8XuMcpYQ8vuIHgspNeh63VjWnJTwLPhZHg102Zh5NT1u0O0Mg78SFWm4pAj/4hgsF1s74i00OZm357/DDgwWdqGXuf+KUjtNsNyCPw4knE0G5Urum+LrE1gfiYtkTixsSze48JVAHZZ+8eMqMG6yWc0E67Z4Rp/6FpFCdG+3qCanLIz/bKM7kya+/55Bz1Z7VJbXTAdi5BuHIzGIB2vG4wjuS6DHplgcYZQ63Zab6bne5L7KVZ+o+7jtzxQtN4pf8QOaBFp3XWy+6sg40fNIh0FiVEOzlDZYrK3dGA3i1XW7eh7GZ1QsqtimktFgnLWG//bcR9H95nc30BzBm+NCPYmfz2Vkck8w=
 install:
-- npm install -g nightwatch
 - npm install
 before_script:
 - npm start &
