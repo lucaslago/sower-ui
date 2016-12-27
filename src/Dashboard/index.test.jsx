@@ -62,7 +62,7 @@ describe('<Dashboard />', () => {
       </MuiThemeProvider>,
     );
 
-    return wait().then(() => {
+    return wait().then(() => { //eslint-disable-line
       expect(wrapper.find('.server-error').length).toBe(1);
     });
   });
