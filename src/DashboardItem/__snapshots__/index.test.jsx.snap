@@ -1,17 +1,1509 @@
-exports[`<DashBoardItem /> For devices with custom_simulation data renders correctly 1`] = `
+exports[`<DashBoardItem /> device simulationStatus is active renders with expected initial state 1`] = `
+<MuiThemeProvider>
+  <DashboardItem
+    authToken="basic 123123"
+    device={
+      Object {
+        "custom_simulation": false,
+        "id": "123",
+        "relationships": Object {
+          "equipment": Object {
+            "data": Object {
+              "default_simulation": false,
+              "description": "a cool tractor simulation",
+              "id": "anotherid",
+              "simulation_type": "applicator",
+              "type": "equipment",
+            },
+          },
+        },
+        "simulationStatus": Object {
+          "remainingPositions": 500,
+          "status": "active",
+          "totalPositions": 1000,
+        },
+      }
+    }
+    simulationService={
+      Object {
+        "create": [Function],
+        "start": [Function],
+        "status": [Function],
+        "stop": [Function],
+      }
+    }>
+    <Card
+      className="DashboardItem"
+      expandable={false}
+      expanded={true}
+      initiallyExpanded={false}
+      style={
+        Object {
+          "marginTop": "1rem",
+        }
+      }>
+      <Paper
+        circle={false}
+        className="DashboardItem"
+        rounded={true}
+        style={
+          Object {
+            "marginTop": "1rem",
+            "zIndex": 1,
+          }
+        }
+        transitionEnabled={true}
+        zDepth={1}>
+        <div
+          className="DashboardItem"
+          style={
+            Object {
+              "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+              "backgroundColor": "#ffffff",
+              "borderRadius": "2px",
+              "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
+                     0 1px 4px rgba(0, 0, 0, 0.12)",
+              "boxSizing": "border-box",
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "Roboto, sans-serif",
+              "marginTop": "1rem",
+              "muiPrepared": true,
+              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+              "zIndex": 1,
+            }
+          }>
+          <div
+            style={
+              Object {
+                "paddingBottom": 0,
+              }
+            }>
+            <CardHeader
+              actAsExpander={false}
+              avatar="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+              showExpandableButton={false}
+              subtitle="123"
+              title="a cool tractor simulation">
+              <div
+                style={
+                  Object {
+                    "boxSizing": "border-box",
+                    "fontWeight": 500,
+                    "muiPrepared": true,
+                    "padding": 16,
+                    "position": "relative",
+                    "whiteSpace": "nowrap",
+                  }
+                }>
+                <Avatar
+                  size={40}
+                  src="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+                  style={
+                    Object {
+                      "marginRight": 16,
+                    }
+                  }>
+                  <img
+                    size={40}
+                    src="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "rgb(188, 188, 188)",
+                        "borderRadius": "50%",
+                        "color": "#ffffff",
+                        "display": "inline-flex",
+                        "fontSize": 20,
+                        "height": 40,
+                        "justifyContent": "center",
+                        "marginRight": 16,
+                        "muiPrepared": true,
+                        "userSelect": "none",
+                        "width": 40,
+                      }
+                    } />
+                </Avatar>
+                <div
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "muiPrepared": true,
+                      "paddingRight": "90px",
+                      "verticalAlign": "top",
+                      "whiteSpace": "normal",
+                    }
+                  }>
+                  <span
+                    style={
+                      Object {
+                        "color": "rgba(0, 0, 0, 0.87)",
+                        "display": "block",
+                        "fontSize": 15,
+                        "muiPrepared": true,
+                      }
+                    }>
+                    a cool tractor simulation
+                  </span>
+                  <span
+                    style={
+                      Object {
+                        "color": "rgba(0, 0, 0, 0.54)",
+                        "display": "block",
+                        "fontSize": 14,
+                        "muiPrepared": true,
+                      }
+                    }>
+                    123
+                  </span>
+                </div>
+              </div>
+            </CardHeader>
+            <CardText
+              expandable={true}>
+              <div
+                style={
+                  Object {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                    "fontSize": 14,
+                    "muiPrepared": true,
+                    "padding": 16,
+                  }
+                }>
+                <DashboardItemProgressBar
+                  authToken="basic 123123"
+                  simulationFinished={[Function]}
+                  simulationService={
+                    Object {
+                      "create": [Function],
+                      "start": [Function],
+                      "status": [Function],
+                      "stop": [Function],
+                    }
+                  }
+                  simulationStatus={
+                    Object {
+                      "remainingPositions": 500,
+                      "status": "active",
+                      "totalPositions": 1000,
+                    }
+                  }
+                  trackerId="123"
+                  updateInterval={5000}>
+                  <div
+                    className="dashboard-item-progress-bar">
+                    <ProgressBarSubheader
+                      completed={50}
+                      remainingPositions={500}
+                      status="active"
+                      totalPositions={1000}>
+                      <div>
+                        <Subheader
+                          inset={false}>
+                          <div
+                            style={
+                              Object {
+                                "boxSizing": "border-box",
+                                "color": "rgba(0, 0, 0, 0.54)",
+                                "fontSize": 14,
+                                "fontWeight": 500,
+                                "lineHeight": "48px",
+                                "muiPrepared": true,
+                                "paddingLeft": 16,
+                                "width": "100%",
+                              }
+                            } />
+                        </Subheader>
+                        <LinearProgress
+                          max={100}
+                          min={0}
+                          mode="determinate"
+                          value={50}>
+                          <div
+                            max={100}
+                            min={0}
+                            mode="determinate"
+                            style={
+                              Object {
+                                "backgroundColor": "#bdbdbd",
+                                "borderRadius": 2,
+                                "display": "block",
+                                "height": 4,
+                                "margin": 0,
+                                "muiPrepared": true,
+                                "overflow": "hidden",
+                                "position": "relative",
+                                "width": "100%",
+                              }
+                            }
+                            value={50}>
+                            <div
+                              style={
+                                Object {
+                                  "backgroundColor": "#00bcd4",
+                                  "height": "100%",
+                                  "muiPrepared": true,
+                                  "transition": ".3s width linear 0ms",
+                                  "width": "50%",
+                                }
+                              }>
+                              <div
+                                style={
+                                  Object {
+                                    "muiPrepared": true,
+                                  }
+                                } />
+                              <div
+                                style={
+                                  Object {
+                                    "muiPrepared": true,
+                                  }
+                                } />
+                            </div>
+                          </div>
+                        </LinearProgress>
+                      </div>
+                    </ProgressBarSubheader>
+                  </div>
+                </DashboardItemProgressBar>
+              </div>
+            </CardText>
+            <CardActions
+              style={
+                Object {
+                  "paddingRight": "0px",
+                }
+              }>
+              <div
+                style={
+                  Object {
+                    "muiPrepared": true,
+                    "padding": 8,
+                    "paddingRight": "0px",
+                    "position": "relative",
+                  }
+                }>
+                <RaisedButton
+                  className="start"
+                  disabled={true}
+                  fullWidth={false}
+                  label="Start"
+                  labelPosition="after"
+                  onClick={[Function]}
+                  primary={true}
+                  secondary={false}
+                  style={
+                    Object {
+                      "marginRight": 8,
+                    }
+                  }>
+                  <Paper
+                    circle={false}
+                    className="start"
+                    rounded={true}
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "marginRight": 8,
+                        "minWidth": 88,
+                        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                      }
+                    }
+                    transitionEnabled={true}
+                    zDepth={0}>
+                    <div
+                      className="start"
+                      style={
+                        Object {
+                          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+                          "backgroundColor": "#ffffff",
+                          "borderRadius": "2px",
+                          "boxShadow": undefined,
+                          "boxSizing": "border-box",
+                          "color": "rgba(0, 0, 0, 0.87)",
+                          "display": "inline-block",
+                          "fontFamily": "Roboto, sans-serif",
+                          "marginRight": 8,
+                          "minWidth": 88,
+                          "muiPrepared": true,
+                          "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                        }
+                      }>
+                      <EnhancedButton
+                        containerElement="button"
+                        disabled={true}
+                        focusRippleColor="rgba(0, 0, 0, 0.3)"
+                        focusRippleOpacity={0.16}
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        onKeyUp={[Function]}
+                        onKeyboardFocus={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseUp={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchStart={[Function]}
+                        onTouchTap={[Function]}
+                        style={
+                          Object {
+                            "backgroundColor": "rgb(229, 229, 229)",
+                            "borderRadius": 2,
+                            "height": 36,
+                            "lineHeight": "36px",
+                            "padding": 0,
+                            "position": "relative",
+                            "textAlign": "center",
+                            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                            "width": "100%",
+                          }
+                        }
+                        tabIndex={0}
+                        touchRippleColor="rgba(0, 0, 0, 0.3)"
+                        touchRippleOpacity={0.16}
+                        type="button">
+                        <button
+                          disabled={true}
+                          onBlur={[Function]}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onKeyDown={[Function]}
+                          onKeyUp={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                          onMouseUp={[Function]}
+                          onTouchEnd={[Function]}
+                          onTouchStart={[Function]}
+                          onTouchTap={[Function]}
+                          style={
+                            Object {
+                              "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+                              "backgroundColor": "rgb(229, 229, 229)",
+                              "border": 10,
+                              "borderRadius": 2,
+                              "boxSizing": "border-box",
+                              "cursor": "default",
+                              "display": "inline-block",
+                              "fontFamily": "Roboto, sans-serif",
+                              "fontSize": "inherit",
+                              "fontWeight": "inherit",
+                              "height": 36,
+                              "lineHeight": "36px",
+                              "margin": 0,
+                              "muiPrepared": true,
+                              "outline": "none",
+                              "padding": 0,
+                              "position": "relative",
+                              "textAlign": "center",
+                              "textDecoration": "none",
+                              "transform": "translate(0, 0)",
+                              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                              "verticalAlign": null,
+                              "width": "100%",
+                            }
+                          }
+                          tabIndex={-1}
+                          type="button">
+                          <div
+                            style={
+                              Object {
+                                "backgroundColor": false,
+                                "borderRadius": 2,
+                                "height": 36,
+                                "muiPrepared": true,
+                                "top": 0,
+                                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                              }
+                            }>
+                            <span
+                              style={
+                                Object {
+                                  "color": "rgba(0, 0, 0, 0.3)",
+                                  "fontSize": 14,
+                                  "fontWeight": 500,
+                                  "letterSpacing": 0,
+                                  "margin": 0,
+                                  "muiPrepared": true,
+                                  "opacity": 1,
+                                  "paddingLeft": 16,
+                                  "paddingRight": 16,
+                                  "position": "relative",
+                                  "textTransform": "uppercase",
+                                  "userSelect": "none",
+                                }
+                              }>
+                              Start
+                            </span>
+                          </div>
+                        </button>
+                      </EnhancedButton>
+                    </div>
+                  </Paper>
+                </RaisedButton>
+                <RaisedButton
+                  className="stop"
+                  disabled={false}
+                  fullWidth={false}
+                  label="Stop"
+                  labelPosition="after"
+                  onClick={[Function]}
+                  primary={false}
+                  secondary={false}
+                  style={
+                    Object {
+                      "marginRight": 8,
+                    }
+                  }>
+                  <Paper
+                    circle={false}
+                    className="stop"
+                    rounded={true}
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "marginRight": 8,
+                        "minWidth": 88,
+                        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                      }
+                    }
+                    transitionEnabled={true}
+                    zDepth={1}>
+                    <div
+                      className="stop"
+                      style={
+                        Object {
+                          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+                          "backgroundColor": "#ffffff",
+                          "borderRadius": "2px",
+                          "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
+                                 0 1px 4px rgba(0, 0, 0, 0.12)",
+                          "boxSizing": "border-box",
+                          "color": "rgba(0, 0, 0, 0.87)",
+                          "display": "inline-block",
+                          "fontFamily": "Roboto, sans-serif",
+                          "marginRight": 8,
+                          "minWidth": 88,
+                          "muiPrepared": true,
+                          "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                        }
+                      }>
+                      <EnhancedButton
+                        containerElement="button"
+                        disabled={false}
+                        focusRippleColor="rgba(0, 0, 0, 0.87)"
+                        focusRippleOpacity={0.1}
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        onKeyUp={[Function]}
+                        onKeyboardFocus={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseUp={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchStart={[Function]}
+                        onTouchTap={[Function]}
+                        style={
+                          Object {
+                            "backgroundColor": "#ffffff",
+                            "borderRadius": 2,
+                            "height": 36,
+                            "lineHeight": "36px",
+                            "padding": 0,
+                            "position": "relative",
+                            "textAlign": "center",
+                            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                            "width": "100%",
+                          }
+                        }
+                        tabIndex={0}
+                        touchRippleColor="rgba(0, 0, 0, 0.87)"
+                        touchRippleOpacity={0.1}
+                        type="button">
+                        <button
+                          disabled={false}
+                          onBlur={[Function]}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onKeyDown={[Function]}
+                          onKeyUp={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                          onMouseUp={[Function]}
+                          onTouchEnd={[Function]}
+                          onTouchStart={[Function]}
+                          onTouchTap={[Function]}
+                          style={
+                            Object {
+                              "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+                              "backgroundColor": "#ffffff",
+                              "border": 10,
+                              "borderRadius": 2,
+                              "boxSizing": "border-box",
+                              "cursor": "pointer",
+                              "display": "inline-block",
+                              "fontFamily": "Roboto, sans-serif",
+                              "fontSize": "inherit",
+                              "fontWeight": "inherit",
+                              "height": 36,
+                              "lineHeight": "36px",
+                              "margin": 0,
+                              "muiPrepared": true,
+                              "outline": "none",
+                              "padding": 0,
+                              "position": "relative",
+                              "textAlign": "center",
+                              "textDecoration": "none",
+                              "transform": "translate(0, 0)",
+                              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                              "verticalAlign": null,
+                              "width": "100%",
+                            }
+                          }
+                          tabIndex={0}
+                          type="button">
+                          <TouchRipple
+                            abortOnScroll={true}
+                            color="rgba(0, 0, 0, 0.87)"
+                            opacity={0.1}>
+                            <div
+                              onMouseDown={[Function]}
+                              onMouseLeave={[Function]}
+                              onMouseUp={[Function]}
+                              onTouchEnd={[Function]}
+                              onTouchStart={[Function]}>
+                              <div
+                                style={
+                                  Object {
+                                    "backgroundColor": false,
+                                    "borderRadius": 2,
+                                    "height": 36,
+                                    "muiPrepared": true,
+                                    "top": 0,
+                                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                                  }
+                                }>
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "rgba(0, 0, 0, 0.87)",
+                                      "fontSize": 14,
+                                      "fontWeight": 500,
+                                      "letterSpacing": 0,
+                                      "margin": 0,
+                                      "muiPrepared": true,
+                                      "opacity": 1,
+                                      "paddingLeft": 16,
+                                      "paddingRight": 16,
+                                      "position": "relative",
+                                      "textTransform": "uppercase",
+                                      "userSelect": "none",
+                                    }
+                                  }>
+                                  Stop
+                                </span>
+                              </div>
+                            </div>
+                          </TouchRipple>
+                        </button>
+                      </EnhancedButton>
+                    </div>
+                  </Paper>
+                </RaisedButton>
+                <Menu
+                  handleClick={[Function]}
+                  primaryText="Add Custom Simulation"
+                  style={
+                    Object {
+                      "marginRight": 8,
+                    }
+                  }>
+                  <IconMenu
+                    anchorOrigin={
+                      Object {
+                        "horizontal": "right",
+                        "vertical": "top",
+                      }
+                    }
+                    animated={true}
+                    className="IconMenu"
+                    iconButtonElement={
+                      <IconButton
+                        disableTouchRipple={false}
+                        disabled={false}
+                        iconStyle={Object {}}
+                        tooltipPosition="bottom-center"
+                        touch={false}>
+                        <NavigationMoreVert />
+                      </IconButton>
+                    }
+                    multiple={false}
+                    onItemTouchTap={[Function]}
+                    onKeyboardFocus={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onRequestChange={[Function]}
+                    onTouchTap={[Function]}
+                    open={null}
+                    style={
+                      Object {
+                        "float": "right",
+                        "marginRight": "0px",
+                        "paddingRight": "0px",
+                      }
+                    }
+                    targetOrigin={
+                      Object {
+                        "horizontal": "right",
+                        "vertical": "top",
+                      }
+                    }
+                    touchTapCloseDelay={200}
+                    useLayerForClickAway={false}>
+                    <div
+                      className="IconMenu"
+                      onMouseDown={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
+                      onTouchTap={[Function]}
+                      style={
+                        Object {
+                          "display": "inline-block",
+                          "float": "right",
+                          "marginRight": "0px",
+                          "muiPrepared": true,
+                          "paddingRight": "0px",
+                          "position": "relative",
+                        }
+                      }>
+                      <IconButton
+                        disableTouchRipple={false}
+                        disabled={false}
+                        iconStyle={Object {}}
+                        onKeyboardFocus={[Function]}
+                        onTouchTap={[Function]}
+                        tooltipPosition="bottom-center"
+                        touch={false}>
+                        <EnhancedButton
+                          centerRipple={true}
+                          containerElement="button"
+                          disableTouchRipple={false}
+                          disabled={false}
+                          onBlur={[Function]}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onKeyDown={[Function]}
+                          onKeyUp={[Function]}
+                          onKeyboardFocus={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                          onMouseOut={[Function]}
+                          onMouseUp={[Function]}
+                          onTouchEnd={[Function]}
+                          onTouchStart={[Function]}
+                          onTouchTap={[Function]}
+                          style={
+                            Object {
+                              "boxSizing": "border-box",
+                              "fontSize": 0,
+                              "height": 48,
+                              "overflow": "visible",
+                              "padding": 12,
+                              "position": "relative",
+                              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                              "width": 48,
+                            }
+                          }
+                          tabIndex={0}
+                          type="button">
+                          <button
+                            disabled={false}
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onKeyDown={[Function]}
+                            onKeyUp={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                            onMouseOut={[Function]}
+                            onMouseUp={[Function]}
+                            onTouchEnd={[Function]}
+                            onTouchStart={[Function]}
+                            onTouchTap={[Function]}
+                            style={
+                              Object {
+                                "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+                                "background": "none",
+                                "border": 10,
+                                "boxSizing": "border-box",
+                                "cursor": "pointer",
+                                "display": "inline-block",
+                                "fontFamily": "Roboto, sans-serif",
+                                "fontSize": 0,
+                                "fontWeight": "inherit",
+                                "height": 48,
+                                "margin": 0,
+                                "muiPrepared": true,
+                                "outline": "none",
+                                "overflow": "visible",
+                                "padding": 12,
+                                "position": "relative",
+                                "textDecoration": "none",
+                                "transform": "translate(0, 0)",
+                                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                                "verticalAlign": null,
+                                "width": 48,
+                              }
+                            }
+                            tabIndex={0}
+                            type="button">
+                            <TouchRipple
+                              abortOnScroll={true}
+                              centerRipple={true}>
+                              <div
+                                onMouseDown={[Function]}
+                                onMouseLeave={[Function]}
+                                onMouseUp={[Function]}
+                                onTouchEnd={[Function]}
+                                onTouchStart={[Function]}>
+                                <NavigationMoreVert
+                                  style={Object {}}>
+                                  <SvgIcon
+                                    onMouseEnter={[Function]}
+                                    onMouseLeave={[Function]}
+                                    style={Object {}}
+                                    viewBox="0 0 24 24">
+                                    <svg
+                                      onMouseEnter={[Function]}
+                                      onMouseLeave={[Function]}
+                                      style={
+                                        Object {
+                                          "color": "rgba(0, 0, 0, 0.87)",
+                                          "display": "inline-block",
+                                          "fill": "currentColor",
+                                          "height": 24,
+                                          "muiPrepared": true,
+                                          "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                                          "userSelect": "none",
+                                          "width": 24,
+                                        }
+                                      }
+                                      viewBox="0 0 24 24">
+                                      <path
+                                        d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                                    </svg>
+                                  </SvgIcon>
+                                </NavigationMoreVert>
+                              </div>
+                            </TouchRipple>
+                          </button>
+                        </EnhancedButton>
+                      </IconButton>
+                      <Popover
+                        anchorOrigin={
+                          Object {
+                            "horizontal": "right",
+                            "vertical": "top",
+                          }
+                        }
+                        animated={true}
+                        autoCloseWhenOffScreen={true}
+                        canAutoPosition={true}
+                        context={
+                          Object {
+                            "muiTheme": Object {
+                              "appBar": Object {
+                                "color": "#00bcd4",
+                                "height": 64,
+                                "padding": 24,
+                                "textColor": "#ffffff",
+                                "titleFontWeight": 400,
+                              },
+                              "avatar": Object {
+                                "backgroundColor": "rgb(188, 188, 188)",
+                                "color": "#ffffff",
+                              },
+                              "badge": Object {
+                                "color": "#ffffff",
+                                "fontWeight": 500,
+                                "primaryColor": "#00bcd4",
+                                "primaryTextColor": "#ffffff",
+                                "secondaryColor": "#ff4081",
+                                "secondaryTextColor": "#ffffff",
+                                "textColor": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "baseTheme": Object {
+                                "fontFamily": "Roboto, sans-serif",
+                                "palette": Object {
+                                  "accent1Color": "#ff4081",
+                                  "accent2Color": "#f5f5f5",
+                                  "accent3Color": "#9e9e9e",
+                                  "alternateTextColor": "#ffffff",
+                                  "borderColor": "#e0e0e0",
+                                  "canvasColor": "#ffffff",
+                                  "clockCircleColor": "rgba(0, 0, 0, 0.07)",
+                                  "disabledColor": "rgba(0, 0, 0, 0.3)",
+                                  "pickerHeaderColor": "#00bcd4",
+                                  "primary1Color": "#00bcd4",
+                                  "primary2Color": "#0097a7",
+                                  "primary3Color": "#bdbdbd",
+                                  "secondaryTextColor": "rgba(0, 0, 0, 0.54)",
+                                  "shadowColor": "rgba(0, 0, 0, 1)",
+                                  "textColor": "rgba(0, 0, 0, 0.87)",
+                                },
+                                "spacing": Object {
+                                  "desktopDrawerMenuItemHeight": 48,
+                                  "desktopDropDownMenuFontSize": 15,
+                                  "desktopDropDownMenuItemHeight": 32,
+                                  "desktopGutter": 24,
+                                  "desktopGutterLess": 16,
+                                  "desktopGutterMini": 8,
+                                  "desktopGutterMore": 32,
+                                  "desktopKeylineIncrement": 64,
+                                  "desktopSubheaderHeight": 48,
+                                  "desktopToolbarHeight": 56,
+                                  "iconSize": 24,
+                                },
+                              },
+                              "bottomNavigation": Object {
+                                "backgroundColor": "#ffffff",
+                                "height": 56,
+                                "selectedColor": "#00bcd4",
+                                "selectedFontSize": 14,
+                                "unselectedColor": "rgba(0, 0, 0, 0.54)",
+                                "unselectedFontSize": 12,
+                              },
+                              "button": Object {
+                                "height": 36,
+                                "iconButtonSize": 48,
+                                "minWidth": 88,
+                              },
+                              "card": Object {
+                                "fontWeight": 500,
+                                "subtitleColor": "rgba(0, 0, 0, 0.54)",
+                                "titleColor": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "cardMedia": Object {
+                                "color": "rgba(255, 255, 255, 0.87)",
+                                "overlayContentBackground": "rgba(0, 0, 0, 0.54)",
+                                "subtitleColor": "rgba(255, 255, 255, 0.54)",
+                                "titleColor": "rgba(255, 255, 255, 0.87)",
+                              },
+                              "cardText": Object {
+                                "textColor": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "checkbox": Object {
+                                "boxColor": "rgba(0, 0, 0, 0.87)",
+                                "checkedColor": "#00bcd4",
+                                "disabledColor": "rgba(0, 0, 0, 0.3)",
+                                "labelColor": "rgba(0, 0, 0, 0.87)",
+                                "labelDisabledColor": "rgba(0, 0, 0, 0.3)",
+                                "requiredColor": "#00bcd4",
+                              },
+                              "chip": Object {
+                                "backgroundColor": "rgb(224, 224, 224)",
+                                "deleteIconColor": "rgba(0, 0, 0, 0.26)",
+                                "fontSize": 14,
+                                "fontWeight": 400,
+                                "shadow": "0 1px 6px rgba(0, 0, 0, 0.12),
+                                  0 1px 4px rgba(0, 0, 0, 0.12)",
+                                "textColor": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "datePicker": Object {
+                                "calendarTextColor": "rgba(0, 0, 0, 0.87)",
+                                "calendarYearBackgroundColor": "#ffffff",
+                                "color": "#00bcd4",
+                                "selectColor": "#0097a7",
+                                "selectTextColor": "#ffffff",
+                                "textColor": "#ffffff",
+                              },
+                              "dialog": Object {
+                                "bodyColor": "rgba(0, 0, 0, 0.6)",
+                                "bodyFontSize": 16,
+                                "titleFontSize": 22,
+                              },
+                              "drawer": Object {
+                                "color": "#ffffff",
+                                "width": 256,
+                              },
+                              "dropDownMenu": Object {
+                                "accentColor": "#e0e0e0",
+                              },
+                              "enhancedButton": Object {
+                                "tapHighlightColor": "rgba(0, 0, 0, 0)",
+                              },
+                              "flatButton": Object {
+                                "buttonFilterColor": "#999999",
+                                "color": "rgba(0, 0, 0, 0)",
+                                "disabledTextColor": "rgba(0, 0, 0, 0.3)",
+                                "fontSize": 14,
+                                "fontWeight": 500,
+                                "primaryTextColor": "#00bcd4",
+                                "secondaryTextColor": "#ff4081",
+                                "textColor": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "floatingActionButton": Object {
+                                "buttonSize": 56,
+                                "color": "#00bcd4",
+                                "disabledColor": "rgb(224, 224, 224)",
+                                "disabledTextColor": "rgba(0, 0, 0, 0.3)",
+                                "iconColor": "#ffffff",
+                                "miniSize": 40,
+                                "secondaryColor": "#ff4081",
+                                "secondaryIconColor": "#ffffff",
+                              },
+                              "fontFamily": "Roboto, sans-serif",
+                              "gridTile": Object {
+                                "textColor": "#ffffff",
+                              },
+                              "icon": Object {
+                                "backgroundColor": "#00bcd4",
+                                "color": "#ffffff",
+                              },
+                              "inkBar": Object {
+                                "backgroundColor": "#ff4081",
+                              },
+                              "isRtl": false,
+                              "listItem": Object {
+                                "leftIconColor": "#757575",
+                                "nestedLevelDepth": 18,
+                                "rightIconColor": "#757575",
+                                "secondaryTextColor": "rgba(0, 0, 0, 0.54)",
+                              },
+                              "menu": Object {
+                                "backgroundColor": "#ffffff",
+                                "containerBackgroundColor": "#ffffff",
+                              },
+                              "menuItem": Object {
+                                "dataHeight": 32,
+                                "height": 48,
+                                "hoverColor": "rgba(0, 0, 0, 0.1)",
+                                "padding": 24,
+                                "rightIconDesktopFill": "#757575",
+                                "selectedTextColor": "#ff4081",
+                              },
+                              "menuSubheader": Object {
+                                "borderColor": "#e0e0e0",
+                                "padding": 24,
+                                "textColor": "#00bcd4",
+                              },
+                              "overlay": Object {
+                                "backgroundColor": "rgba(0, 0, 0, 0.54)",
+                              },
+                              "palette": Object {
+                                "accent1Color": "#ff4081",
+                                "accent2Color": "#f5f5f5",
+                                "accent3Color": "#9e9e9e",
+                                "alternateTextColor": "#ffffff",
+                                "borderColor": "#e0e0e0",
+                                "canvasColor": "#ffffff",
+                                "clockCircleColor": "rgba(0, 0, 0, 0.07)",
+                                "disabledColor": "rgba(0, 0, 0, 0.3)",
+                                "pickerHeaderColor": "#00bcd4",
+                                "primary1Color": "#00bcd4",
+                                "primary2Color": "#0097a7",
+                                "primary3Color": "#bdbdbd",
+                                "secondaryTextColor": "rgba(0, 0, 0, 0.54)",
+                                "shadowColor": "rgba(0, 0, 0, 1)",
+                                "textColor": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "paper": Object {
+                                "backgroundColor": "#ffffff",
+                                "color": "rgba(0, 0, 0, 0.87)",
+                                "zDepthShadows": Array [
+                                  "0 1px 6px rgba(0, 0, 0, 0.12),
+                                   0 1px 4px rgba(0, 0, 0, 0.12)",
+                                  "0 3px 10px rgba(0, 0, 0, 0.16),
+                                   0 3px 10px rgba(0, 0, 0, 0.23)",
+                                  "0 10px 30px rgba(0, 0, 0, 0.19),
+                                   0 6px 10px rgba(0, 0, 0, 0.23)",
+                                  "0 14px 45px rgba(0, 0, 0, 0.25),
+                                   0 10px 18px rgba(0, 0, 0, 0.22)",
+                                  "0 19px 60px rgba(0, 0, 0, 0.3),
+                                   0 15px 20px rgba(0, 0, 0, 0.22)",
+                                ],
+                              },
+                              "prepareStyles": [Function],
+                              "radioButton": Object {
+                                "backgroundColor": "#ffffff",
+                                "borderColor": "rgba(0, 0, 0, 0.87)",
+                                "checkedColor": "#00bcd4",
+                                "disabledColor": "rgba(0, 0, 0, 0.3)",
+                                "labelColor": "rgba(0, 0, 0, 0.87)",
+                                "labelDisabledColor": "rgba(0, 0, 0, 0.3)",
+                                "requiredColor": "#00bcd4",
+                                "size": 24,
+                              },
+                              "raisedButton": Object {
+                                "color": "#ffffff",
+                                "disabledColor": "rgb(229, 229, 229)",
+                                "disabledTextColor": "rgba(0, 0, 0, 0.3)",
+                                "fontSize": 14,
+                                "fontWeight": 500,
+                                "primaryColor": "#00bcd4",
+                                "primaryTextColor": "#ffffff",
+                                "secondaryColor": "#ff4081",
+                                "secondaryTextColor": "#ffffff",
+                                "textColor": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "rawTheme": Object {
+                                "fontFamily": "Roboto, sans-serif",
+                                "palette": Object {
+                                  "accent1Color": "#ff4081",
+                                  "accent2Color": "#f5f5f5",
+                                  "accent3Color": "#9e9e9e",
+                                  "alternateTextColor": "#ffffff",
+                                  "borderColor": "#e0e0e0",
+                                  "canvasColor": "#ffffff",
+                                  "clockCircleColor": "rgba(0, 0, 0, 0.07)",
+                                  "disabledColor": "rgba(0, 0, 0, 0.3)",
+                                  "pickerHeaderColor": "#00bcd4",
+                                  "primary1Color": "#00bcd4",
+                                  "primary2Color": "#0097a7",
+                                  "primary3Color": "#bdbdbd",
+                                  "secondaryTextColor": "rgba(0, 0, 0, 0.54)",
+                                  "shadowColor": "rgba(0, 0, 0, 1)",
+                                  "textColor": "rgba(0, 0, 0, 0.87)",
+                                },
+                                "spacing": Object {
+                                  "desktopDrawerMenuItemHeight": 48,
+                                  "desktopDropDownMenuFontSize": 15,
+                                  "desktopDropDownMenuItemHeight": 32,
+                                  "desktopGutter": 24,
+                                  "desktopGutterLess": 16,
+                                  "desktopGutterMini": 8,
+                                  "desktopGutterMore": 32,
+                                  "desktopKeylineIncrement": 64,
+                                  "desktopSubheaderHeight": 48,
+                                  "desktopToolbarHeight": 56,
+                                  "iconSize": 24,
+                                },
+                              },
+                              "refreshIndicator": Object {
+                                "loadingStrokeColor": "#00bcd4",
+                                "strokeColor": "#e0e0e0",
+                              },
+                              "ripple": Object {
+                                "color": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "slider": Object {
+                                "handleColorZero": "#bdbdbd",
+                                "handleFillColor": "#ffffff",
+                                "handleSize": 12,
+                                "handleSizeActive": 18,
+                                "handleSizeDisabled": 8,
+                                "rippleColor": "#00bcd4",
+                                "selectionColor": "#00bcd4",
+                                "trackColor": "#bdbdbd",
+                                "trackColorSelected": "#9e9e9e",
+                                "trackSize": 2,
+                              },
+                              "snackbar": Object {
+                                "actionColor": "#ff4081",
+                                "backgroundColor": "rgba(0, 0, 0, 0.87)",
+                                "textColor": "#ffffff",
+                              },
+                              "spacing": Object {
+                                "desktopDrawerMenuItemHeight": 48,
+                                "desktopDropDownMenuFontSize": 15,
+                                "desktopDropDownMenuItemHeight": 32,
+                                "desktopGutter": 24,
+                                "desktopGutterLess": 16,
+                                "desktopGutterMini": 8,
+                                "desktopGutterMore": 32,
+                                "desktopKeylineIncrement": 64,
+                                "desktopSubheaderHeight": 48,
+                                "desktopToolbarHeight": 56,
+                                "iconSize": 24,
+                              },
+                              "stepper": Object {
+                                "backgroundColor": "transparent",
+                                "connectorLineColor": "#bdbdbd",
+                                "disabledTextColor": "rgba(0, 0, 0, 0.26)",
+                                "hoverBackgroundColor": "rgba(0, 0, 0, 0.06)",
+                                "hoveredIconColor": "#616161",
+                                "iconColor": "#00bcd4",
+                                "inactiveIconColor": "#9e9e9e",
+                                "textColor": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "subheader": Object {
+                                "color": "rgba(0, 0, 0, 0.54)",
+                                "fontWeight": 500,
+                              },
+                              "svgIcon": Object {
+                                "color": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "table": Object {
+                                "backgroundColor": "#ffffff",
+                              },
+                              "tableFooter": Object {
+                                "borderColor": "#e0e0e0",
+                                "textColor": "#9e9e9e",
+                              },
+                              "tableHeader": Object {
+                                "borderColor": "#e0e0e0",
+                              },
+                              "tableHeaderColumn": Object {
+                                "height": 56,
+                                "spacing": 24,
+                                "textColor": "#9e9e9e",
+                              },
+                              "tableRow": Object {
+                                "borderColor": "#e0e0e0",
+                                "height": 48,
+                                "hoverColor": "#f5f5f5",
+                                "selectedColor": "#e0e0e0",
+                                "stripeColor": "rgba(127, 221, 233, 0.4)",
+                                "textColor": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "tableRowColumn": Object {
+                                "height": 48,
+                                "spacing": 24,
+                              },
+                              "tabs": Object {
+                                "backgroundColor": "#00bcd4",
+                                "selectedTextColor": "#ffffff",
+                                "textColor": "rgba(255, 255, 255, 0.7)",
+                              },
+                              "textField": Object {
+                                "backgroundColor": "transparent",
+                                "borderColor": "#e0e0e0",
+                                "disabledTextColor": "rgba(0, 0, 0, 0.3)",
+                                "errorColor": "#f44336",
+                                "floatingLabelColor": "rgba(0, 0, 0, 0.3)",
+                                "focusColor": "#00bcd4",
+                                "hintColor": "rgba(0, 0, 0, 0.3)",
+                                "textColor": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "timePicker": Object {
+                                "accentColor": "#00bcd4",
+                                "clockCircleColor": "rgba(0, 0, 0, 0.07)",
+                                "clockColor": "rgba(0, 0, 0, 0.87)",
+                                "color": "#ffffff",
+                                "headerColor": "#00bcd4",
+                                "selectColor": "#0097a7",
+                                "selectTextColor": "#ffffff",
+                                "textColor": "#9e9e9e",
+                              },
+                              "toggle": Object {
+                                "labelColor": "rgba(0, 0, 0, 0.87)",
+                                "labelDisabledColor": "rgba(0, 0, 0, 0.3)",
+                                "thumbDisabledColor": "#e0e0e0",
+                                "thumbOffColor": "#f5f5f5",
+                                "thumbOnColor": "#00bcd4",
+                                "thumbRequiredColor": "#00bcd4",
+                                "trackDisabledColor": "#bdbdbd",
+                                "trackOffColor": "#bdbdbd",
+                                "trackOnColor": "rgba(0, 188, 212, 0.5)",
+                                "trackRequiredColor": "rgba(0, 188, 212, 0.5)",
+                              },
+                              "toolbar": Object {
+                                "backgroundColor": "rgb(232, 232, 232)",
+                                "color": "rgba(0, 0, 0, 0.54)",
+                                "height": 56,
+                                "hoverColor": "rgba(0, 0, 0, 0.87)",
+                                "iconColor": "rgba(0, 0, 0, 0.4)",
+                                "menuHoverColor": "rgba(0, 0, 0, 0.1)",
+                                "separatorColor": "rgba(0, 0, 0, 0.175)",
+                                "titleFontSize": 20,
+                              },
+                              "tooltip": Object {
+                                "color": "#ffffff",
+                                "rippleBackgroundColor": "#616161",
+                              },
+                              "zIndex": Object {
+                                "appBar": 1100,
+                                "dialog": 1500,
+                                "dialogOverlay": 1400,
+                                "drawer": 1300,
+                                "drawerOverlay": 1200,
+                                "layer": 2000,
+                                "menu": 1000,
+                                "popover": 2100,
+                                "snackbar": 2900,
+                                "tooltip": 3000,
+                              },
+                            },
+                          }
+                        }
+                        onRequestClose={[Function]}
+                        open={false}
+                        style={
+                          Object {
+                            "overflowY": "auto",
+                          }
+                        }
+                        targetOrigin={
+                          Object {
+                            "horizontal": "right",
+                            "vertical": "top",
+                          }
+                        }
+                        useLayerForClickAway={false}
+                        zDepth={1}>
+                        <div>
+                          <EventListener
+                            onResize={[Function]}
+                            onScroll={[Function]}
+                            target="window" />
+                          <RenderToLayer
+                            componentClickAway={[Function]}
+                            open={false}
+                            render={[Function]}
+                            useLayerForClickAway={false} />
+                        </div>
+                      </Popover>
+                    </div>
+                  </IconMenu>
+                </Menu>
+                <CustomSimulationDialog
+                  authToken="basic 123123"
+                  handleClose={[Function]}
+                  open={false}
+                  simulationService={
+                    Object {
+                      "create": [Function],
+                      "start": [Function],
+                      "status": [Function],
+                      "stop": [Function],
+                    }
+                  }
+                  style={
+                    Object {
+                      "marginRight": 8,
+                    }
+                  }
+                  trackerId="123">
+                  <div>
+                    <Dialog
+                      actions={
+                        Array [
+                          <FlatButton
+                            disabled={false}
+                            label="Cancel"
+                            labelPosition="after"
+                            labelStyle={Object {}}
+                            onKeyboardFocus={[Function]}
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                            onTouchStart={[Function]}
+                            onTouchTap={[Function]}
+                            primary={true}
+                            secondary={false} />,
+                          <FlatButton
+                            disabled={true}
+                            label="Submit"
+                            labelPosition="after"
+                            labelStyle={Object {}}
+                            onKeyboardFocus={[Function]}
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                            onTouchStart={[Function]}
+                            onTouchTap={[Function]}
+                            primary={true}
+                            secondary={false} />,
+                        ]
+                      }
+                      actionsContainerStyle={
+                        Object {
+                          "textAlign": "right",
+                        }
+                      }
+                      autoDetectWindowHeight={true}
+                      autoScrollBodyContent={true}
+                      modal={true}
+                      open={false}
+                      repositionOnUpdate={true}
+                      title="Create Custom Simulation">
+                      <RenderToLayer
+                        open={true}
+                        render={[Function]}
+                        useLayerForClickAway={false} />
+                    </Dialog>
+                    <Snackbar
+                      autoHideDuration={4000}
+                      message=""
+                      onRequestClose={[Function]}
+                      open={false}
+                      style={
+                        Object {
+                          "textAlign": "center",
+                        }
+                      }>
+                      <ClickAwayListener
+                        onClickAway={null}>
+                        <div
+                          open={false}
+                          style={
+                            Object {
+                              "bottom": 0,
+                              "display": "flex",
+                              "left": "50%",
+                              "muiPrepared": true,
+                              "position": "fixed",
+                              "textAlign": "center",
+                              "transform": "translate(-50%, 48px)",
+                              "transition": "transform 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, visibility 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                              "visibility": "hidden",
+                              "zIndex": 2900,
+                            }
+                          }>
+                          <WithWidth
+                            message=""
+                            open={false}>
+                            <EventListener
+                              onResize={[Function]}
+                              target="window">
+                              <SnackbarBody
+                                message=""
+                                open={false}
+                                width={3}>
+                                <div
+                                  style={
+                                    Object {
+                                      "backgroundColor": "rgba(0, 0, 0, 0.87)",
+                                      "borderRadius": 2,
+                                      "flexGrow": 0,
+                                      "fontFamily": "Roboto, sans-serif",
+                                      "height": 48,
+                                      "lineHeight": "48px",
+                                      "maxWidth": 568,
+                                      "minWidth": 288,
+                                      "muiPrepared": true,
+                                      "padding": "0 24px",
+                                      "width": "auto",
+                                    }
+                                  }
+                                  width={3}>
+                                  <div
+                                    style={
+                                      Object {
+                                        "color": "#ffffff",
+                                        "fontSize": 14,
+                                        "muiPrepared": true,
+                                        "opacity": 0,
+                                        "transition": "opacity 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                                      }
+                                    }>
+                                    <span />
+                                  </div>
+                                </div>
+                              </SnackbarBody>
+                            </EventListener>
+                          </WithWidth>
+                        </div>
+                      </ClickAwayListener>
+                    </Snackbar>
+                  </div>
+                </CustomSimulationDialog>
+              </div>
+            </CardActions>
+            <Snackbar
+              autoHideDuration={4000}
+              message=""
+              onRequestClose={[Function]}
+              open={false}
+              style={
+                Object {
+                  "textAlign": "center",
+                }
+              }>
+              <ClickAwayListener
+                onClickAway={null}>
+                <div
+                  open={false}
+                  style={
+                    Object {
+                      "bottom": 0,
+                      "display": "flex",
+                      "left": "50%",
+                      "muiPrepared": true,
+                      "position": "fixed",
+                      "textAlign": "center",
+                      "transform": "translate(-50%, 48px)",
+                      "transition": "transform 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, visibility 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                      "visibility": "hidden",
+                      "zIndex": 2900,
+                    }
+                  }>
+                  <WithWidth
+                    message=""
+                    open={false}>
+                    <EventListener
+                      onResize={[Function]}
+                      target="window">
+                      <SnackbarBody
+                        message=""
+                        open={false}
+                        width={3}>
+                        <div
+                          style={
+                            Object {
+                              "backgroundColor": "rgba(0, 0, 0, 0.87)",
+                              "borderRadius": 2,
+                              "flexGrow": 0,
+                              "fontFamily": "Roboto, sans-serif",
+                              "height": 48,
+                              "lineHeight": "48px",
+                              "maxWidth": 568,
+                              "minWidth": 288,
+                              "muiPrepared": true,
+                              "padding": "0 24px",
+                              "width": "auto",
+                            }
+                          }
+                          width={3}>
+                          <div
+                            style={
+                              Object {
+                                "color": "#ffffff",
+                                "fontSize": 14,
+                                "muiPrepared": true,
+                                "opacity": 0,
+                                "transition": "opacity 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                              }
+                            }>
+                            <span />
+                          </div>
+                        </div>
+                      </SnackbarBody>
+                    </EventListener>
+                  </WithWidth>
+                </div>
+              </ClickAwayListener>
+            </Snackbar>
+          </div>
+        </div>
+      </Paper>
+    </Card>
+  </DashboardItem>
+</MuiThemeProvider>
+`;
+
+exports[`<DashBoardItem /> device simulationStatus is inactive and has custom_simulation renders with expected initial state 1`] = `
 <MuiThemeProvider>
   <DashboardItem
     authToken="basic 123123"
     device={
       Object {
         "custom_simulation": true,
-        "id": "3123",
+        "id": "123",
         "relationships": Object {
           "equipment": Object {
             "data": Object {
               "default_simulation": false,
-              "description": "A customized Apache Helicopter",
-              "id": "deviceId",
+              "description": "a cool tractor simulation",
+              "id": "anotherid",
               "simulation_type": "applicator",
               "type": "equipment",
             },
@@ -80,8 +1572,8 @@ exports[`<DashBoardItem /> For devices with custom_simulation data renders corre
               actAsExpander={false}
               avatar="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
               showExpandableButton={false}
-              subtitle="3123"
-              title="A customized Apache Helicopter">
+              subtitle="123"
+              title="a cool tractor simulation">
               <div
                 style={
                   Object {
@@ -140,7 +1632,7 @@ exports[`<DashBoardItem /> For devices with custom_simulation data renders corre
                         "muiPrepared": true,
                       }
                     }>
-                    A customized Apache Helicopter
+                    a cool tractor simulation
                   </span>
                   <span
                     style={
@@ -151,7 +1643,7 @@ exports[`<DashBoardItem /> For devices with custom_simulation data renders corre
                         "muiPrepared": true,
                       }
                     }>
-                    3123
+                    123
                   </span>
                 </div>
               </div>
@@ -1172,7 +2664,7 @@ exports[`<DashBoardItem /> For devices with custom_simulation data renders corre
                       "marginRight": 8,
                     }
                   }
-                  trackerId="3123">
+                  trackerId="123">
                   <div>
                     <Dialog
                       actions={
@@ -1379,12 +2871,13 @@ exports[`<DashBoardItem /> For devices with custom_simulation data renders corre
 </MuiThemeProvider>
 `;
 
-exports[`<DashBoardItem /> For devices with default_simulation data renders correctly 1`] = `
+exports[`<DashBoardItem /> device simulationStatus is inactive and has default_simulation renders with expected initial state 1`] = `
 <MuiThemeProvider>
   <DashboardItem
     authToken="basic 123123"
     device={
       Object {
+        "custom_simulation": false,
         "id": "123",
         "relationships": Object {
           "equipment": Object {
@@ -2462,7 +3955,7 @@ exports[`<DashBoardItem /> For devices with default_simulation data renders corr
                                 "headerColor": "#00bcd4",
                                 "selectColor": "#0097a7",
                                 "selectTextColor": "#ffffff",
-                                "textColor": "#ffffff",
+                                "textColor": "#9e9e9e",
                               },
                               "toggle": Object {
                                 "labelColor": "rgba(0, 0, 0, 0.87)",
@@ -2520,12 +4013,1375 @@ exports[`<DashBoardItem /> For devices with default_simulation data renders corr
                         }
                         useLayerForClickAway={false}
                         zDepth={1}>
+                        <div>
+                          <EventListener
+                            onResize={[Function]}
+                            onScroll={[Function]}
+                            target="window" />
+                          <RenderToLayer
+                            componentClickAway={[Function]}
+                            open={false}
+                            render={[Function]}
+                            useLayerForClickAway={false} />
+                        </div>
+                      </Popover>
+                    </div>
+                  </IconMenu>
+                </Menu>
+                <CustomSimulationDialog
+                  authToken="basic 123123"
+                  handleClose={[Function]}
+                  open={false}
+                  simulationService={
+                    Object {
+                      "create": [Function],
+                      "start": [Function],
+                      "status": [Function],
+                      "stop": [Function],
+                    }
+                  }
+                  style={
+                    Object {
+                      "marginRight": 8,
+                    }
+                  }
+                  trackerId="123">
+                  <div>
+                    <Dialog
+                      actions={
+                        Array [
+                          <FlatButton
+                            disabled={false}
+                            label="Cancel"
+                            labelPosition="after"
+                            labelStyle={Object {}}
+                            onKeyboardFocus={[Function]}
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                            onTouchStart={[Function]}
+                            onTouchTap={[Function]}
+                            primary={true}
+                            secondary={false} />,
+                          <FlatButton
+                            disabled={true}
+                            label="Submit"
+                            labelPosition="after"
+                            labelStyle={Object {}}
+                            onKeyboardFocus={[Function]}
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                            onTouchStart={[Function]}
+                            onTouchTap={[Function]}
+                            primary={true}
+                            secondary={false} />,
+                        ]
+                      }
+                      actionsContainerStyle={
+                        Object {
+                          "textAlign": "right",
+                        }
+                      }
+                      autoDetectWindowHeight={true}
+                      autoScrollBodyContent={true}
+                      modal={true}
+                      open={false}
+                      repositionOnUpdate={true}
+                      title="Create Custom Simulation">
+                      <RenderToLayer
+                        open={true}
+                        render={[Function]}
+                        useLayerForClickAway={false} />
+                    </Dialog>
+                    <Snackbar
+                      autoHideDuration={4000}
+                      message=""
+                      onRequestClose={[Function]}
+                      open={false}
+                      style={
+                        Object {
+                          "textAlign": "center",
+                        }
+                      }>
+                      <ClickAwayListener
+                        onClickAway={null}>
+                        <div
+                          open={false}
+                          style={
+                            Object {
+                              "bottom": 0,
+                              "display": "flex",
+                              "left": "50%",
+                              "muiPrepared": true,
+                              "position": "fixed",
+                              "textAlign": "center",
+                              "transform": "translate(-50%, 48px)",
+                              "transition": "transform 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, visibility 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                              "visibility": "hidden",
+                              "zIndex": 2900,
+                            }
+                          }>
+                          <WithWidth
+                            message=""
+                            open={false}>
+                            <EventListener
+                              onResize={[Function]}
+                              target="window">
+                              <SnackbarBody
+                                message=""
+                                open={false}
+                                width={3}>
+                                <div
+                                  style={
+                                    Object {
+                                      "backgroundColor": "rgba(0, 0, 0, 0.87)",
+                                      "borderRadius": 2,
+                                      "flexGrow": 0,
+                                      "fontFamily": "Roboto, sans-serif",
+                                      "height": 48,
+                                      "lineHeight": "48px",
+                                      "maxWidth": 568,
+                                      "minWidth": 288,
+                                      "muiPrepared": true,
+                                      "padding": "0 24px",
+                                      "width": "auto",
+                                    }
+                                  }
+                                  width={3}>
+                                  <div
+                                    style={
+                                      Object {
+                                        "color": "#ffffff",
+                                        "fontSize": 14,
+                                        "muiPrepared": true,
+                                        "opacity": 0,
+                                        "transition": "opacity 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                                      }
+                                    }>
+                                    <span />
+                                  </div>
+                                </div>
+                              </SnackbarBody>
+                            </EventListener>
+                          </WithWidth>
+                        </div>
+                      </ClickAwayListener>
+                    </Snackbar>
+                  </div>
+                </CustomSimulationDialog>
+              </div>
+            </CardActions>
+            <Snackbar
+              autoHideDuration={4000}
+              message=""
+              onRequestClose={[Function]}
+              open={false}
+              style={
+                Object {
+                  "textAlign": "center",
+                }
+              }>
+              <ClickAwayListener
+                onClickAway={null}>
+                <div
+                  open={false}
+                  style={
+                    Object {
+                      "bottom": 0,
+                      "display": "flex",
+                      "left": "50%",
+                      "muiPrepared": true,
+                      "position": "fixed",
+                      "textAlign": "center",
+                      "transform": "translate(-50%, 48px)",
+                      "transition": "transform 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, visibility 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                      "visibility": "hidden",
+                      "zIndex": 2900,
+                    }
+                  }>
+                  <WithWidth
+                    message=""
+                    open={false}>
+                    <EventListener
+                      onResize={[Function]}
+                      target="window">
+                      <SnackbarBody
+                        message=""
+                        open={false}
+                        width={3}>
                         <div
                           style={
                             Object {
-                              "display": "none",
+                              "backgroundColor": "rgba(0, 0, 0, 0.87)",
+                              "borderRadius": 2,
+                              "flexGrow": 0,
+                              "fontFamily": "Roboto, sans-serif",
+                              "height": 48,
+                              "lineHeight": "48px",
+                              "maxWidth": 568,
+                              "minWidth": 288,
+                              "muiPrepared": true,
+                              "padding": "0 24px",
+                              "width": "auto",
                             }
-                          }>
+                          }
+                          width={3}>
+                          <div
+                            style={
+                              Object {
+                                "color": "#ffffff",
+                                "fontSize": 14,
+                                "muiPrepared": true,
+                                "opacity": 0,
+                                "transition": "opacity 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                              }
+                            }>
+                            <span />
+                          </div>
+                        </div>
+                      </SnackbarBody>
+                    </EventListener>
+                  </WithWidth>
+                </div>
+              </ClickAwayListener>
+            </Snackbar>
+          </div>
+        </div>
+      </Paper>
+    </Card>
+  </DashboardItem>
+</MuiThemeProvider>
+`;
+
+exports[`<DashBoardItem /> device simulationStatus is inactive and has neither custom_simulation nor default_simulation renders with expected initial state 1`] = `
+<MuiThemeProvider>
+  <DashboardItem
+    authToken="basic 123123"
+    device={
+      Object {
+        "custom_simulation": false,
+        "id": "123",
+        "relationships": Object {
+          "equipment": Object {
+            "data": Object {
+              "default_simulation": false,
+              "description": "a cool tractor simulation",
+              "id": "anotherid",
+              "simulation_type": "applicator",
+              "type": "equipment",
+            },
+          },
+        },
+        "simulationStatus": Object {
+          "status": "inactive",
+        },
+      }
+    }
+    simulationService={
+      Object {
+        "create": [Function],
+        "start": [Function],
+        "status": [Function],
+        "stop": [Function],
+      }
+    }>
+    <Card
+      className="DashboardItem"
+      expandable={false}
+      expanded={false}
+      initiallyExpanded={false}
+      style={
+        Object {
+          "marginTop": "1rem",
+        }
+      }>
+      <Paper
+        circle={false}
+        className="DashboardItem"
+        rounded={true}
+        style={
+          Object {
+            "marginTop": "1rem",
+            "zIndex": 1,
+          }
+        }
+        transitionEnabled={true}
+        zDepth={1}>
+        <div
+          className="DashboardItem"
+          style={
+            Object {
+              "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+              "backgroundColor": "#ffffff",
+              "borderRadius": "2px",
+              "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
+                     0 1px 4px rgba(0, 0, 0, 0.12)",
+              "boxSizing": "border-box",
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "Roboto, sans-serif",
+              "marginTop": "1rem",
+              "muiPrepared": true,
+              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+              "zIndex": 1,
+            }
+          }>
+          <div
+            style={
+              Object {
+                "paddingBottom": 0,
+              }
+            }>
+            <CardHeader
+              actAsExpander={false}
+              avatar="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+              showExpandableButton={false}
+              subtitle="123"
+              title="a cool tractor simulation">
+              <div
+                style={
+                  Object {
+                    "boxSizing": "border-box",
+                    "fontWeight": 500,
+                    "muiPrepared": true,
+                    "padding": 16,
+                    "position": "relative",
+                    "whiteSpace": "nowrap",
+                  }
+                }>
+                <Avatar
+                  size={40}
+                  src="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+                  style={
+                    Object {
+                      "marginRight": 16,
+                    }
+                  }>
+                  <img
+                    size={40}
+                    src="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "rgb(188, 188, 188)",
+                        "borderRadius": "50%",
+                        "color": "#ffffff",
+                        "display": "inline-flex",
+                        "fontSize": 20,
+                        "height": 40,
+                        "justifyContent": "center",
+                        "marginRight": 16,
+                        "muiPrepared": true,
+                        "userSelect": "none",
+                        "width": 40,
+                      }
+                    } />
+                </Avatar>
+                <div
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "muiPrepared": true,
+                      "paddingRight": "90px",
+                      "verticalAlign": "top",
+                      "whiteSpace": "normal",
+                    }
+                  }>
+                  <span
+                    style={
+                      Object {
+                        "color": "rgba(0, 0, 0, 0.87)",
+                        "display": "block",
+                        "fontSize": 15,
+                        "muiPrepared": true,
+                      }
+                    }>
+                    a cool tractor simulation
+                  </span>
+                  <span
+                    style={
+                      Object {
+                        "color": "rgba(0, 0, 0, 0.54)",
+                        "display": "block",
+                        "fontSize": 14,
+                        "muiPrepared": true,
+                      }
+                    }>
+                    123
+                  </span>
+                </div>
+              </div>
+            </CardHeader>
+            <CardActions
+              style={
+                Object {
+                  "paddingRight": "0px",
+                }
+              }>
+              <div
+                style={
+                  Object {
+                    "muiPrepared": true,
+                    "padding": 8,
+                    "paddingRight": "0px",
+                    "position": "relative",
+                  }
+                }>
+                <RaisedButton
+                  className="start"
+                  disabled={true}
+                  fullWidth={false}
+                  label="Start"
+                  labelPosition="after"
+                  onClick={[Function]}
+                  primary={true}
+                  secondary={false}
+                  style={
+                    Object {
+                      "marginRight": 8,
+                    }
+                  }>
+                  <Paper
+                    circle={false}
+                    className="start"
+                    rounded={true}
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "marginRight": 8,
+                        "minWidth": 88,
+                        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                      }
+                    }
+                    transitionEnabled={true}
+                    zDepth={0}>
+                    <div
+                      className="start"
+                      style={
+                        Object {
+                          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+                          "backgroundColor": "#ffffff",
+                          "borderRadius": "2px",
+                          "boxShadow": undefined,
+                          "boxSizing": "border-box",
+                          "color": "rgba(0, 0, 0, 0.87)",
+                          "display": "inline-block",
+                          "fontFamily": "Roboto, sans-serif",
+                          "marginRight": 8,
+                          "minWidth": 88,
+                          "muiPrepared": true,
+                          "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                        }
+                      }>
+                      <EnhancedButton
+                        containerElement="button"
+                        disabled={true}
+                        focusRippleColor="rgba(0, 0, 0, 0.3)"
+                        focusRippleOpacity={0.16}
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        onKeyUp={[Function]}
+                        onKeyboardFocus={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseUp={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchStart={[Function]}
+                        onTouchTap={[Function]}
+                        style={
+                          Object {
+                            "backgroundColor": "rgb(229, 229, 229)",
+                            "borderRadius": 2,
+                            "height": 36,
+                            "lineHeight": "36px",
+                            "padding": 0,
+                            "position": "relative",
+                            "textAlign": "center",
+                            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                            "width": "100%",
+                          }
+                        }
+                        tabIndex={0}
+                        touchRippleColor="rgba(0, 0, 0, 0.3)"
+                        touchRippleOpacity={0.16}
+                        type="button">
+                        <button
+                          disabled={true}
+                          onBlur={[Function]}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onKeyDown={[Function]}
+                          onKeyUp={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                          onMouseUp={[Function]}
+                          onTouchEnd={[Function]}
+                          onTouchStart={[Function]}
+                          onTouchTap={[Function]}
+                          style={
+                            Object {
+                              "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+                              "backgroundColor": "rgb(229, 229, 229)",
+                              "border": 10,
+                              "borderRadius": 2,
+                              "boxSizing": "border-box",
+                              "cursor": "default",
+                              "display": "inline-block",
+                              "fontFamily": "Roboto, sans-serif",
+                              "fontSize": "inherit",
+                              "fontWeight": "inherit",
+                              "height": 36,
+                              "lineHeight": "36px",
+                              "margin": 0,
+                              "muiPrepared": true,
+                              "outline": "none",
+                              "padding": 0,
+                              "position": "relative",
+                              "textAlign": "center",
+                              "textDecoration": "none",
+                              "transform": "translate(0, 0)",
+                              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                              "verticalAlign": null,
+                              "width": "100%",
+                            }
+                          }
+                          tabIndex={-1}
+                          type="button">
+                          <div
+                            style={
+                              Object {
+                                "backgroundColor": false,
+                                "borderRadius": 2,
+                                "height": 36,
+                                "muiPrepared": true,
+                                "top": 0,
+                                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                              }
+                            }>
+                            <span
+                              style={
+                                Object {
+                                  "color": "rgba(0, 0, 0, 0.3)",
+                                  "fontSize": 14,
+                                  "fontWeight": 500,
+                                  "letterSpacing": 0,
+                                  "margin": 0,
+                                  "muiPrepared": true,
+                                  "opacity": 1,
+                                  "paddingLeft": 16,
+                                  "paddingRight": 16,
+                                  "position": "relative",
+                                  "textTransform": "uppercase",
+                                  "userSelect": "none",
+                                }
+                              }>
+                              Start
+                            </span>
+                          </div>
+                        </button>
+                      </EnhancedButton>
+                    </div>
+                  </Paper>
+                </RaisedButton>
+                <RaisedButton
+                  className="stop"
+                  disabled={true}
+                  fullWidth={false}
+                  label="Stop"
+                  labelPosition="after"
+                  onClick={[Function]}
+                  primary={false}
+                  secondary={false}
+                  style={
+                    Object {
+                      "marginRight": 8,
+                    }
+                  }>
+                  <Paper
+                    circle={false}
+                    className="stop"
+                    rounded={true}
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "marginRight": 8,
+                        "minWidth": 88,
+                        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                      }
+                    }
+                    transitionEnabled={true}
+                    zDepth={0}>
+                    <div
+                      className="stop"
+                      style={
+                        Object {
+                          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+                          "backgroundColor": "#ffffff",
+                          "borderRadius": "2px",
+                          "boxShadow": undefined,
+                          "boxSizing": "border-box",
+                          "color": "rgba(0, 0, 0, 0.87)",
+                          "display": "inline-block",
+                          "fontFamily": "Roboto, sans-serif",
+                          "marginRight": 8,
+                          "minWidth": 88,
+                          "muiPrepared": true,
+                          "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                        }
+                      }>
+                      <EnhancedButton
+                        containerElement="button"
+                        disabled={true}
+                        focusRippleColor="rgba(0, 0, 0, 0.3)"
+                        focusRippleOpacity={0.1}
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        onKeyUp={[Function]}
+                        onKeyboardFocus={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseUp={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchStart={[Function]}
+                        onTouchTap={[Function]}
+                        style={
+                          Object {
+                            "backgroundColor": "rgb(229, 229, 229)",
+                            "borderRadius": 2,
+                            "height": 36,
+                            "lineHeight": "36px",
+                            "padding": 0,
+                            "position": "relative",
+                            "textAlign": "center",
+                            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                            "width": "100%",
+                          }
+                        }
+                        tabIndex={0}
+                        touchRippleColor="rgba(0, 0, 0, 0.3)"
+                        touchRippleOpacity={0.1}
+                        type="button">
+                        <button
+                          disabled={true}
+                          onBlur={[Function]}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onKeyDown={[Function]}
+                          onKeyUp={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                          onMouseUp={[Function]}
+                          onTouchEnd={[Function]}
+                          onTouchStart={[Function]}
+                          onTouchTap={[Function]}
+                          style={
+                            Object {
+                              "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+                              "backgroundColor": "rgb(229, 229, 229)",
+                              "border": 10,
+                              "borderRadius": 2,
+                              "boxSizing": "border-box",
+                              "cursor": "default",
+                              "display": "inline-block",
+                              "fontFamily": "Roboto, sans-serif",
+                              "fontSize": "inherit",
+                              "fontWeight": "inherit",
+                              "height": 36,
+                              "lineHeight": "36px",
+                              "margin": 0,
+                              "muiPrepared": true,
+                              "outline": "none",
+                              "padding": 0,
+                              "position": "relative",
+                              "textAlign": "center",
+                              "textDecoration": "none",
+                              "transform": "translate(0, 0)",
+                              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                              "verticalAlign": null,
+                              "width": "100%",
+                            }
+                          }
+                          tabIndex={-1}
+                          type="button">
+                          <div
+                            style={
+                              Object {
+                                "backgroundColor": false,
+                                "borderRadius": 2,
+                                "height": 36,
+                                "muiPrepared": true,
+                                "top": 0,
+                                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                              }
+                            }>
+                            <span
+                              style={
+                                Object {
+                                  "color": "rgba(0, 0, 0, 0.3)",
+                                  "fontSize": 14,
+                                  "fontWeight": 500,
+                                  "letterSpacing": 0,
+                                  "margin": 0,
+                                  "muiPrepared": true,
+                                  "opacity": 1,
+                                  "paddingLeft": 16,
+                                  "paddingRight": 16,
+                                  "position": "relative",
+                                  "textTransform": "uppercase",
+                                  "userSelect": "none",
+                                }
+                              }>
+                              Stop
+                            </span>
+                          </div>
+                        </button>
+                      </EnhancedButton>
+                    </div>
+                  </Paper>
+                </RaisedButton>
+                <Menu
+                  handleClick={[Function]}
+                  primaryText="Add Custom Simulation"
+                  style={
+                    Object {
+                      "marginRight": 8,
+                    }
+                  }>
+                  <IconMenu
+                    anchorOrigin={
+                      Object {
+                        "horizontal": "right",
+                        "vertical": "top",
+                      }
+                    }
+                    animated={true}
+                    className="IconMenu"
+                    iconButtonElement={
+                      <IconButton
+                        disableTouchRipple={false}
+                        disabled={false}
+                        iconStyle={Object {}}
+                        tooltipPosition="bottom-center"
+                        touch={false}>
+                        <NavigationMoreVert />
+                      </IconButton>
+                    }
+                    multiple={false}
+                    onItemTouchTap={[Function]}
+                    onKeyboardFocus={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onRequestChange={[Function]}
+                    onTouchTap={[Function]}
+                    open={null}
+                    style={
+                      Object {
+                        "float": "right",
+                        "marginRight": "0px",
+                        "paddingRight": "0px",
+                      }
+                    }
+                    targetOrigin={
+                      Object {
+                        "horizontal": "right",
+                        "vertical": "top",
+                      }
+                    }
+                    touchTapCloseDelay={200}
+                    useLayerForClickAway={false}>
+                    <div
+                      className="IconMenu"
+                      onMouseDown={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
+                      onTouchTap={[Function]}
+                      style={
+                        Object {
+                          "display": "inline-block",
+                          "float": "right",
+                          "marginRight": "0px",
+                          "muiPrepared": true,
+                          "paddingRight": "0px",
+                          "position": "relative",
+                        }
+                      }>
+                      <IconButton
+                        disableTouchRipple={false}
+                        disabled={false}
+                        iconStyle={Object {}}
+                        onKeyboardFocus={[Function]}
+                        onTouchTap={[Function]}
+                        tooltipPosition="bottom-center"
+                        touch={false}>
+                        <EnhancedButton
+                          centerRipple={true}
+                          containerElement="button"
+                          disableTouchRipple={false}
+                          disabled={false}
+                          onBlur={[Function]}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onKeyDown={[Function]}
+                          onKeyUp={[Function]}
+                          onKeyboardFocus={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                          onMouseOut={[Function]}
+                          onMouseUp={[Function]}
+                          onTouchEnd={[Function]}
+                          onTouchStart={[Function]}
+                          onTouchTap={[Function]}
+                          style={
+                            Object {
+                              "boxSizing": "border-box",
+                              "fontSize": 0,
+                              "height": 48,
+                              "overflow": "visible",
+                              "padding": 12,
+                              "position": "relative",
+                              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                              "width": 48,
+                            }
+                          }
+                          tabIndex={0}
+                          type="button">
+                          <button
+                            disabled={false}
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onKeyDown={[Function]}
+                            onKeyUp={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                            onMouseOut={[Function]}
+                            onMouseUp={[Function]}
+                            onTouchEnd={[Function]}
+                            onTouchStart={[Function]}
+                            onTouchTap={[Function]}
+                            style={
+                              Object {
+                                "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+                                "background": "none",
+                                "border": 10,
+                                "boxSizing": "border-box",
+                                "cursor": "pointer",
+                                "display": "inline-block",
+                                "fontFamily": "Roboto, sans-serif",
+                                "fontSize": 0,
+                                "fontWeight": "inherit",
+                                "height": 48,
+                                "margin": 0,
+                                "muiPrepared": true,
+                                "outline": "none",
+                                "overflow": "visible",
+                                "padding": 12,
+                                "position": "relative",
+                                "textDecoration": "none",
+                                "transform": "translate(0, 0)",
+                                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                                "verticalAlign": null,
+                                "width": 48,
+                              }
+                            }
+                            tabIndex={0}
+                            type="button">
+                            <TouchRipple
+                              abortOnScroll={true}
+                              centerRipple={true}>
+                              <div
+                                onMouseDown={[Function]}
+                                onMouseLeave={[Function]}
+                                onMouseUp={[Function]}
+                                onTouchEnd={[Function]}
+                                onTouchStart={[Function]}>
+                                <NavigationMoreVert
+                                  style={Object {}}>
+                                  <SvgIcon
+                                    onMouseEnter={[Function]}
+                                    onMouseLeave={[Function]}
+                                    style={Object {}}
+                                    viewBox="0 0 24 24">
+                                    <svg
+                                      onMouseEnter={[Function]}
+                                      onMouseLeave={[Function]}
+                                      style={
+                                        Object {
+                                          "color": "rgba(0, 0, 0, 0.87)",
+                                          "display": "inline-block",
+                                          "fill": "currentColor",
+                                          "height": 24,
+                                          "muiPrepared": true,
+                                          "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                                          "userSelect": "none",
+                                          "width": 24,
+                                        }
+                                      }
+                                      viewBox="0 0 24 24">
+                                      <path
+                                        d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                                    </svg>
+                                  </SvgIcon>
+                                </NavigationMoreVert>
+                              </div>
+                            </TouchRipple>
+                          </button>
+                        </EnhancedButton>
+                      </IconButton>
+                      <Popover
+                        anchorOrigin={
+                          Object {
+                            "horizontal": "right",
+                            "vertical": "top",
+                          }
+                        }
+                        animated={true}
+                        autoCloseWhenOffScreen={true}
+                        canAutoPosition={true}
+                        context={
+                          Object {
+                            "muiTheme": Object {
+                              "appBar": Object {
+                                "color": "#00bcd4",
+                                "height": 64,
+                                "padding": 24,
+                                "textColor": "#ffffff",
+                                "titleFontWeight": 400,
+                              },
+                              "avatar": Object {
+                                "backgroundColor": "rgb(188, 188, 188)",
+                                "color": "#ffffff",
+                              },
+                              "badge": Object {
+                                "color": "#ffffff",
+                                "fontWeight": 500,
+                                "primaryColor": "#00bcd4",
+                                "primaryTextColor": "#ffffff",
+                                "secondaryColor": "#ff4081",
+                                "secondaryTextColor": "#ffffff",
+                                "textColor": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "baseTheme": Object {
+                                "fontFamily": "Roboto, sans-serif",
+                                "palette": Object {
+                                  "accent1Color": "#ff4081",
+                                  "accent2Color": "#f5f5f5",
+                                  "accent3Color": "#9e9e9e",
+                                  "alternateTextColor": "#ffffff",
+                                  "borderColor": "#e0e0e0",
+                                  "canvasColor": "#ffffff",
+                                  "clockCircleColor": "rgba(0, 0, 0, 0.07)",
+                                  "disabledColor": "rgba(0, 0, 0, 0.3)",
+                                  "pickerHeaderColor": "#00bcd4",
+                                  "primary1Color": "#00bcd4",
+                                  "primary2Color": "#0097a7",
+                                  "primary3Color": "#bdbdbd",
+                                  "secondaryTextColor": "rgba(0, 0, 0, 0.54)",
+                                  "shadowColor": "rgba(0, 0, 0, 1)",
+                                  "textColor": "rgba(0, 0, 0, 0.87)",
+                                },
+                                "spacing": Object {
+                                  "desktopDrawerMenuItemHeight": 48,
+                                  "desktopDropDownMenuFontSize": 15,
+                                  "desktopDropDownMenuItemHeight": 32,
+                                  "desktopGutter": 24,
+                                  "desktopGutterLess": 16,
+                                  "desktopGutterMini": 8,
+                                  "desktopGutterMore": 32,
+                                  "desktopKeylineIncrement": 64,
+                                  "desktopSubheaderHeight": 48,
+                                  "desktopToolbarHeight": 56,
+                                  "iconSize": 24,
+                                },
+                              },
+                              "bottomNavigation": Object {
+                                "backgroundColor": "#ffffff",
+                                "height": 56,
+                                "selectedColor": "#00bcd4",
+                                "selectedFontSize": 14,
+                                "unselectedColor": "rgba(0, 0, 0, 0.54)",
+                                "unselectedFontSize": 12,
+                              },
+                              "button": Object {
+                                "height": 36,
+                                "iconButtonSize": 48,
+                                "minWidth": 88,
+                              },
+                              "card": Object {
+                                "fontWeight": 500,
+                                "subtitleColor": "rgba(0, 0, 0, 0.54)",
+                                "titleColor": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "cardMedia": Object {
+                                "color": "rgba(255, 255, 255, 0.87)",
+                                "overlayContentBackground": "rgba(0, 0, 0, 0.54)",
+                                "subtitleColor": "rgba(255, 255, 255, 0.54)",
+                                "titleColor": "rgba(255, 255, 255, 0.87)",
+                              },
+                              "cardText": Object {
+                                "textColor": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "checkbox": Object {
+                                "boxColor": "rgba(0, 0, 0, 0.87)",
+                                "checkedColor": "#00bcd4",
+                                "disabledColor": "rgba(0, 0, 0, 0.3)",
+                                "labelColor": "rgba(0, 0, 0, 0.87)",
+                                "labelDisabledColor": "rgba(0, 0, 0, 0.3)",
+                                "requiredColor": "#00bcd4",
+                              },
+                              "chip": Object {
+                                "backgroundColor": "rgb(224, 224, 224)",
+                                "deleteIconColor": "rgba(0, 0, 0, 0.26)",
+                                "fontSize": 14,
+                                "fontWeight": 400,
+                                "shadow": "0 1px 6px rgba(0, 0, 0, 0.12),
+                                  0 1px 4px rgba(0, 0, 0, 0.12)",
+                                "textColor": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "datePicker": Object {
+                                "calendarTextColor": "rgba(0, 0, 0, 0.87)",
+                                "calendarYearBackgroundColor": "#ffffff",
+                                "color": "#00bcd4",
+                                "selectColor": "#0097a7",
+                                "selectTextColor": "#ffffff",
+                                "textColor": "#ffffff",
+                              },
+                              "dialog": Object {
+                                "bodyColor": "rgba(0, 0, 0, 0.6)",
+                                "bodyFontSize": 16,
+                                "titleFontSize": 22,
+                              },
+                              "drawer": Object {
+                                "color": "#ffffff",
+                                "width": 256,
+                              },
+                              "dropDownMenu": Object {
+                                "accentColor": "#e0e0e0",
+                              },
+                              "enhancedButton": Object {
+                                "tapHighlightColor": "rgba(0, 0, 0, 0)",
+                              },
+                              "flatButton": Object {
+                                "buttonFilterColor": "#999999",
+                                "color": "rgba(0, 0, 0, 0)",
+                                "disabledTextColor": "rgba(0, 0, 0, 0.3)",
+                                "fontSize": 14,
+                                "fontWeight": 500,
+                                "primaryTextColor": "#00bcd4",
+                                "secondaryTextColor": "#ff4081",
+                                "textColor": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "floatingActionButton": Object {
+                                "buttonSize": 56,
+                                "color": "#00bcd4",
+                                "disabledColor": "rgb(224, 224, 224)",
+                                "disabledTextColor": "rgba(0, 0, 0, 0.3)",
+                                "iconColor": "#ffffff",
+                                "miniSize": 40,
+                                "secondaryColor": "#ff4081",
+                                "secondaryIconColor": "#ffffff",
+                              },
+                              "fontFamily": "Roboto, sans-serif",
+                              "gridTile": Object {
+                                "textColor": "#ffffff",
+                              },
+                              "icon": Object {
+                                "backgroundColor": "#00bcd4",
+                                "color": "#ffffff",
+                              },
+                              "inkBar": Object {
+                                "backgroundColor": "#ff4081",
+                              },
+                              "isRtl": false,
+                              "listItem": Object {
+                                "leftIconColor": "#757575",
+                                "nestedLevelDepth": 18,
+                                "rightIconColor": "#757575",
+                                "secondaryTextColor": "rgba(0, 0, 0, 0.54)",
+                              },
+                              "menu": Object {
+                                "backgroundColor": "#ffffff",
+                                "containerBackgroundColor": "#ffffff",
+                              },
+                              "menuItem": Object {
+                                "dataHeight": 32,
+                                "height": 48,
+                                "hoverColor": "rgba(0, 0, 0, 0.1)",
+                                "padding": 24,
+                                "rightIconDesktopFill": "#757575",
+                                "selectedTextColor": "#ff4081",
+                              },
+                              "menuSubheader": Object {
+                                "borderColor": "#e0e0e0",
+                                "padding": 24,
+                                "textColor": "#00bcd4",
+                              },
+                              "overlay": Object {
+                                "backgroundColor": "rgba(0, 0, 0, 0.54)",
+                              },
+                              "palette": Object {
+                                "accent1Color": "#ff4081",
+                                "accent2Color": "#f5f5f5",
+                                "accent3Color": "#9e9e9e",
+                                "alternateTextColor": "#ffffff",
+                                "borderColor": "#e0e0e0",
+                                "canvasColor": "#ffffff",
+                                "clockCircleColor": "rgba(0, 0, 0, 0.07)",
+                                "disabledColor": "rgba(0, 0, 0, 0.3)",
+                                "pickerHeaderColor": "#00bcd4",
+                                "primary1Color": "#00bcd4",
+                                "primary2Color": "#0097a7",
+                                "primary3Color": "#bdbdbd",
+                                "secondaryTextColor": "rgba(0, 0, 0, 0.54)",
+                                "shadowColor": "rgba(0, 0, 0, 1)",
+                                "textColor": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "paper": Object {
+                                "backgroundColor": "#ffffff",
+                                "color": "rgba(0, 0, 0, 0.87)",
+                                "zDepthShadows": Array [
+                                  "0 1px 6px rgba(0, 0, 0, 0.12),
+                                   0 1px 4px rgba(0, 0, 0, 0.12)",
+                                  "0 3px 10px rgba(0, 0, 0, 0.16),
+                                   0 3px 10px rgba(0, 0, 0, 0.23)",
+                                  "0 10px 30px rgba(0, 0, 0, 0.19),
+                                   0 6px 10px rgba(0, 0, 0, 0.23)",
+                                  "0 14px 45px rgba(0, 0, 0, 0.25),
+                                   0 10px 18px rgba(0, 0, 0, 0.22)",
+                                  "0 19px 60px rgba(0, 0, 0, 0.3),
+                                   0 15px 20px rgba(0, 0, 0, 0.22)",
+                                ],
+                              },
+                              "prepareStyles": [Function],
+                              "radioButton": Object {
+                                "backgroundColor": "#ffffff",
+                                "borderColor": "rgba(0, 0, 0, 0.87)",
+                                "checkedColor": "#00bcd4",
+                                "disabledColor": "rgba(0, 0, 0, 0.3)",
+                                "labelColor": "rgba(0, 0, 0, 0.87)",
+                                "labelDisabledColor": "rgba(0, 0, 0, 0.3)",
+                                "requiredColor": "#00bcd4",
+                                "size": 24,
+                              },
+                              "raisedButton": Object {
+                                "color": "#ffffff",
+                                "disabledColor": "rgb(229, 229, 229)",
+                                "disabledTextColor": "rgba(0, 0, 0, 0.3)",
+                                "fontSize": 14,
+                                "fontWeight": 500,
+                                "primaryColor": "#00bcd4",
+                                "primaryTextColor": "#ffffff",
+                                "secondaryColor": "#ff4081",
+                                "secondaryTextColor": "#ffffff",
+                                "textColor": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "rawTheme": Object {
+                                "fontFamily": "Roboto, sans-serif",
+                                "palette": Object {
+                                  "accent1Color": "#ff4081",
+                                  "accent2Color": "#f5f5f5",
+                                  "accent3Color": "#9e9e9e",
+                                  "alternateTextColor": "#ffffff",
+                                  "borderColor": "#e0e0e0",
+                                  "canvasColor": "#ffffff",
+                                  "clockCircleColor": "rgba(0, 0, 0, 0.07)",
+                                  "disabledColor": "rgba(0, 0, 0, 0.3)",
+                                  "pickerHeaderColor": "#00bcd4",
+                                  "primary1Color": "#00bcd4",
+                                  "primary2Color": "#0097a7",
+                                  "primary3Color": "#bdbdbd",
+                                  "secondaryTextColor": "rgba(0, 0, 0, 0.54)",
+                                  "shadowColor": "rgba(0, 0, 0, 1)",
+                                  "textColor": "rgba(0, 0, 0, 0.87)",
+                                },
+                                "spacing": Object {
+                                  "desktopDrawerMenuItemHeight": 48,
+                                  "desktopDropDownMenuFontSize": 15,
+                                  "desktopDropDownMenuItemHeight": 32,
+                                  "desktopGutter": 24,
+                                  "desktopGutterLess": 16,
+                                  "desktopGutterMini": 8,
+                                  "desktopGutterMore": 32,
+                                  "desktopKeylineIncrement": 64,
+                                  "desktopSubheaderHeight": 48,
+                                  "desktopToolbarHeight": 56,
+                                  "iconSize": 24,
+                                },
+                              },
+                              "refreshIndicator": Object {
+                                "loadingStrokeColor": "#00bcd4",
+                                "strokeColor": "#e0e0e0",
+                              },
+                              "ripple": Object {
+                                "color": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "slider": Object {
+                                "handleColorZero": "#bdbdbd",
+                                "handleFillColor": "#ffffff",
+                                "handleSize": 12,
+                                "handleSizeActive": 18,
+                                "handleSizeDisabled": 8,
+                                "rippleColor": "#00bcd4",
+                                "selectionColor": "#00bcd4",
+                                "trackColor": "#bdbdbd",
+                                "trackColorSelected": "#9e9e9e",
+                                "trackSize": 2,
+                              },
+                              "snackbar": Object {
+                                "actionColor": "#ff4081",
+                                "backgroundColor": "rgba(0, 0, 0, 0.87)",
+                                "textColor": "#ffffff",
+                              },
+                              "spacing": Object {
+                                "desktopDrawerMenuItemHeight": 48,
+                                "desktopDropDownMenuFontSize": 15,
+                                "desktopDropDownMenuItemHeight": 32,
+                                "desktopGutter": 24,
+                                "desktopGutterLess": 16,
+                                "desktopGutterMini": 8,
+                                "desktopGutterMore": 32,
+                                "desktopKeylineIncrement": 64,
+                                "desktopSubheaderHeight": 48,
+                                "desktopToolbarHeight": 56,
+                                "iconSize": 24,
+                              },
+                              "stepper": Object {
+                                "backgroundColor": "transparent",
+                                "connectorLineColor": "#bdbdbd",
+                                "disabledTextColor": "rgba(0, 0, 0, 0.26)",
+                                "hoverBackgroundColor": "rgba(0, 0, 0, 0.06)",
+                                "hoveredIconColor": "#616161",
+                                "iconColor": "#00bcd4",
+                                "inactiveIconColor": "#9e9e9e",
+                                "textColor": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "subheader": Object {
+                                "color": "rgba(0, 0, 0, 0.54)",
+                                "fontWeight": 500,
+                              },
+                              "svgIcon": Object {
+                                "color": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "table": Object {
+                                "backgroundColor": "#ffffff",
+                              },
+                              "tableFooter": Object {
+                                "borderColor": "#e0e0e0",
+                                "textColor": "#9e9e9e",
+                              },
+                              "tableHeader": Object {
+                                "borderColor": "#e0e0e0",
+                              },
+                              "tableHeaderColumn": Object {
+                                "height": 56,
+                                "spacing": 24,
+                                "textColor": "#9e9e9e",
+                              },
+                              "tableRow": Object {
+                                "borderColor": "#e0e0e0",
+                                "height": 48,
+                                "hoverColor": "#f5f5f5",
+                                "selectedColor": "#e0e0e0",
+                                "stripeColor": "rgba(127, 221, 233, 0.4)",
+                                "textColor": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "tableRowColumn": Object {
+                                "height": 48,
+                                "spacing": 24,
+                              },
+                              "tabs": Object {
+                                "backgroundColor": "#00bcd4",
+                                "selectedTextColor": "#ffffff",
+                                "textColor": "rgba(255, 255, 255, 0.7)",
+                              },
+                              "textField": Object {
+                                "backgroundColor": "transparent",
+                                "borderColor": "#e0e0e0",
+                                "disabledTextColor": "rgba(0, 0, 0, 0.3)",
+                                "errorColor": "#f44336",
+                                "floatingLabelColor": "rgba(0, 0, 0, 0.3)",
+                                "focusColor": "#00bcd4",
+                                "hintColor": "rgba(0, 0, 0, 0.3)",
+                                "textColor": "rgba(0, 0, 0, 0.87)",
+                              },
+                              "timePicker": Object {
+                                "accentColor": "#00bcd4",
+                                "clockCircleColor": "rgba(0, 0, 0, 0.07)",
+                                "clockColor": "rgba(0, 0, 0, 0.87)",
+                                "color": "#ffffff",
+                                "headerColor": "#00bcd4",
+                                "selectColor": "#0097a7",
+                                "selectTextColor": "#ffffff",
+                                "textColor": "#9e9e9e",
+                              },
+                              "toggle": Object {
+                                "labelColor": "rgba(0, 0, 0, 0.87)",
+                                "labelDisabledColor": "rgba(0, 0, 0, 0.3)",
+                                "thumbDisabledColor": "#e0e0e0",
+                                "thumbOffColor": "#f5f5f5",
+                                "thumbOnColor": "#00bcd4",
+                                "thumbRequiredColor": "#00bcd4",
+                                "trackDisabledColor": "#bdbdbd",
+                                "trackOffColor": "#bdbdbd",
+                                "trackOnColor": "rgba(0, 188, 212, 0.5)",
+                                "trackRequiredColor": "rgba(0, 188, 212, 0.5)",
+                              },
+                              "toolbar": Object {
+                                "backgroundColor": "rgb(232, 232, 232)",
+                                "color": "rgba(0, 0, 0, 0.54)",
+                                "height": 56,
+                                "hoverColor": "rgba(0, 0, 0, 0.87)",
+                                "iconColor": "rgba(0, 0, 0, 0.4)",
+                                "menuHoverColor": "rgba(0, 0, 0, 0.1)",
+                                "separatorColor": "rgba(0, 0, 0, 0.175)",
+                                "titleFontSize": 20,
+                              },
+                              "tooltip": Object {
+                                "color": "#ffffff",
+                                "rippleBackgroundColor": "#616161",
+                              },
+                              "zIndex": Object {
+                                "appBar": 1100,
+                                "dialog": 1500,
+                                "dialogOverlay": 1400,
+                                "drawer": 1300,
+                                "drawerOverlay": 1200,
+                                "layer": 2000,
+                                "menu": 1000,
+                                "popover": 2100,
+                                "snackbar": 2900,
+                                "tooltip": 3000,
+                              },
+                            },
+                          }
+                        }
+                        onRequestClose={[Function]}
+                        open={false}
+                        style={
+                          Object {
+                            "overflowY": "auto",
+                          }
+                        }
+                        targetOrigin={
+                          Object {
+                            "horizontal": "right",
+                            "vertical": "top",
+                          }
+                        }
+                        useLayerForClickAway={false}
+                        zDepth={1}>
+                        <div>
                           <EventListener
                             onResize={[Function]}
                             onScroll={[Function]}
