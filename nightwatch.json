@@ -20,7 +20,7 @@
 
   "test_settings" : {
     "default" : {
-      "launch_url" : "app",
+      "launch_url" : "http://app:3000",
       "selenium_port"  : 4444,
       "selenium_host"  : "selenium",
 			"silent": true,

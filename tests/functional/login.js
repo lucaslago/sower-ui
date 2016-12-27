@@ -1,7 +1,7 @@
 module.exports = {
   'Login test' : browser => {
     browser
-      .url(`${browser.launchUrl}:3000/#/login`)
+      .url(`${browser.launchUrl}/#/login`)
       .waitForElementVisible('body', 2000)
       .setValue('input[type=email]', 'test-email@gmail.com')
       .setValue('input[type=password]', 'fakepassword')
