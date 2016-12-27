@@ -5,7 +5,7 @@ rm -rf build
 mkdir build
 
 # config
-git config --global user.email "wneto@thoughtworks.com"
+git config --global user.email "ci@travis.com"
 git config --global user.name "Travis CI"
 
 # build
