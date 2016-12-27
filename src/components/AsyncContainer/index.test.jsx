@@ -2,12 +2,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AsyncContainer from './index';
 
 describe('<AsyncContainer />', () => {
-  const wait = () => {
-    return new Promise((resolve) => {
-      setTimeout(() => { resolve(true); }, 0);
-    });
-  };
-
   const renderErrorElement = () => {
     return (<div className="error-element">Error!</div>);
   };

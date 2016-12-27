@@ -62,11 +62,7 @@ describe('<Dashboard />', () => {
       </MuiThemeProvider>,
     );
 
-    const wait = new Promise((resolve) => {
-      setTimeout(() => { resolve(true); }, 0);
-    });
-
-    return wait.then(() => {
+    return wait().then(() => {
       expect(wrapper.find('.server-error').length).toBe(1);
     });
   });

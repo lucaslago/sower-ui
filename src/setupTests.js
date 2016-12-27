@@ -17,5 +17,8 @@ global.shallow = shallow;
 global.render = render;
 global.mount = mount;
 global.toJson = toJson;
+global.wait = () => new Promise((resolve) => {
+  setTimeout(() => { resolve(true); }, 0);
+});
 
 injectTapEventPlugin();
