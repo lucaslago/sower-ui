@@ -573,7 +573,7 @@ exports[`<Menu /> renders without crashing 1`] = `
                   "headerColor": "#00bcd4",
                   "selectColor": "#0097a7",
                   "selectTextColor": "#ffffff",
-                  "textColor": "#9e9e9e",
+                  "textColor": "#ffffff",
                 },
                 "toggle": Object {
                   "labelColor": "rgba(0, 0, 0, 0.87)",
@@ -631,7 +631,12 @@ exports[`<Menu /> renders without crashing 1`] = `
           }
           useLayerForClickAway={false}
           zDepth={1}>
-          <div>
+          <div
+            style={
+              Object {
+                "display": "none",
+              }
+            }>
             <EventListener
               onResize={[Function]}
               onScroll={[Function]}
