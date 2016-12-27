@@ -4,8 +4,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Snackbar from 'material-ui/Snackbar';
 import DashboardItemProgressBar from '../DashBoardItemProgressBar';
 import Menu from '../components/Menu';
-import SIMULATION_STATUS from '../utils/simulation_status';
 import CustomSimulationDialog from '../CustomSimulationDialog';
+import { shouldDisableStartBtn, shouldDisableStopBtn, shouldExpandCard } from './utils';
 
 const itemStyle = {
   marginTop: '1rem',
@@ -19,18 +19,14 @@ const actionsStyle = {
   paddingRight: '0px',
 };
 
-const isActiveSimulation = status => status === SIMULATION_STATUS.ACTIVE;
-const hasDefaultSimulationSet = device => device.relationships.equipment.data.default_simulation;
-
 class DashboardItem extends Component {
   constructor(props) {
     super(props);
     const { device } = props;
     this.state = {
-      startDisabled: isActiveSimulation(device.simulationStatus.status)
-        || !hasDefaultSimulationSet(device),
-      stopDisabled: !isActiveSimulation(device.simulationStatus.status),
-      expanded: isActiveSimulation(device.simulationStatus.status),
+      startDisabled: shouldDisableStartBtn(device),
+      stopDisabled: shouldDisableStopBtn(device.simulationStatus.status),
+      expanded: shouldExpandCard(device.simulationStatus.status),
       simulationStatus: device.simulationStatus,
       notification: false,
       notificationMessage: '',

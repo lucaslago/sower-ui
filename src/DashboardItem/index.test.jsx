@@ -9,7 +9,7 @@ describe('<DashBoardItem />', () => {
       stop: jest.fn().mockReturnValue(Promise.resolve({ message: 'ok' })),
       create: jest.fn().mockReturnValue(Promise.resolve({ message: 'ok' })),
       status: jest.fn().mockReturnValue(Promise.resolve('fake status response')),
-    }
+    },
   };
   let wrapper;
   let startButton;
@@ -33,13 +33,13 @@ describe('<DashBoardItem />', () => {
         simulationStatus: {
           status: 'inactive',
         },
-      }
+      },
     });
 
     beforeEach(() => {
       wrapper = mount(
         <MuiThemeProvider>
-          <DashBoardItem { ...defaultSimulationProps} />
+          <DashBoardItem {...defaultSimulationProps} />
         </MuiThemeProvider>,
       );
       startButton = wrapper.find('.start button');
@@ -74,9 +74,8 @@ describe('<DashBoardItem />', () => {
 
     it('should enable the start button for simulations with custom simulation data', () => {
       expect(startButton.prop('disabled')).toEqual(false);
-    })
-
-  })
+    });
+  });
 
 
   context('For devices with custom_simulation data', () => {
@@ -97,14 +96,14 @@ describe('<DashBoardItem />', () => {
         },
         simulationStatus: {
           status: 'inactive',
-        }
-      }
+        },
+      },
     });
 
     beforeEach(() => {
       wrapper = mount(
         <MuiThemeProvider>
-          <DashBoardItem { ...customSimulationProps} />
+          <DashBoardItem {...customSimulationProps} />
         </MuiThemeProvider>,
       );
       startButton = wrapper.find('.start button');
@@ -114,7 +113,5 @@ describe('<DashBoardItem />', () => {
     it('renders correctly', () => {
       expect(toJson(wrapper)).toMatchSnapshot();
     });
-
-
-  })
+  });
 });
