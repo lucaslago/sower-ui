@@ -77,4 +77,16 @@ describe('DashboardItem utils', () => {
       expect(shouldExpandCard(simulationStatus)).toEqual(false);
     });
   });
+  
+  context('shouldDisableCardMenu', () => {
+    it('should return true when simulation_status is active', () => {
+      const simulationStatus = 'active';
+      expect(shouldExpandCard(simulationStatus)).toEqual(true);
+    });
+
+    it('should return false when simulation_status is inactive', () => {
+      const simulationStatus = 'inactive';
+      expect(shouldExpandCard(simulationStatus)).toEqual(false);
+    });
+  });
 });

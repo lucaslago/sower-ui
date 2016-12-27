@@ -10,4 +10,5 @@ export const shouldDisableStartBtn = device => (
   ));
 export const shouldDisableStopBtn = simulationStatus => !isActiveSimulation(simulationStatus);
 export const shouldExpandCard = simulationStatus => isActiveSimulation(simulationStatus);
+export const shouldDisableCardMenu = simulationStatus => isActiveSimulation(simulationStatus);
 
