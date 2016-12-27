@@ -25,10 +25,7 @@ class DashboardItem extends Component {
     const { device } = props;
     this.state = {
       device: device,
-      startDisabled: shouldDisableStartBtn(device),
-      stopDisabled: shouldDisableStopBtn(device.simulationStatus.status),
       expanded: shouldExpandCard(device.simulationStatus.status),
-      simulationStatus: device.simulationStatus,
       notification: false,
       notificationMessage: '',
       dialogOpen: false,
@@ -69,29 +66,30 @@ class DashboardItem extends Component {
     });
   }
 
-  activeSimulationButtons() {
+  activateSimulation() {
+    const activatedSimulation = Object.assign({}, this.state.device, {
+      simulationStatus: {
+        status: 'active'
+      }
+    });
     this.setState({
-      startDisabled: true,
-      stopDisabled: false,
+      device: activatedSimulation
     });
   }
-
-  inactiveSimulationButtons() {
-    this.setState({
-      startDisabled: false,
-      stopDisabled: true,
+  
+  deactivateSimulation() {
+    const deactivatedSimulation = Object.assign({}, this.state.device, {
+      simulationStatus: {
+        status: 'inactive'
+      }
     });
-  }
-
-  disableButtons() {
     this.setState({
-      startDisabled: true,
-      stopDisabled: true,
+      device: deactivatedSimulation 
     });
   }
 
   start() {
-    this.disableButtons();
+    this.activateSimulation();
     this.props.simulationService
       .start({
         trackerId: this.props.device.id,
@@ -99,24 +97,22 @@ class DashboardItem extends Component {
       })
       .then(() => {
         this.successStartNotification();
-        this.activeSimulationButtons();
         this.toggleExpandCard();
       })
       .catch((error) => {
         console.error(error); //eslint-disable-line
-        this.inactiveSimulationButtons();
+        this.deactiateSimulation();
         this.failureNotification();
       });
   }
-
+  
   stop() {
-    this.disableButtons();
+    this.deactivateSimulation();
     this.props.simulationService.stop({
       trackerId: this.props.device.id,
       authToken: this.props.authToken,
     }).then(() => {
       this.successStopNotification();
-      this.inactiveSimulationButtons();
       this.toggleExpandCard();
     }).catch((error) => {
       console.error(error); //eslint-disable-line
@@ -168,7 +164,7 @@ class DashboardItem extends Component {
           <DashboardItemProgressBar
             trackerId={this.props.device.id}
             authToken={this.props.authToken}
-            simulationStatus={this.state.simulationStatus}
+            simulationStatus={this.state.device.simulationStatus}
             simulationService={this.props.simulationService}
             simulationFinished={this.handleSimulationFinished}
             updateInterval={5000}
@@ -180,17 +176,17 @@ class DashboardItem extends Component {
             label="Start"
             primary
             onClick={this.start}
-            disabled={this.state.startDisabled}
+            disabled={shouldDisableStartBtn(this.state.device)}
           />
           <RaisedButton
             className="stop"
             label="Stop"
             primary={false}
             onClick={this.stop}
-            disabled={this.state.stopDisabled}
+            disabled={shouldDisableStopBtn(this.state.device.simulationStatus.status)}
           />
           <Menu
-            disabled={shouldDisableCardMenu(this.state.simulationStatus.status)}
+            disabled={shouldDisableCardMenu(this.state.device.simulationStatus.status)}
             handleClick={this.openDialog}
             primaryText="Add Custom Simulation"
           />
