@@ -17,7 +17,7 @@ describe('Simulation Service', () => {
     const simulationService = SimulationService(axiosStub);
 
     it('should successfully post to sower start simulation endpoint', () => {
-      simulationService.start({ trackerId, authToken })
+      return simulationService.start({ trackerId, authToken })
         .then((response) => {
           expect(axiosStub.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_start`, {}, expectedHeaders);
           expect(response).toBe(successGenericResponse);
@@ -30,7 +30,7 @@ describe('Simulation Service', () => {
     const simulationService = SimulationService(axiosStub);
 
     it('should post to sower stop simulation endpoint', () => {
-      simulationService.stop({ trackerId, authToken })
+      return simulationService.stop({ trackerId, authToken })
         .then((response) => {
           expect(axiosStub.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_stop`, {}, expectedHeaders);
           expect(response).toBe(successGenericResponse);
@@ -133,7 +133,7 @@ describe('Simulation Service', () => {
     const simulationService = SimulationService(axiosStub);
 
     it('should post a new simulation to sower', () => {
-      simulationService.create({ trackerId, authToken, payload })
+      return simulationService.create({ trackerId, authToken, payload })
         .then((response) => {
           expect(axiosStub.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}`, payload, expectedHeaders);
           expect(response).toBe(successGenericResponse);
