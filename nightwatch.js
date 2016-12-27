@@ -1,6 +1,6 @@
 const TRAVIS_JOB_NUMBER = process.env.TRAVIS_JOB_NUMBER;
 
-module.exports = (function(settings) {
+module.exports = (settings => {
   settings.test_settings.default = {
     launch_url: "http://localhost:3000",
     selenium_port : 80,
