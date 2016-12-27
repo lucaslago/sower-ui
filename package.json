@@ -34,6 +34,7 @@
     "deploy": "./scripts/gh-pages-deploy.sh",
     "lint": "eslint ./src/**/*",
     "lint:fix": "eslint --fix ./src/**/*",
-    "ci": "npm run lint && npm run test"
+    "ci": "npm run lint && npm run test && nightwatch --config nightwatch.js --env chrome",
+    "ci:local": "npm run lint && npm run test && nightwatch"
   }
 }
