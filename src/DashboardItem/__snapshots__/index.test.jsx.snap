@@ -620,6 +620,7 @@ exports[`<DashBoardItem /> device simulationStatus is active renders with expect
                   </Paper>
                 </RaisedButton>
                 <Menu
+                  disabled={true}
                   handleClick={[Function]}
                   primaryText="Add Custom Simulation"
                   style={
@@ -2007,6 +2008,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has custom_si
                   </Paper>
                 </RaisedButton>
                 <Menu
+                  disabled={false}
                   handleClick={[Function]}
                   primaryText="Add Custom Simulation"
                   style={
@@ -3394,6 +3396,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has default_s
                   </Paper>
                 </RaisedButton>
                 <Menu
+                  disabled={false}
                   handleClick={[Function]}
                   primaryText="Add Custom Simulation"
                   style={
@@ -4768,6 +4771,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has neither c
                   </Paper>
                 </RaisedButton>
                 <Menu
+                  disabled={false}
                   handleClick={[Function]}
                   primaryText="Add Custom Simulation"
                   style={

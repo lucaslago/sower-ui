@@ -5,7 +5,7 @@ import Snackbar from 'material-ui/Snackbar';
 import DashboardItemProgressBar from '../DashBoardItemProgressBar';
 import Menu from '../components/Menu';
 import CustomSimulationDialog from '../CustomSimulationDialog';
-import { shouldDisableStartBtn, shouldDisableStopBtn, shouldExpandCard } from './utils';
+import { shouldDisableStartBtn, shouldDisableStopBtn, shouldExpandCard, shouldDisableCardMenu } from './utils';
 
 const itemStyle = {
   marginTop: '1rem',
@@ -24,6 +24,7 @@ class DashboardItem extends Component {
     super(props);
     const { device } = props;
     this.state = {
+      device: device,
       startDisabled: shouldDisableStartBtn(device),
       stopDisabled: shouldDisableStopBtn(device.simulationStatus.status),
       expanded: shouldExpandCard(device.simulationStatus.status),
@@ -189,6 +190,7 @@ class DashboardItem extends Component {
             disabled={this.state.stopDisabled}
           />
           <Menu
+            disabled={shouldDisableCardMenu(this.state.simulationStatus.status)}
             handleClick={this.openDialog}
             primaryText="Add Custom Simulation"
           />

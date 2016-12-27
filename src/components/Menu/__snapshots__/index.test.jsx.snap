@@ -1,6 +1,7 @@
 exports[`<Menu /> renders without crashing 1`] = `
 <MuiThemeProvider>
   <Menu
+    disabled={false}
     handleClick={[Function]}
     primaryText="foo">
     <IconMenu

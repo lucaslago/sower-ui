@@ -2,10 +2,14 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Menu from './index';
 
 describe('<Menu />', () => {
-  const handleClick = jest.fn().mockReturnValue(true);
+  const props = {
+    handleClick: jest.fn().mockReturnValue(true),
+    primaryText: 'foo',
+    disabled: false
+  };
   const  wrapper = mount(
       <MuiThemeProvider>
-        <Menu handleClick={handleClick} primaryText="foo"/>
+        <Menu {...props} />
       </MuiThemeProvider>
     );
 
