@@ -1,0 +1,15 @@
+version: "2"
+
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/home/app/sower-ui
+      - /home/app/sower-ui/node_modules
+  selenium:
+    image: selenium/standalone-chrome:3.0.1-carbon
+    ports:
+     - "4444:4444"
