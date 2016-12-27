@@ -11,6 +11,7 @@ describe('<CustomSimulationDialog />', () => {
   };
 
   const handleClose = jest.fn();
+  const handleSave = jest.fn();
 
   beforeEach(() => {
     wrapper = mount(
@@ -19,6 +20,7 @@ describe('<CustomSimulationDialog />', () => {
           open
           trackerId="123340901BAJD"
           handleClose={handleClose}
+          handleSave={handleSave}
           authToken="Basic 12313ABDKS"
           simulationService={simulationService}
         />

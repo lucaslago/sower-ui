@@ -211,7 +211,11 @@ exports[`<DashBoardItem /> device simulationStatus is active renders with expect
                                 "paddingLeft": 16,
                                 "width": "100%",
                               }
-                            } />
+                            }>
+                            500
+                             / 
+                            1000
+                          </div>
                         </Subheader>
                         <LinearProgress
                           max={100}
@@ -1193,7 +1197,7 @@ exports[`<DashBoardItem /> device simulationStatus is active renders with expect
                                 "headerColor": "#00bcd4",
                                 "selectColor": "#0097a7",
                                 "selectTextColor": "#ffffff",
-                                "textColor": "#9e9e9e",
+                                "textColor": "#ffffff",
                               },
                               "toggle": Object {
                                 "labelColor": "rgba(0, 0, 0, 0.87)",
@@ -1251,7 +1255,12 @@ exports[`<DashBoardItem /> device simulationStatus is active renders with expect
                         }
                         useLayerForClickAway={false}
                         zDepth={1}>
-                        <div>
+                        <div
+                          style={
+                            Object {
+                              "display": "none",
+                            }
+                          }>
                           <EventListener
                             onResize={[Function]}
                             onScroll={[Function]}
@@ -1269,6 +1278,7 @@ exports[`<DashBoardItem /> device simulationStatus is active renders with expect
                 <CustomSimulationDialog
                   authToken="basic 123123"
                   handleClose={[Function]}
+                  handleSave={[Function]}
                   open={false}
                   simulationService={
                     Object {
@@ -2574,7 +2584,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has custom_si
                                 "headerColor": "#00bcd4",
                                 "selectColor": "#0097a7",
                                 "selectTextColor": "#ffffff",
-                                "textColor": "#9e9e9e",
+                                "textColor": "#ffffff",
                               },
                               "toggle": Object {
                                 "labelColor": "rgba(0, 0, 0, 0.87)",
@@ -2632,7 +2642,12 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has custom_si
                         }
                         useLayerForClickAway={false}
                         zDepth={1}>
-                        <div>
+                        <div
+                          style={
+                            Object {
+                              "display": "none",
+                            }
+                          }>
                           <EventListener
                             onResize={[Function]}
                             onScroll={[Function]}
@@ -2650,6 +2665,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has custom_si
                 <CustomSimulationDialog
                   authToken="basic 123123"
                   handleClose={[Function]}
+                  handleSave={[Function]}
                   open={false}
                   simulationService={
                     Object {
@@ -3955,7 +3971,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has default_s
                                 "headerColor": "#00bcd4",
                                 "selectColor": "#0097a7",
                                 "selectTextColor": "#ffffff",
-                                "textColor": "#9e9e9e",
+                                "textColor": "#ffffff",
                               },
                               "toggle": Object {
                                 "labelColor": "rgba(0, 0, 0, 0.87)",
@@ -4013,7 +4029,12 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has default_s
                         }
                         useLayerForClickAway={false}
                         zDepth={1}>
-                        <div>
+                        <div
+                          style={
+                            Object {
+                              "display": "none",
+                            }
+                          }>
                           <EventListener
                             onResize={[Function]}
                             onScroll={[Function]}
@@ -4031,6 +4052,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has default_s
                 <CustomSimulationDialog
                   authToken="basic 123123"
                   handleClose={[Function]}
+                  handleSave={[Function]}
                   open={false}
                   simulationService={
                     Object {
@@ -5323,7 +5345,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has neither c
                                 "headerColor": "#00bcd4",
                                 "selectColor": "#0097a7",
                                 "selectTextColor": "#ffffff",
-                                "textColor": "#9e9e9e",
+                                "textColor": "#ffffff",
                               },
                               "toggle": Object {
                                 "labelColor": "rgba(0, 0, 0, 0.87)",
@@ -5381,7 +5403,12 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has neither c
                         }
                         useLayerForClickAway={false}
                         zDepth={1}>
-                        <div>
+                        <div
+                          style={
+                            Object {
+                              "display": "none",
+                            }
+                          }>
                           <EventListener
                             onResize={[Function]}
                             onScroll={[Function]}
@@ -5399,6 +5426,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has neither c
                 <CustomSimulationDialog
                   authToken="basic 123123"
                   handleClose={[Function]}
+                  handleSave={[Function]}
                   open={false}
                   simulationService={
                     Object {

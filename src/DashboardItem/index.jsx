@@ -38,6 +38,7 @@ class DashboardItem extends Component {
     this.handleSimulationFinished = this.handleSimulationFinished.bind(this);
     this.openDialog = this.openDialog.bind(this);
     this.handleDialogClose = this.handleDialogClose.bind(this);
+    this.handleDialogSave = this.handleDialogSave.bind(this);
   }
 
   successStartNotification() {
@@ -148,6 +149,10 @@ class DashboardItem extends Component {
     this.setState({ dialogOpen: false });
   }
 
+  handleDialogSave() {
+    this.inactiveSimulationButtons();
+  }
+
   render() {
     return (
       <Card className="DashboardItem" expanded={this.state.expanded} style={itemStyle}>
@@ -191,6 +196,7 @@ class DashboardItem extends Component {
             trackerId={this.props.device.id}
             open={this.state.dialogOpen}
             handleClose={this.handleDialogClose}
+            handleSave={this.handleDialogSave}
             authToken={this.props.authToken}
             simulationService={this.props.simulationService}
           />
