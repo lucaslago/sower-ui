@@ -1,30 +1,35 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import DashboardItem from '../DashboardItem';
+import AsyncContainer from '../components/AsyncContainer';
+import ServerError from '../components/ServerError';
 
-const dashboardStyle = {
+const loadedStyle = {
   marginTop: '10rem',
 };
 
 const addSimulationStatus = (device, simulationStatus) => (
   Object.assign({ simulationStatus }, device));
 
+const loadingStyle = {
+  textAlign: 'center',
+  marginTop: '30rem',
+};
+
+const errorStyle = loadingStyle;
+
 export default class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       devices: [],
+      dashboardStyle: loadingStyle,
+      errorMessage: "We're sorry, something went wrong in our servers",
     };
-  }
 
-  componentWillMount() {
-    return this.getDevices()
-      .then(response => response.data.map(device => this.getSimulationStatus(device.id)
-        .then(status => addSimulationStatus(device, status))))
-      .then(devicesPromise => Promise.all(devicesPromise))
-      .then((transformedDevices) => {
-        this.setState({ devices: transformedDevices });
-      }).catch(err => console.error(err)); //eslint-disable-line
+    this.fetchDevices = this.fetchDevices.bind(this);
+    this.renderDashBoardItems = this.renderDashBoardItems.bind(this);
+    this.renderServerError = this.renderServerError.bind(this);
   }
 
   getSimulationStatus(trackerId) {
@@ -37,8 +42,25 @@ export default class Dashboard extends Component {
     return this.props.route.devicesService.fetch(authToken);
   }
 
-  renderDashboardItem(device) {
-    return (
+  fetchDevices() {
+    return this.getDevices()
+      .then(response => response.data.map(device => this.getSimulationStatus(device.id)
+      .then(status => addSimulationStatus(device, status))))
+      .then(devicesPromise => Promise.all(devicesPromise))
+      .then((transformedDevices) => {
+        this.setState({
+          devices: transformedDevices,
+          dashboardStyle: loadedStyle,
+        });
+      })
+      .catch((err) => {
+        this.setState({ dashboardStyle: errorStyle });
+        throw err;
+      });
+  }
+
+  renderDashBoardItems() {
+    return this.state.devices.map(device => (
       <Row key={device.id}>
         <DashboardItem
           device={device}
@@ -46,15 +68,25 @@ export default class Dashboard extends Component {
           simulationService={this.props.route.simulationService}
         />
       </Row>
-    );
+      ));
+  }
+
+  renderServerError() {
+    return (<ServerError message={this.state.errorMessage} />);
   }
 
   render() {
     return (
-      <div style={dashboardStyle} className="Dashboard">
+      <div style={this.state.dashboardStyle} className="Dashboard">
         <Row>
           <Col xs={12} smOffset={1} sm={10}>
-            { this.state.devices.map(d => this.renderDashboardItem(d))}
+            <AsyncContainer
+              promise={this.fetchDevices}
+              renderOnResolve={this.renderDashBoardItems}
+              renderOnReject={this.renderServerError}
+              spinnerSize={80}
+              spinnerThickness={5}
+            />
           </Col>
         </Row>
       </div>
