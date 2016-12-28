@@ -25,7 +25,7 @@ describe('<DashBoardItem />', () => {
           equipment: {
             data: {
               description: 'a cool tractor simulation',
-              default_simulation: false,
+              default_simulation: true,
               id: 'anotherid',
               type: 'equipment',
               simulation_type: 'applicator',

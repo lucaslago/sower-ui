@@ -24,7 +24,9 @@ class DashboardItem extends Component {
     super(props);
     const { device } = props;
     this.state = {
-      device: device,
+      device,
+      startDisabled: shouldDisableStartBtn(device),
+      stopDisabled: shouldDisableStopBtn(device.simulationStatus.status),
       expanded: shouldExpandCard(device.simulationStatus.status),
       notification: false,
       notificationMessage: '',
@@ -37,6 +39,15 @@ class DashboardItem extends Component {
     this.openDialog = this.openDialog.bind(this);
     this.handleDialogClose = this.handleDialogClose.bind(this);
     this.handleDialogSave = this.handleDialogSave.bind(this);
+  }
+
+  setCustomSimulation(value) {
+    const device = Object.assign({}, this.state.device, {
+      custom_simulation: value,
+    });
+    this.setState({
+      device,
+    });
   }
 
   successStartNotification() {
@@ -69,27 +80,41 @@ class DashboardItem extends Component {
   activateSimulation() {
     const activatedSimulation = Object.assign({}, this.state.device, {
       simulationStatus: {
-        status: 'active'
-      }
+        status: 'active',
+      },
     });
     this.setState({
-      device: activatedSimulation
+      device: activatedSimulation,
     });
   }
-  
+
   deactivateSimulation() {
     const deactivatedSimulation = Object.assign({}, this.state.device, {
       simulationStatus: {
-        status: 'inactive'
-      }
+        status: 'inactive',
+      },
     });
     this.setState({
-      device: deactivatedSimulation 
+      device: deactivatedSimulation,
+    });
+  }
+
+  disableButtons() {
+    this.setState({
+      startDisabled: true,
+      stopDisabled: true,
+    });
+  }
+
+  activateButtons() {
+    this.setState({
+      startDisabled: shouldDisableStartBtn(this.state.device),
+      stopDisabled: shouldDisableStopBtn(this.state.device.simulationStatus.status),
     });
   }
 
   start() {
-    this.activateSimulation();
+    this.disableButtons();
     this.props.simulationService
       .start({
         trackerId: this.props.device.id,
@@ -98,25 +123,30 @@ class DashboardItem extends Component {
       .then(() => {
         this.successStartNotification();
         this.toggleExpandCard();
+        this.activateSimulation();
+        this.activateButtons();
       })
       .catch((error) => {
         console.error(error); //eslint-disable-line
-        this.deactiateSimulation();
+        this.activateButtons();
         this.failureNotification();
       });
   }
-  
+
   stop() {
-    this.deactivateSimulation();
+    this.disableButtons();
     this.props.simulationService.stop({
       trackerId: this.props.device.id,
       authToken: this.props.authToken,
     }).then(() => {
       this.successStopNotification();
       this.toggleExpandCard();
+      this.deactivateSimulation();
+      this.activateButtons();
     }).catch((error) => {
       console.error(error); //eslint-disable-line
       this.failureNotification();
+      this.activateButtons();
     });
   }
 
@@ -145,8 +175,10 @@ class DashboardItem extends Component {
     this.setState({ dialogOpen: false });
   }
 
+
   handleDialogSave() {
-    this.deactivateSimulation();
+    this.setCustomSimulation(true);
+    this.activateButtons();
   }
 
   render() {
@@ -175,14 +207,14 @@ class DashboardItem extends Component {
             label="Start"
             primary
             onClick={this.start}
-            disabled={shouldDisableStartBtn(this.state.device)}
+            disabled={this.state.startDisabled}
           />
           <RaisedButton
             className="stop"
             label="Stop"
             primary={false}
             onClick={this.stop}
-            disabled={shouldDisableStopBtn(this.state.device.simulationStatus.status)}
+            disabled={this.state.stopDisabled}
           />
           <Menu
             disabled={shouldDisableCardMenu(this.state.device.simulationStatus.status)}

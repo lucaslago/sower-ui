@@ -77,7 +77,7 @@ describe('DashboardItem utils', () => {
       expect(shouldExpandCard(simulationStatus)).toEqual(false);
     });
   });
-  
+
   context('shouldDisableCardMenu', () => {
     it('should return true when simulation_status is active', () => {
       const simulationStatus = 'active';

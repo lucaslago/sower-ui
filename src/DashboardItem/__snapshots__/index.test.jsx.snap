@@ -9,7 +9,7 @@ exports[`<DashBoardItem /> device simulationStatus is active renders with expect
         "relationships": Object {
           "equipment": Object {
             "data": Object {
-              "default_simulation": false,
+              "default_simulation": true,
               "description": "a cool tractor simulation",
               "id": "anotherid",
               "simulation_type": "applicator",
@@ -1512,7 +1512,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has custom_si
         "relationships": Object {
           "equipment": Object {
             "data": Object {
-              "default_simulation": false,
+              "default_simulation": true,
               "description": "a cool tractor simulation",
               "id": "anotherid",
               "simulation_type": "applicator",
