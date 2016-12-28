@@ -117,7 +117,6 @@ class DashboardItem extends Component {
     }).catch((error) => {
       console.error(error); //eslint-disable-line
       this.failureNotification();
-      this.activeSimulationButtons();
     });
   }
 
@@ -137,7 +136,7 @@ class DashboardItem extends Component {
   }
 
   handleSimulationFinished() {
-    this.inactiveSimulationButtons();
+    this.deactivateSimulation();
     this.toggleExpandCard();
     this.simulationFinishedNotification();
   }
@@ -147,7 +146,7 @@ class DashboardItem extends Component {
   }
 
   handleDialogSave() {
-    this.inactiveSimulationButtons();
+    this.deactivateSimulation();
   }
 
   render() {
