@@ -5,24 +5,28 @@ describe('Simulation Service', () => {
   const successGenericResponse = { status: 204 };
 
   const authToken = 'Basic ABCD123e';
+  const trackerId = '123';
   const expectedHeaders = {
     headers: {
       Authorization: authToken,
     },
   };
-  const trackerId = '123';
 
   context('start', () => {
     const axiosStub = { post: jest.fn().mockReturnValue(Promise.resolve(successGenericResponse)) };
     const simulationService = SimulationService(axiosStub);
+    const expectedConfig = {
+      headers: expectedHeaders.headers,
+      params: {
+        useDefault: false,
+      },
+    };
 
-    it('should successfully post to sower start simulation endpoint', () => {
-      simulationService.start({ trackerId, authToken })
-        .then((response) => {
-          expect(axiosStub.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_start`, {}, expectedHeaders);
-          expect(response).toBe(successGenericResponse);
-        });
-    });
+    it('should successfully post to sower start simulation endpoint', () => simulationService.start({ trackerId, authToken, useDefault: false })
+      .then((response) => {
+        expect(axiosStub.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_start`, {}, expectedConfig);
+        expect(response).toBe(successGenericResponse);
+      }));
   });
 
   context('stop', () => {

@@ -8,6 +8,7 @@ describe('<DashBoardItem />', () => {
   let stopButton;
   let authToken;
   let trackerId;
+  let useDefault;
 
   beforeEach(() => {
     props = {
@@ -39,6 +40,7 @@ describe('<DashBoardItem />', () => {
     };
     authToken = props.authToken;
     trackerId = props.device.id;
+    useDefault = false;
   });
 
   context('device simulationStatus is active', () => {
@@ -96,7 +98,7 @@ describe('<DashBoardItem />', () => {
       startButton.simulate('click');
 
       return wait().then(() => {
-        expect(props.simulationService.start).toBeCalledWith({ authToken, trackerId });
+        expect(props.simulationService.start).toBeCalledWith({ authToken, trackerId, useDefault });
         expect(wrapper.find('.dashboard-item-progress-bar').length).toEqual(1);
         expect(startButton.prop('disabled')).toEqual(true);
         expect(stopButton.prop('disabled')).toEqual(false);
@@ -127,7 +129,7 @@ describe('<DashBoardItem />', () => {
       startButton.simulate('click');
 
       return wait().then(() => {
-        expect(props.simulationService.start).toBeCalledWith({ authToken, trackerId });
+        expect(props.simulationService.start).toBeCalledWith({ authToken, trackerId, useDefault });
         expect(wrapper.find('.dashboard-item-progress-bar').length).toEqual(1);
         expect(startButton.prop('disabled')).toEqual(true);
         expect(stopButton.prop('disabled')).toEqual(false);
