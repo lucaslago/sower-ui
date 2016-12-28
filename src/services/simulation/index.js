@@ -2,10 +2,13 @@ import axios from 'axios';
 import { SOWER_URL } from '../config';
 
 export default (requestLib = axios) => {
-  const start = ({ trackerId, authToken }) => requestLib.post(`${SOWER_URL}/simulation/${trackerId}/_start`, {}, {
+  const start = ({ trackerId, authToken, useDefault }) => requestLib.post(`${SOWER_URL}/simulation/${trackerId}/_start`, {}, {
     headers: {
       Authorization: authToken,
     },
+    qs: {
+      useDefault,
+    }
   });
 
   const stop = ({ trackerId, authToken }) => requestLib.post(`${SOWER_URL}/simulation/${trackerId}/_stop`, {}, {
