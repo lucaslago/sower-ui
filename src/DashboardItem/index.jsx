@@ -32,6 +32,7 @@ class DashboardItem extends Component {
       notification: false,
       notificationMessage: '',
       dialogOpen: false,
+      useDefaultSimulation: false,
     };
     this.start = this.start.bind(this);
     this.stop = this.stop.bind(this);
@@ -113,6 +114,7 @@ class DashboardItem extends Component {
       .start({
         trackerId: this.props.device.id,
         authToken: this.props.authToken,
+        useDefault: this.state.useDefaultSimulation,
       })
       .then(() => {
         this.successStartNotification();

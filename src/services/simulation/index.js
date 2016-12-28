@@ -6,7 +6,7 @@ export default (requestLib = axios) => {
     headers: {
       Authorization: authToken,
     },
-    qs: {
+    params: {
       useDefault,
     },
   });

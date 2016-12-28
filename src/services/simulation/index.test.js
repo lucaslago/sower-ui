@@ -6,34 +6,32 @@ describe('Simulation Service', () => {
 
   const authToken = 'Basic ABCD123e';
   const trackerId = '123';
+  const expectedHeaders = {
+    headers: {
+      Authorization: authToken,
+    },
+  };
 
   context('start', () => {
     const axiosStub = { post: jest.fn().mockReturnValue(Promise.resolve(successGenericResponse)) };
     const simulationService = SimulationService(axiosStub);
-    const expectedHeaders = {
-      headers: {
-        Authorization: authToken,
-      },
-      qs: {
+    const expectedConfig = {
+      headers: expectedHeaders.headers,
+      params: {
         useDefault: false,
       },
     };
 
     it('should successfully post to sower start simulation endpoint', () => simulationService.start({ trackerId, authToken, useDefault: false })
-        .then((response) => {
-          expect(axiosStub.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_start`, {}, expectedHeaders);
-          expect(response).toBe(successGenericResponse);
-        }));
+      .then((response) => {
+        expect(axiosStub.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_start`, {}, expectedConfig);
+        expect(response).toBe(successGenericResponse);
+      }));
   });
 
   context('stop', () => {
     const axiosStub = { post: jest.fn().mockReturnValue(Promise.resolve(successGenericResponse)) };
     const simulationService = SimulationService(axiosStub);
-    const expectedHeaders = {
-      headers: {
-        Authorization: authToken,
-      },
-    };
 
     it('should post to sower stop simulation endpoint', () => {
       simulationService.stop({ trackerId, authToken })
@@ -45,12 +43,6 @@ describe('Simulation Service', () => {
   });
 
   context('status', () => {
-    const expectedHeaders = {
-      headers: {
-        Authorization: authToken,
-      },
-    };
-
     it('should return a running simulation status', () => {
       const runningResponse = {
         data: {
@@ -139,12 +131,6 @@ describe('Simulation Service', () => {
           },
         },
       ],
-    };
-
-    const expectedHeaders = {
-      headers: {
-        Authorization: authToken,
-      },
     };
 
     const axiosStub = { post: jest.fn().mockReturnValue(Promise.resolve(successGenericResponse)) };
