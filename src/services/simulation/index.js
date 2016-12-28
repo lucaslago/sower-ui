@@ -8,7 +8,7 @@ export default (requestLib = axios) => {
     },
     qs: {
       useDefault,
-    }
+    },
   });
 
   const stop = ({ trackerId, authToken }) => requestLib.post(`${SOWER_URL}/simulation/${trackerId}/_stop`, {}, {

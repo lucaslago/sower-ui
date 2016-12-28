@@ -16,16 +16,14 @@ describe('Simulation Service', () => {
       },
       qs: {
         useDefault: false,
-      }
+      },
     };
 
-    it('should successfully post to sower start simulation endpoint', () => {
-      return simulationService.start({ trackerId, authToken, useDefault: false })
+    it('should successfully post to sower start simulation endpoint', () => simulationService.start({ trackerId, authToken, useDefault: false })
         .then((response) => {
           expect(axiosStub.post).toHaveBeenCalledWith(`${SOWER_URL}/simulation/${trackerId}/_start`, {}, expectedHeaders);
           expect(response).toBe(successGenericResponse);
-        });
-    });
+        }));
   });
 
   context('stop', () => {
