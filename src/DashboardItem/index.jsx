@@ -6,6 +6,7 @@ import DashboardItemProgressBar from '../DashBoardItemProgressBar';
 import Menu from '../components/Menu';
 import CustomSimulationDialog from '../CustomSimulationDialog';
 import { shouldDisableStartBtn, shouldDisableStopBtn, shouldExpandCard, shouldDisableCardMenu } from './utils';
+import SIMULATION_STATUS from '../utils/simulation_status';
 
 const itemStyle = {
   marginTop: '1rem',
@@ -39,6 +40,13 @@ class DashboardItem extends Component {
     this.openDialog = this.openDialog.bind(this);
     this.handleDialogClose = this.handleDialogClose.bind(this);
     this.handleDialogSave = this.handleDialogSave.bind(this);
+  }
+
+  setSimulationStatus(status) {
+    const device = Object.assign({}, this.state.device, {
+      simulationStatus: { status },
+    });
+    this.setState({ device });
   }
 
   setCustomSimulation(value) {
@@ -78,25 +86,11 @@ class DashboardItem extends Component {
   }
 
   activateSimulation() {
-    const activatedSimulation = Object.assign({}, this.state.device, {
-      simulationStatus: {
-        status: 'active',
-      },
-    });
-    this.setState({
-      device: activatedSimulation,
-    });
+    this.setSimulationStatus(SIMULATION_STATUS.ACTIVE);
   }
 
   deactivateSimulation() {
-    const deactivatedSimulation = Object.assign({}, this.state.device, {
-      simulationStatus: {
-        status: 'inactive',
-      },
-    });
-    this.setState({
-      device: deactivatedSimulation,
-    });
+    this.setSimulationStatus(SIMULATION_STATUS.INACTIVE);
   }
 
   disableButtons() {
