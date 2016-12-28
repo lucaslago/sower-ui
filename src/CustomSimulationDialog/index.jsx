@@ -115,6 +115,7 @@ export default class CustomSimulationDialog extends Component {
       })
       .then(() => {
         this.props.handleClose();
+        this.props.handleSave();
         this.setState({
           notification: true,
           notificationMessage: 'Simulation saved',
@@ -230,6 +231,7 @@ CustomSimulationDialog.propTypes = {
   open: React.PropTypes.bool.isRequired,
   trackerId: React.PropTypes.string.isRequired,
   handleClose: React.PropTypes.func.isRequired,
+  handleSave: React.PropTypes.func.isRequired,
   authToken: React.PropTypes.string.isRequired,
   simulationService: React.PropTypes.shape({
     create: React.PropTypes.func.isRequired,

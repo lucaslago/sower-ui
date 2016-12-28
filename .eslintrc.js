@@ -15,6 +15,7 @@ module.exports = {
     "shallow": true,
     "mount": true,
     "toJson": true,
-    "React": true
+    "React": true,
+    "wait": true
   }
 };

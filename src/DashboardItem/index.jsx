@@ -4,8 +4,9 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Snackbar from 'material-ui/Snackbar';
 import DashboardItemProgressBar from '../DashBoardItemProgressBar';
 import Menu from '../components/Menu';
-import SIMULATION_STATUS from '../utils/simulation_status';
 import CustomSimulationDialog from '../CustomSimulationDialog';
+import { shouldDisableStartBtn, shouldDisableStopBtn, shouldExpandCard, shouldDisableCardMenu } from './utils';
+import SIMULATION_STATUS from '../utils/simulation_status';
 
 const itemStyle = {
   marginTop: '1rem',
@@ -19,19 +20,15 @@ const actionsStyle = {
   paddingRight: '0px',
 };
 
-const isActiveSimulation = status => status === SIMULATION_STATUS.ACTIVE;
-const hasDefaultSimulationSet = device => device.relationships.equipment.data.default_simulation;
-
 class DashboardItem extends Component {
   constructor(props) {
     super(props);
     const { device } = props;
     this.state = {
-      startDisabled: isActiveSimulation(device.simulationStatus.status)
-        || !hasDefaultSimulationSet(device),
-      stopDisabled: !isActiveSimulation(device.simulationStatus.status),
-      expanded: isActiveSimulation(device.simulationStatus.status),
-      simulationStatus: device.simulationStatus,
+      device,
+      startDisabled: shouldDisableStartBtn(device),
+      stopDisabled: shouldDisableStopBtn(device.simulationStatus.status),
+      expanded: shouldExpandCard(device.simulationStatus.status),
       notification: false,
       notificationMessage: '',
       dialogOpen: false,
@@ -42,6 +39,23 @@ class DashboardItem extends Component {
     this.handleSimulationFinished = this.handleSimulationFinished.bind(this);
     this.openDialog = this.openDialog.bind(this);
     this.handleDialogClose = this.handleDialogClose.bind(this);
+    this.handleDialogSave = this.handleDialogSave.bind(this);
+  }
+
+  setSimulationStatus(status) {
+    const device = Object.assign({}, this.state.device, {
+      simulationStatus: { status },
+    });
+    this.setState({ device });
+  }
+
+  setCustomSimulation(value) {
+    const device = Object.assign({}, this.state.device, {
+      custom_simulation: value,
+    });
+    this.setState({
+      device,
+    });
   }
 
   successStartNotification() {
@@ -71,24 +85,25 @@ class DashboardItem extends Component {
     });
   }
 
-  activeSimulationButtons() {
-    this.setState({
-      startDisabled: true,
-      stopDisabled: false,
-    });
+  activateSimulation() {
+    this.setSimulationStatus(SIMULATION_STATUS.ACTIVE);
   }
 
-  inactiveSimulationButtons() {
-    this.setState({
-      startDisabled: false,
-      stopDisabled: true,
-    });
+  deactivateSimulation() {
+    this.setSimulationStatus(SIMULATION_STATUS.INACTIVE);
   }
 
   disableButtons() {
     this.setState({
       startDisabled: true,
       stopDisabled: true,
+    });
+  }
+
+  activateButtons() {
+    this.setState({
+      startDisabled: shouldDisableStartBtn(this.state.device),
+      stopDisabled: shouldDisableStopBtn(this.state.device.simulationStatus.status),
     });
   }
 
@@ -101,12 +116,13 @@ class DashboardItem extends Component {
       })
       .then(() => {
         this.successStartNotification();
-        this.activeSimulationButtons();
         this.toggleExpandCard();
+        this.activateSimulation();
+        this.activateButtons();
       })
       .catch((error) => {
         console.error(error); //eslint-disable-line
-        this.inactiveSimulationButtons();
+        this.activateButtons();
         this.failureNotification();
       });
   }
@@ -118,12 +134,13 @@ class DashboardItem extends Component {
       authToken: this.props.authToken,
     }).then(() => {
       this.successStopNotification();
-      this.inactiveSimulationButtons();
       this.toggleExpandCard();
+      this.deactivateSimulation();
+      this.activateButtons();
     }).catch((error) => {
       console.error(error); //eslint-disable-line
       this.failureNotification();
-      this.activeSimulationButtons();
+      this.activateButtons();
     });
   }
 
@@ -143,13 +160,19 @@ class DashboardItem extends Component {
   }
 
   handleSimulationFinished() {
-    this.inactiveSimulationButtons();
+    this.deactivateSimulation();
     this.toggleExpandCard();
     this.simulationFinishedNotification();
   }
 
   handleDialogClose() {
     this.setState({ dialogOpen: false });
+  }
+
+
+  handleDialogSave() {
+    this.setCustomSimulation(true);
+    this.activateButtons();
   }
 
   render() {
@@ -166,7 +189,7 @@ class DashboardItem extends Component {
           <DashboardItemProgressBar
             trackerId={this.props.device.id}
             authToken={this.props.authToken}
-            simulationStatus={this.state.simulationStatus}
+            simulationStatus={this.state.device.simulationStatus}
             simulationService={this.props.simulationService}
             simulationFinished={this.handleSimulationFinished}
             updateInterval={5000}
@@ -188,6 +211,7 @@ class DashboardItem extends Component {
             disabled={this.state.stopDisabled}
           />
           <Menu
+            disabled={shouldDisableCardMenu(this.state.device.simulationStatus.status)}
             handleClick={this.openDialog}
             primaryText="Add Custom Simulation"
           />
@@ -195,6 +219,7 @@ class DashboardItem extends Component {
             trackerId={this.props.device.id}
             open={this.state.dialogOpen}
             handleClose={this.handleDialogClose}
+            handleSave={this.handleDialogSave}
             authToken={this.props.authToken}
             simulationService={this.props.simulationService}
           />

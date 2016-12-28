@@ -10,7 +10,7 @@ const menuIconStyle = {
   paddingRight: '0px'
 };
 
-const Menu = (props) => {
+const Menu = ({handleClick, primaryText, disabled}) => {
   return(
     <IconMenu
       style={menuIconStyle}
@@ -19,9 +19,15 @@ const Menu = (props) => {
       anchorOrigin={{horizontal: 'right', vertical: 'top'}}
       targetOrigin={{horizontal: 'right', vertical: 'top'}}
     >
-      <MenuItem className="MenuItem" onTouchTap={props.handleClick} primaryText={props.primaryText} />
+      <MenuItem className="MenuItem" disabled={disabled} onTouchTap={handleClick} primaryText={primaryText} />
     </IconMenu>
   );
+};
+
+Menu.propTypes = {
+  handleClick: React.PropTypes.func.isRequired,
+  primaryText: React.PropTypes.string.isRequired,
+  disabled: React.PropTypes.bool.isRequired
 };
 
 export default Menu;

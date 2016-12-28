@@ -3,6 +3,7 @@ exports[`<CustomSimulationDialog /> renders correctly 1`] = `
   <CustomSimulationDialog
     authToken="Basic 12313ABDKS"
     handleClose={[Function]}
+    handleSave={[Function]}
     open={true}
     simulationService={
       Object {
