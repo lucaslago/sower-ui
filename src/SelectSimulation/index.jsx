@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
@@ -12,37 +12,26 @@ const styles = {
   },
 };
 
-export default class SelectSimulation extends Component {
-  constructor(props) {
-    super(props);
-    this.renderSelectMenu = this.renderSelectMenu.bind(this);
+const SelectSimulation = (props) => {
+  let element = null;
+
+  if(props.displayElement) {
+    element = (<SelectField
+      value={props.selectedValue}
+      style={styles.rootElement}
+      labelStyle={styles.label}
+      onChange={props.onChange}
+      className="select-simulation"
+    >
+      <MenuItem value={false} primaryText="Custom Simulation" />
+      <MenuItem value primaryText="Default Simulation" />
+    </SelectField>);
   }
 
-  renderSelectMenu() {
-    return (
-      <SelectField
-        value={this.props.selectedValue}
-        style={styles.rootElement}
-        labelStyle={styles.label}
-        onChange={this.props.onChange}
-        className="select-simulation"
-      >
-        <MenuItem value={false} primaryText="Custom Simulation" />
-        <MenuItem value primaryText="Default Simulation" />
-      </SelectField>
-    );
-  }
-
-  render() {
-    let element = null;
-
-    if (this.props.displayElement) {
-      element = this.renderSelectMenu();
-    }
-
-    return (element);
-  }
+  return (element);
 }
+
+export default SelectSimulation;
 
 SelectSimulation.propTypes = {
   selectedValue: React.PropTypes.bool.isRequired,
