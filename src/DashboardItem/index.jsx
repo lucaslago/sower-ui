@@ -6,8 +6,16 @@ import tractorIcon from './img/tractor-icon.png';
 import DashboardItemProgressBar from '../DashBoardItemProgressBar';
 import Menu from '../components/Menu';
 import CustomSimulationDialog from '../CustomSimulationDialog';
-import { shouldDisableStartBtn, shouldDisableStopBtn, shouldExpandCard, shouldDisableCardMenu } from './utils';
+import SelectSimulation from '../SelectSimulation';
 import SIMULATION_STATUS from '../utils/simulation_status';
+import {
+  shouldDisableStartBtn,
+  shouldDisableStopBtn,
+  shouldExpandCard,
+  shouldDisableCardMenu,
+  hasDefaultSimulationSet,
+  hasCustomSimulation,
+} from './utils';
 
 const itemStyle = {
   marginTop: '1rem',
@@ -34,6 +42,7 @@ class DashboardItem extends Component {
       notificationMessage: '',
       dialogOpen: false,
       useDefaultSimulation: false,
+      selectedSimulation: false,
     };
     this.start = this.start.bind(this);
     this.stop = this.stop.bind(this);
@@ -42,6 +51,7 @@ class DashboardItem extends Component {
     this.openDialog = this.openDialog.bind(this);
     this.handleDialogClose = this.handleDialogClose.bind(this);
     this.handleDialogSave = this.handleDialogSave.bind(this);
+    this.handleSelectedSimulation = this.handleSelectedSimulation.bind(this);
   }
 
   setSimulationStatus(status) {
@@ -172,10 +182,16 @@ class DashboardItem extends Component {
     this.setState({ dialogOpen: false });
   }
 
-
   handleDialogSave() {
     this.setCustomSimulation(true);
     this.activateButtons();
+  }
+
+  handleSelectedSimulation(event, key, value) {
+    this.setState({
+      selectedSimulation: value,
+      useDefaultSimulation: value,
+    });
   }
 
   render() {
@@ -212,6 +228,14 @@ class DashboardItem extends Component {
             primary={false}
             onClick={this.stop}
             disabled={this.state.stopDisabled}
+          />
+          <SelectSimulation
+            displayElement={
+              hasCustomSimulation(this.state.device) &&
+              hasDefaultSimulationSet(this.state.device)
+            }
+            selectedValue={ this.state.selectedSimulation }
+            onChange={ this.handleSelectedSimulation }
           />
           <Menu
             disabled={shouldDisableCardMenu(this.state.device.simulationStatus.status)}
