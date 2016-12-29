@@ -15,7 +15,7 @@ const styles = {
 const SelectSimulation = (props) => {
   let element = null;
 
-  if(props.displayElement) {
+  if (props.displayElement) {
     element = (<SelectField
       value={props.selectedValue}
       style={styles.rootElement}
@@ -29,7 +29,7 @@ const SelectSimulation = (props) => {
   }
 
   return (element);
-}
+};
 
 export default SelectSimulation;
 
