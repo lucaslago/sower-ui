@@ -2516,7 +2516,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has custom_si
                               "top": 14,
                             }
                           }
-                          id="undefined--undefined-49612"
+                          id="undefined--undefined-9102"
                           labelStyle={
                             Object {
                               "overflow": "visible",
@@ -2553,7 +2553,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has custom_si
                           value={false}>
                           <div
                             disabled={false}
-                            id="undefined--undefined-49612"
+                            id="undefined--undefined-9102"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
