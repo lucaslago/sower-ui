@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import Snackbar from 'material-ui/Snackbar';
+import tractorIcon from './img/tractor-icon.png';
 import DashboardItemProgressBar from '../DashBoardItemProgressBar';
 import Menu from '../components/Menu';
 import CustomSimulationDialog from '../CustomSimulationDialog';
@@ -185,7 +186,7 @@ class DashboardItem extends Component {
           subtitle={this.props.device.id}
           actAsExpander={false}
           showExpandableButton={false}
-          avatar="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+          avatar={tractorIcon}
         />
         <CardText expandable>
           <DashboardItemProgressBar

@@ -80,7 +80,7 @@ exports[`<DashBoardItem /> device simulationStatus is active renders with expect
             }>
             <CardHeader
               actAsExpander={false}
-              avatar="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+              avatar="tractor-icon.png"
               showExpandableButton={false}
               subtitle="123"
               title="a cool tractor simulation">
@@ -97,7 +97,7 @@ exports[`<DashBoardItem /> device simulationStatus is active renders with expect
                 }>
                 <Avatar
                   size={40}
-                  src="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+                  src="tractor-icon.png"
                   style={
                     Object {
                       "marginRight": 16,
@@ -105,7 +105,7 @@ exports[`<DashBoardItem /> device simulationStatus is active renders with expect
                   }>
                   <img
                     size={40}
-                    src="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+                    src="tractor-icon.png"
                     style={
                       Object {
                         "alignItems": "center",
@@ -1581,7 +1581,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has custom_si
             }>
             <CardHeader
               actAsExpander={false}
-              avatar="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+              avatar="tractor-icon.png"
               showExpandableButton={false}
               subtitle="123"
               title="a cool tractor simulation">
@@ -1598,7 +1598,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has custom_si
                 }>
                 <Avatar
                   size={40}
-                  src="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+                  src="tractor-icon.png"
                   style={
                     Object {
                       "marginRight": 16,
@@ -1606,7 +1606,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has custom_si
                   }>
                   <img
                     size={40}
-                    src="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+                    src="tractor-icon.png"
                     style={
                       Object {
                         "alignItems": "center",
@@ -2969,7 +2969,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has default_s
             }>
             <CardHeader
               actAsExpander={false}
-              avatar="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+              avatar="tractor-icon.png"
               showExpandableButton={false}
               subtitle="123"
               title="a cool tractor simulation">
@@ -2986,7 +2986,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has default_s
                 }>
                 <Avatar
                   size={40}
-                  src="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+                  src="tractor-icon.png"
                   style={
                     Object {
                       "marginRight": 16,
@@ -2994,7 +2994,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has default_s
                   }>
                   <img
                     size={40}
-                    src="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+                    src="tractor-icon.png"
                     style={
                       Object {
                         "alignItems": "center",
@@ -4357,7 +4357,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has neither c
             }>
             <CardHeader
               actAsExpander={false}
-              avatar="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+              avatar="tractor-icon.png"
               showExpandableButton={false}
               subtitle="123"
               title="a cool tractor simulation">
@@ -4374,7 +4374,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has neither c
                 }>
                 <Avatar
                   size={40}
-                  src="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+                  src="tractor-icon.png"
                   style={
                     Object {
                       "marginRight": 16,
@@ -4382,7 +4382,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has neither c
                   }>
                   <img
                     size={40}
-                    src="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+                    src="tractor-icon.png"
                     style={
                       Object {
                         "alignItems": "center",
