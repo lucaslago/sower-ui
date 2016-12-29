@@ -89,7 +89,7 @@ describe('<DashBoardItem />', () => {
     });
 
     it('renders with expected initial state', () => {
-      wrapper =  shallow(<DashBoardItem {...props} />);
+      wrapper = shallow(<DashBoardItem {...props} />);
       expect(toJson(wrapper)).toMatchSnapshot();
     });
 
