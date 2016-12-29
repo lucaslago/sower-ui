@@ -88,7 +88,7 @@ describe('<DashBoardItem />', () => {
       stopButton = wrapper.find('.stop button');
     });
 
-    it('renders with expected initial state', () => {
+    xit('renders with expected initial state', () => {
       expect(toJson(wrapper)).toMatchSnapshot();
     });
 
