@@ -110,7 +110,7 @@ describe('<DashBoardItem />', () => {
     });
   });
 
-  context('device simulationStatus is inactive and has default_simulation', () => {
+  context('device simulationStatus is inactive has default_simulation and has no custom_simulation', () => {
     beforeEach(() => {
       props.device.simulationStatus.status = 'inactive';
       props.device.relationships.equipment.data.default_simulation = true;
@@ -125,6 +125,10 @@ describe('<DashBoardItem />', () => {
 
     it('renders with expected initial state', () => {
       expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should not render the select-simulation component', () => {
+      expect(wrapper.find('.select-simulation').length).toBe(0);
     });
 
     it('should expand <Card /> and enable stop button after start button is clicked', () => {
@@ -157,6 +161,10 @@ describe('<DashBoardItem />', () => {
 
     it('renders with expected initial state', () => {
       expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should not render the select-simulation component', () => {
+      expect(wrapper.find('.select-simulation').length).toBe(0);
     });
 
     it('should neither expand <Card /> nor change buttons disabled value when start button is clicked', () => {
