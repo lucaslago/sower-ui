@@ -17,7 +17,7 @@ module.exports = {
     .setValue('input[type=email]', process.env.SOWER_USER_LOGIN)
     .setValue('input[type=password]', process.env.SOWER_USER_PWD)
     .click('button[type=submit]')
-    .waitForElementVisible('.loading', 3000)
+    .waitForElementVisible('.loading', 10000)
     .waitForElementVisible('.Dashboard', 10000)
     .end();
   }
