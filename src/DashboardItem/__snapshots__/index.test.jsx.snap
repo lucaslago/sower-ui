@@ -2907,7 +2907,7 @@ exports[`<DashBoardItem /> device simulationStatus is inactive has custom_simula
   }>
   <CardHeader
     actAsExpander={false}
-    avatar="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+    avatar="tractor-icon.png"
     showExpandableButton={false}
     subtitle="123"
     title="a cool tractor simulation" />
