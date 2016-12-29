@@ -234,8 +234,8 @@ class DashboardItem extends Component {
               hasCustomSimulation(this.state.device) &&
               hasDefaultSimulationSet(this.state.device)
             }
-            selectedValue={ this.state.selectedSimulation }
-            onChange={ this.handleSelectedSimulation }
+            selectedValue={this.state.selectedSimulation}
+            onChange={this.handleSelectedSimulation}
           />
           <Menu
             disabled={shouldDisableCardMenu(this.state.device.simulationStatus.status)}

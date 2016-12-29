@@ -1,7 +1,7 @@
 import SIMULATION_STATUS from '../../utils/simulation_status';
 
 const isActiveSimulation = status => status === SIMULATION_STATUS.ACTIVE;
-export const hasDefaultSimulationSet = device => device.relationships.equipment.data.default_simulation;
+export const hasDefaultSimulationSet = device => device.relationships.equipment.data.default_simulation; // eslint-disable-line
 export const hasCustomSimulation = device => device.custom_simulation;
 
 export const shouldDisableStartBtn = device => (
