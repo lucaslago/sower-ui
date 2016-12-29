@@ -25,6 +25,7 @@ export default class SelectSimulation extends Component {
         style={styles.rootElement}
         labelStyle={styles.label}
         onChange={this.props.onChange}
+        className='select-simulation'
       >
         <MenuItem value={false} primaryText="Custom Simulation" />
         <MenuItem value primaryText="Default Simulation" />
