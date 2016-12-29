@@ -2894,6 +2894,104 @@ exports[`<DashBoardItem /> device simulationStatus is inactive and has neither c
 </MuiThemeProvider>
 `;
 
+exports[`<DashBoardItem /> device simulationStatus is inactive has custom_simulation and default_simulation renders with expected initial state 1`] = `
+<Card
+  className="DashboardItem"
+  expandable={false}
+  expanded={false}
+  initiallyExpanded={false}
+  style={
+    Object {
+      "marginTop": "1rem",
+    }
+  }>
+  <CardHeader
+    actAsExpander={false}
+    avatar="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/tractor-icon.png"
+    showExpandableButton={false}
+    subtitle="123"
+    title="a cool tractor simulation" />
+  <CardText
+    expandable={true}>
+    <DashboardItemProgressBar
+      authToken="basic 123123"
+      simulationFinished={[Function]}
+      simulationService={
+        Object {
+          "create": [Function],
+          "start": [Function],
+          "status": [Function],
+          "stop": [Function],
+        }
+      }
+      simulationStatus={
+        Object {
+          "status": "inactive",
+        }
+      }
+      trackerId="123"
+      updateInterval={5000} />
+  </CardText>
+  <CardActions
+    style={
+      Object {
+        "paddingRight": "0px",
+      }
+    }>
+    <RaisedButton
+      className="start"
+      disabled={false}
+      fullWidth={false}
+      label="Start"
+      labelPosition="after"
+      onClick={[Function]}
+      primary={true}
+      secondary={false} />
+    <RaisedButton
+      className="stop"
+      disabled={true}
+      fullWidth={false}
+      label="Stop"
+      labelPosition="after"
+      onClick={[Function]}
+      primary={false}
+      secondary={false} />
+    <SelectSimulation
+      displayElement={true}
+      onChange={[Function]}
+      selectedValue={false} />
+    <Menu
+      disabled={false}
+      handleClick={[Function]}
+      primaryText="Add Custom Simulation" />
+    <CustomSimulationDialog
+      authToken="basic 123123"
+      handleClose={[Function]}
+      handleSave={[Function]}
+      open={false}
+      simulationService={
+        Object {
+          "create": [Function],
+          "start": [Function],
+          "status": [Function],
+          "stop": [Function],
+        }
+      }
+      trackerId="123" />
+  </CardActions>
+  <Snackbar
+    autoHideDuration={4000}
+    message=""
+    onRequestClose={[Function]}
+    open={false}
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    } />
+</Card>
+`;
+
 exports[`<DashBoardItem /> device simulationStatus is inactive has default_simulation and has no custom_simulation renders with expected initial state 1`] = `
 <MuiThemeProvider>
   <DashboardItem
